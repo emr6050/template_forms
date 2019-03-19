@@ -1,0 +1,51 @@
+SRS-2 Profile Sheet
+
+Questions:
+  Is copyrighting going to be an issue?
+  Should this require a scanned version?
+  
+defaultable_fields:
+  PatientName -- based on {PatientName}
+  PatientAge (years, months) -- based on {PatientDOB}
+  DateOfRating  -- based on {DateTime.Today}
+    should default to current date
+  RaterName
+    should default to current user
+  Facility      : {School, Clinic}
+  
+user_specified_fields:
+  AssessmentId
+  Relationship  : {Mother, Father, OtherCustodialAdult, Teacher, OtherSpecialist}
+  
+entry_required_fields:
+  // SRS-2 total score results
+  srs2_total_raw_score
+  srs2_t_score
+  // DSM-5 compatible scales
+  dsm5_sci_raw_score
+  dsm5_sci_t_score
+  dsm5_rrb_raw_score
+  dsm5_rrb_t_score
+  // Treatment subscales
+  subscale_awr_raw_score
+  subscale_awr_t_score
+  subscale_cog_raw_score
+  subscale_cog_t_score
+  subscale_com_raw_score
+  subscale_com_t_score
+  subscale_mot_raw_score
+  subscale_mot_t_score
+  subscale_rrb_raw_score
+  subscale_rrb_t_score
+  
+_Total_Score_Discussion_
+  59T and below -- within normal limits
+  
+  
+  60T to 65T -- mild range
+  
+  
+  66T to 75T -- moderate range
+  
+  
+  76T or higher -- severe range
