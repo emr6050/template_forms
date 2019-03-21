@@ -7,13 +7,13 @@ include_once("$srcdir/api.inc");
 include_once("$srcdir/forms.inc");
 
 /** CHANGE THIS - name of the database table associated with this form **/
-$table_name = "info_release";
+$table_name = "srs2_profile_preschool";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "ECQuIP Information Release";
+$form_name = "SRS-2 Profile - Preschool";
 
 /** CHANGE THIS to match the folder you created for this form **/
-$form_folder = "custom_form_deb";
+$form_folder = "srs2_profile_preschool";
 
 
 if ($encounter == "") {

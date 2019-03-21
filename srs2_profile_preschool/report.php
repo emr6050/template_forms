@@ -4,11 +4,11 @@ include_once($GLOBALS["srcdir"]."/api.inc");
 
 /** CHANGE THIS, the name of the function is significant and  **
  **              must be changed to match the folder name     **/
-function infoRelease_report($pid, $encounter, $cols, $id)
+function srs2_profile_preschool_report($pid, $encounter, $cols, $id)
 {
     
     /** CHANGE THIS - name of the database table associated with this form **/
-    $table_name = "info_release";
+    $table_name = "srs2_profile_preschool";
 
     $count = 0;
     $data = formFetch($table_name, $id);

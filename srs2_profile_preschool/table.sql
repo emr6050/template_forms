@@ -4,7 +4,7 @@
  * This table NEEDS a UNIQUE name
  */
 
-CREATE TABLE IF NOT EXISTS `info_release` (
+CREATE TABLE IF NOT EXISTS `srs2_profile_preschool` (
     /* these fields are common to all forms and should remain intact */
     id bigint(20) NOT NULL auto_increment,
     date datetime default NULL,
@@ -15,25 +15,33 @@ CREATE TABLE IF NOT EXISTS `info_release` (
     activity tinyint(4) default NULL,
 
     /* these fields are customized to this form */
-	release_to      tinyint(1) default NULL,  /*to release to*/
-    obtain_from     tinyint(1) default NULL,  /*to obtain from*/	
-    name            varchar(255),             /* client name--from the records of */
-	other_name      varchar(255),             /* other names used */
-    dob             datetime default NULL,    /* date of birth */
-	purpose_coord   tinyint(1) default NULL,  /*for service coordination*/	
-	purpose_eval  tinyint(1) default NULL,    /*for evalation or diagnosis*/		
-	purpose_treat  tinyint(1) default NULL,   /*for treatment*/		
-	purpose_other  tinyint(1) default NULL,   /*for other reason*/	
-	purpose_other_text varchar(255)default "N/A" /*specify other reason*/
+    assessment_id         varchar(10),
+    rater_name            varchar(10),
+    rater_relationship    varchar(10),
+    facility              varchar(10),
+    form_date             datetime default NULL,
 	
-	date_specified  datetime default NULL,  /* date the client specifiec as expiration date */
-    form_date datetime default NULL,  /* date the form was completed by client */
-	date_expires datetime default NULL,  /* date the client specifiec as expiration date */
-
-
+    /* SRS-2 total score results */
+    srs2_total_raw_score  varchar(255),
+    srs2_t_score          varchar(255),
+    /* DSM-5 compatible scales */
+    dsm5_sci_raw_score    varchar(255),
+    dsm5_sci_t_score      varchar(255),
+    dsm5_rrb_raw_score    varchar(255),
+    dsm5_rrb_t_score      varchar(255),
+    /* Treatment subscales */
+    subscale_awr_raw_score  varchar(255),
+    subscale_awr_t_score    varchar(255),
+    subscale_cog_raw_score  varchar(255),
+    subscale_cog_t_score    varchar(255),
+    subscale_com_raw_score  varchar(255),
+    subscale_com_t_score    varchar(255),
+    subscale_mot_raw_score  varchar(255),
+    subscale_mot_t_score    varchar(255),
+    subscale_rrb_raw_score  varchar(255),
+    subscale_rrb_t_score    varchar(255),
+    
     notes           longtext,               /* free-text notes */
-    sig             char(1),                /* Did client sign the paper version of the form? */
-    sig_date        datetime default NULL,  /* Date the client signed the form */
     /* end of custom form fields */
 
     PRIMARY KEY (id)
