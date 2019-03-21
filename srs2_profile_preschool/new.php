@@ -65,67 +65,66 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     Rater Relationship:
           <input type="radio" name="rater_relationship" value="mother">Mother |
           <input type="radio" name="rater_relationship" value="father">Father |
-          <input type="radio" name="rater_relationship" value="other_adult">Other Custodial Adult |
+          <input type="radio" name="rater_relationship" value="other_custodial_adult">Other Custodial Adult |
           <input type="radio" name="rater_relationship" value="teacher">Teacher |
           <input type="radio" name="rater_relationship" value="other_specialist">Other Specialist
     <br><br>
     Facility: <input type='text' size='10' name='facility' id='facility'/>
     <br><br>
     Date: <input type='text' size='10' class='datepicker' name='form_date' id='form_date' value='<?php echo date('Y-m-d', time()); ?>' title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
+    <br>
   </div>
 
   <div id="scores">
     <h4>SRS-2 Total Score Results</h4>
-    SRS-2 Total Raw Score: <input type='text' size='10' name='srs2_total_raw_score' id='srs2_total_raw_score'/>
+    SRS-2 Total Raw Score: <input type='number' name='srs2_total_raw_score' id='srs2_total_raw_score' min='1'/>
     <br><br>
-    SRS-2 T Score: <input type='text' size='10' name='srs2_t_score' id='srs2_t_score'/>
-    <br><br>
+    SRS-2 T Score: <input type='number' name='srs2_t_score' id='srs2_t_score' min='1'/>
+    <br>
     <h4>DSM-5 Compatible Scales</h4>
-    DSM-5 SCI Raw Score: <input type='text' size='10' name='dsm5_sci_raw_score' id='dsm5_sci_raw_score'/>
+    DSM-5 SCI Raw Score: <input type='number' name='dsm5_sci_raw_score' id='dsm5_sci_raw_score' min='1'/>
+    <br>
+    DSM-5 SCI T Score: <input type='number' name='dsm5_sci_t_score' id='dsm5_sci_t_score' min='1'/>
     <br><br>
-    DSM-5 SCI T Score: <input type='text' size='10' name='dsm5_sci_t_score' id='dsm5_sci_t_score'/>
-    <br><br>
-    DSM-5 RRB Raw Score: <input type='text' size='10' name='dsm5_rrb_raw_score' id='dsm5_rrb_raw_score'/>
-    <br><br>
-    DSM-5 RRB T Score: <input type='text' size='10' name='dsm5_rrb_t_score' id='dsm5_rrb_t_score'/>
-    <br><br>
+    DSM-5 RRB Raw Score: <input type='number' name='dsm5_rrb_raw_score' id='dsm5_rrb_raw_score' min='1'/>
+    <br>
+    DSM-5 RRB T Score: <input type='number' name='dsm5_rrb_t_score' id='dsm5_rrb_t_score' min='1'/>
+    <br>
     <h4>Treatment Subscales</h4>
-    AWR Raw Score: <input type='text' size='10' name='subscale_awr_raw_score' id='subscale_awr_raw_score'/>
+    AWR Raw Score: <input type='number' name='subscale_awr_raw_score' id='subscale_awr_raw_score' min='1'/>
+    <br>
+    AWR T Score: <input type='number' name='subscale_awr_t_score' id='subscale_awr_t_score' min='1'/>
     <br><br>
-    AWR T Score: <input type='text' size='10' name='subscale_awr_t_score' id='subscale_awr_t_score'/>
+    COG Raw Score: <input type='number' name='subscale_cog_raw_score' id='subscale_cog_raw_score' min='1'/>
+    <br>
+    COG T Score: <input type='number' name='subscale_cog_t_score' id='subscale_cog_t_score' min='1'/>
     <br><br>
-    COG Raw Score: <input type='text' size='10' name='subscale_cog_raw_score' id='subscale_cog_raw_score'/>
+    COM Raw Score: <input type='number' name='subscale_com_raw_score' id='subscale_com_raw_score' min='1'/>
+    <br>
+    COM T Score: <input type='number' name='subscale_com_t_score' id='subscale_com_t_score' min='1'/>
     <br><br>
-    COG T Score: <input type='text' size='10' name='subscale_cog_t_score' id='subscale_cog_t_score'/>
+    MOT Raw Score: <input type='number' name='subscale_mot_raw_score' id='subscale_mot_raw_score' min='1'/>
+    <br>
+    MOT T Score: <input type='number' name='subscale_mot_t_score' id='subscale_mot_t_score' min='1'/>
     <br><br>
-    COM Raw Score: <input type='text' size='10' name='subscale_com_raw_score' id='subscale_com_raw_score'/>
-    <br><br>
-    COM T Score: <input type='text' size='10' name='subscale_com_t_score' id='subscale_com_t_score'/>
-    <br><br>
-    MOT Raw Score: <input type='text' size='10' name='subscale_mot_raw_score' id='subscale_mot_raw_score'/>
-    <br><br>
-    MOT T Score: <input type='text' size='10' name='subscale_mot_t_score' id='subscale_mot_t_score'/>
-    <br><br>
-    RRB Raw Score: <input type='text' size='10' name='subscale_rrb_raw_score' id='subscale_rrb_raw_score'/>
-    <br><br>
-    RRB T Score: <input type='text' size='10' name='subscale_rrb_t_score' id='subscale_rrb_t_score'/>
-    <br><br>
+    RRB Raw Score: <input type='number' name='subscale_rrb_raw_score' id='subscale_rrb_raw_score' min='1'/>
+    <br>
+    RRB T Score: <input type='number' name='subscale_rrb_t_score' id='subscale_rrb_t_score' min='1'/>
+    <br>
   </div>
 
   <div id="extra">
-  Use this space to express notes <br>
-  <textarea name="notes" id="notes" cols="80" rows="4"></textarea>
-  <br><br>
+    <h4>Notes</h4>
+    <textarea name="notes" id="notes" cols="80" rows="4"></textarea>
+    <br><br>
     <div style="text-align:right;">
-    Signature?
-    <input type="radio" id="sig" name="sig" value="y">Yes
-    /
-    <input type="radio" id="sig" name="sig" value="n">No
-    &nbsp;&nbsp;
-    Date of signature:
-       <input type='text' size='10' class='datepicker' name='sig_date' id='sig_date'
-        value='<?php echo date('Y-m-d', time()); ?>'
-        title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
+      Signature? <input type="radio" id="sig" name="sig" value="y">Yes / 
+        <input type="radio" id="sig" name="sig" value="n">No
+      &nbsp;&nbsp;
+      Date of signature:
+         <input type='text' size='10' class='datepicker' name='sig_date' id='sig_date'
+          value='<?php echo date('Y-m-d', time()); ?>'
+          title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
     </div>
   </div>
 
