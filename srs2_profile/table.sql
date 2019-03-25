@@ -4,7 +4,7 @@
  * This table NEEDS a UNIQUE name
  */
 
-CREATE TABLE IF NOT EXISTS `srs2_profile_preschool` (
+CREATE TABLE IF NOT EXISTS `srs2_profile` (
     /* these fields are common to all forms and should remain intact */
     id bigint(20) NOT NULL auto_increment,
     date datetime default NULL,
@@ -15,10 +15,11 @@ CREATE TABLE IF NOT EXISTS `srs2_profile_preschool` (
     activity tinyint(4) default NULL,
 
     /* these fields are customized to this form */
-    assessment_id         varchar(10),
-    rater_name            varchar(10),
-    rater_relationship    varchar(10),
-    facility              varchar(10),
+    assessment_id         varchar(255),
+    assessment_age        varchar(255),
+    rater_name            varchar(255),
+    rater_relationship    varchar(255),
+    facility              varchar(255),
     form_date             datetime default NULL,
 	
     /* SRS-2 total score results */
