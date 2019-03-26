@@ -55,54 +55,47 @@ Printed on <?php echo date("F d, Y", time()); ?>
 <div id="print_general">
 <table>
   <tr><td>
-  Assessment ID: <input id="assessment_id" name="assessment_id" type="text" size="50" maxlength="250" value="<?php echo stripslashes($record['child_name']);?>">
-  Child's name: <input id="child_name" name="child_name" type="text" size="50" maxlength="250" value="<?php echo stripslashes($record['child_name']);?>">
-  Child's age in years: <input id="child_age" name="child_age" type="text" size="50" maxlength="250" value="<?php echo stripslashes($record['child_age']);?>">
-  </td></tr>
-<tr><td>
-Date:
-   <input type='text' size='10' name='form_date' id='form_date'
-    value='<?php echo stripslashes($record['form_date']);?>'
-    title='<?php xl('yyyy-mm-dd', 'e'); ?>'
-    />
-</td></tr>
-<tr><td>
-Name: <input id="name" name="name" type="text" size="50" maxlength="250" value="<?php echo stripslashes($record['name']);?>">
-Date of Birth:
-   <input type='text' size='10' name='dob' id='dob'
-    value='<?php echo stripslashes($record['dob']);?>'
-    title='<?php xl('yyyy-mm-dd Date of Birth', 'e'); ?>'
-    />
-</td></tr>
-<tr><td>
-Phone: <input name="phone" id="phone" type="text" size="15" maxlength="15" value="<?php echo stripslashes($record['phone']);?>">
-</td></tr>
-<tr><td>
-Address: <input name="address" id="address" type="text" size="80" maxlength="250" value="<?php echo stripslashes($record['address']);?>">
-</td></tr>
+    Assessment ID: <input id="assessment_id" name="assessment_id" type="text" size="50" maxlength="250" value="<?php echo stripslashes($record['child_name']);?>">
+    Child's name: <input id="child_name" name="child_name" type="text" size="50" maxlength="250" value="<?php echo stripslashes($record['child_name']);?>">
+    Child's age in years: <input id="child_age" name="child_age" type="text" size="50" maxlength="250" value="<?php echo stripslashes($record['child_age']);?>">
+    </td></tr>
+    <tr><td>
+    Rater's name: <input id="rater_name" name="rater_name" type="text" size="50" maxlength="250" value="<?php echo stripslashes($record['rater_name']);?>">
+    Date of rating:
+       <input type='text' size='10' class='datepicker' name='form_date' id='form_date'
+        value='<?php echo stripslashes($record['form_date']);?>'
+        title='<?php xl('yyyy-mm-dd', 'e'); ?>'
+        />
+    </td></tr>
+    <tr><td>
+    Signature?
+    <input type="radio" id="relation" name="relation" value="mother" <?php if ($record["relation"] == 'mother') {
+          echo "CHECKED";
+    } ?>>Mother
+    /
+    <input type="radio" id="relation" name="relation" value="father" <?php if ($record["relation"] == 'father') {
+          echo "CHECKED";
+    } ?>>Father
+    <input type="radio" id="relation" name="relation" value="custodial" <?php if ($record["relation"] == 'custodial') {
+          echo "CHECKED";
+    } ?>>Other custodial
+    <input type="radio" id="relation" name="relation" value="teacher" <?php if ($record["relation"] == 'teacher') {
+          echo "CHECKED";
+    } ?>>Teacher
+    <input type="radio" id="relation" name="relation" value="others" <?php if ($record["relation"] == 'others') {
+          echo "CHECKED";
+    } ?>>Other specialist
+    </td></tr>
+    <tr><td>
+    Grade: <input name="grade" id="grade" type="text" size="3" maxlength="3" value="<?php echo stripslashes($record['grade']);?>">
+    </td></tr>
+    <tr><td>
+    School or clinic: <input name="school_or_clinic" id="school_or_clinic" type="text" size="75" maxlength="250" value="<?php echo stripslashes($record['school_or_clinic']);?>">
+    </td></tr>
 </table>
 </div>
 
-<div id="print_bottom">
-Use this space to express notes <br>
-<textarea name="notes" id="notes" cols="80" rows="4"><?php echo stripslashes($record['notes']);?></textarea>
-<br><br>
-<div style="text-align:right;">
-Signature?
-<input type="radio" id="sig" name="sig" value="y" <?php if ($record["sig"] == 'y') {
-    echo "CHECKED";
-} ?>>Yes
-/
-<input type="radio" id="sig" name="sig" value="n" <?php if ($record["sig"] == 'n') {
-    echo "CHECKED";
-} ?>>No
-&nbsp;&nbsp;
-Date of signature:
-   <input type='text' size='10' name='sig_date' id='sig_date'
-    value='<?php echo stripslashes($record['sig_date']);?>'
-    title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
-</div>
-</div>
+
 
 </div> <!-- end form_container -->
 

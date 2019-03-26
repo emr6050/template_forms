@@ -101,31 +101,32 @@ Date of rating:
     />
 </td></tr>
 <tr><td>
-Phone: <input name="phone" id="phone" type="text" size="15" maxlength="15" value="<?php echo stripslashes($record['phone']);?>">
+Signature?
+<input type="radio" id="relation" name="relation" value="mother" <?php if ($record["relation"] == 'mother') {
+      echo "CHECKED";
+} ?>>Mother
+/
+<input type="radio" id="relation" name="relation" value="father" <?php if ($record["relation"] == 'father') {
+      echo "CHECKED";
+} ?>>Father
+<input type="radio" id="relation" name="relation" value="custodial" <?php if ($record["relation"] == 'custodial') {
+      echo "CHECKED";
+} ?>>Other custodial
+<input type="radio" id="relation" name="relation" value="teacher" <?php if ($record["relation"] == 'teacher') {
+      echo "CHECKED";
+} ?>>Teacher
+<input type="radio" id="relation" name="relation" value="others" <?php if ($record["relation"] == 'others') {
+      echo "CHECKED";
+} ?>>Other specialist
 </td></tr>
 <tr><td>
-Address: <input name="address" id="address" type="text" size="80" maxlength="250" value="<?php echo stripslashes($record['address']);?>">
+Grade: <input name="grade" id="grade" type="text" size="3" maxlength="3" value="<?php echo stripslashes($record['grade']);?>">
+</td></tr>
+<tr><td>
+School or clinic: <input name="school_or_clinic" id="school_or_clinic" type="text" size="75" maxlength="250" value="<?php echo stripslashes($record['school_or_clinic']);?>">
 </td></tr>
 </table>
-</div>
 
-<div id="bottom">
-Use this space to express notes <br>
-<textarea name="notes" id="notes" cols="80" rows="4"><?php echo stripslashes($record['notes']);?></textarea>
-<br><br>
-<div style="text-align:right;">
-Signature?
-<input type="radio" id="relation" name="relation" value="y" <?php if ($record["relation"] == 'y') {
-    echo "CHECKED";
-} ?>>Yes
-/
-<input type="radio" id="relation" name="relation" value="n" <?php if ($record["relation"] == 'n') {
-    echo "CHECKED";
-} ?>>No
-&nbsp;&nbsp;
-
-</div>
-</div>
 
 </div> <!-- end form_container -->
 
