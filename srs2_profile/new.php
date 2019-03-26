@@ -61,18 +61,18 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     AssessmentId: <input type='text' size='10' name='assessment_id' id='assessment_id'/>
     <br><br>
     AssessmentAge:
-          <input type="radio" name="assessment_age" value="preschool">Preschool (ages 2 1/2 to 4 1/2) &nbsp;
-          <input type="radio" name="assessment_age" value="school_age">School-Age (ages 4 to 18) &nbsp;
-          <input type="radio" name="assessment_age" value="adult">Adult (ages 19+)
+          <input type="radio" name="assessment_age" value="preschool" />Preschool (ages 2 1/2 to 4 1/2) &nbsp;
+          <input type="radio" name="assessment_age" value="school_age" />School-Age (ages 4 to 18) &nbsp;
+          <input type="radio" name="assessment_age" value="adult" />Adult (ages 19+)
     <br><br>
     Rater Name: <input type='text' size='10' name='rater_name' id='rater_name'/>
     <br><br>
     Rater Relationship:
-          <input type="radio" name="rater_relationship" value="mother">Mother &nbsp;
-          <input type="radio" name="rater_relationship" value="father">Father &nbsp;
-          <input type="radio" name="rater_relationship" value="other_custodial_adult">Other Custodial Adult &nbsp;
-          <input type="radio" name="rater_relationship" value="teacher">Teacher &nbsp;
-          <input type="radio" name="rater_relationship" value="other_specialist">Other Specialist
+          <input type="radio" name="rater_relationship" value="mother" />Mother &nbsp;
+          <input type="radio" name="rater_relationship" value="father" />Father &nbsp;
+          <input type="radio" name="rater_relationship" value="other_custodial_adult" />Other Custodial Adult &nbsp;
+          <input type="radio" name="rater_relationship" value="teacher" />Teacher &nbsp;
+          <input type="radio" name="rater_relationship" value="other_specialist" />Other Specialist
     <br><br>
     Facility: <input type='text' size='10' name='facility' id='facility'/>
     <br><br>

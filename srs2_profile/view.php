@@ -78,18 +78,18 @@ function PrintForm() {
     AssessmentId: <input type='text' size='255' name='assessment_id' id='assessment_id' value='<?php echo stripslashes($record['assessment_id']);?>'/>
     <br><br>
     AssessmentAge:
-          <input type="radio" name="assessment_age" value='<?php if ($record["assessment_age"] == 'preschool') { echo "CHECKED"; } ?>'>Preschool (ages 2 1/2 to 4 1/2) &nbsp;
-          <input type="radio" name="assessment_age" value='<?php if ($record["assessment_age"] == 'school_age') { echo "CHECKED"; } ?>'>School-Age (ages 4 to 18) &nbsp; 
-          <input type="radio" name="assessment_age" value='<?php if ($record["assessment_age"] == 'adult') { echo "CHECKED"; } ?>'>Adult (ages 19+)
+          <input type="radio" name="assessment_age" value='<?php if ($record["assessment_age"] == 'preschool') { echo "CHECKED"; } ?>'/>Preschool (ages 2 1/2 to 4 1/2) &nbsp;
+          <input type="radio" name="assessment_age" value='<?php if ($record["assessment_age"] == 'school_age') { echo "CHECKED"; } ?>'/>School-Age (ages 4 to 18) &nbsp; 
+          <input type="radio" name="assessment_age" value='<?php if ($record["assessment_age"] == 'adult') { echo "CHECKED"; } ?>'/>Adult (ages 19+)
     <br><br>
     Rater Name: <input type='text' size='255' name='rater_name' id='rater_name' value='<?php echo stripslashes($record['rater_name']);?>'/>
     <br><br>
     Rater Relationship:
-          <input type="radio" name="rater_relationship" value='<?php if ($record["rater_relationship"] == 'mother') { echo "CHECKED"; } ?>'>Mother &nbsp;
-          <input type="radio" name="rater_relationship" value='<?php if ($record["rater_relationship"] == 'father') { echo "CHECKED"; } ?>'>Father &nbsp;
-          <input type="radio" name="rater_relationship" value='<?php if ($record["rater_relationship"] == 'other_custodial_adult') { echo "CHECKED"; } ?>'>Other Custodial Adult &nbsp;
-          <input type="radio" name="rater_relationship" value='<?php if ($record["rater_relationship"] == 'teacher') { echo "CHECKED"; } ?>'>Teacher &nbsp;
-          <input type="radio" name="rater_relationship" value='<?php if ($record["rater_relationship"] == 'other_specialist') { echo "CHECKED"; } ?>'>Other Specialist
+          <input type="radio" name="rater_relationship" value='<?php if ($record["rater_relationship"] == 'mother') { echo "CHECKED"; } ?>'/>Mother &nbsp;
+          <input type="radio" name="rater_relationship" value='<?php if ($record["rater_relationship"] == 'father') { echo "CHECKED"; } ?>'/>Father &nbsp;
+          <input type="radio" name="rater_relationship" value='<?php if ($record["rater_relationship"] == 'other_custodial_adult') { echo "CHECKED"; } ?>'/>Other Custodial Adult &nbsp;
+          <input type="radio" name="rater_relationship" value='<?php if ($record["rater_relationship"] == 'teacher') { echo "CHECKED"; } ?>'/>Teacher &nbsp;
+          <input type="radio" name="rater_relationship" value='<?php if ($record["rater_relationship"] == 'other_specialist') { echo "CHECKED"; } ?>'/>Other Specialist
     <br><br>
     Facility: <input type='text' size='255' name='facility' id='facility' value='<?php echo stripslashes($record['facility']);?>'/>
     <br><br>
