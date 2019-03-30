@@ -7,7 +7,7 @@ include_once("$srcdir/api.inc");
 include_once("$srcdir/forms.inc");
 
 /** CHANGE THIS - name of the database table associated with this form **/
-$table_name = "srs2_profile";
+$table_name = "form_srs2_profile";
 
 /** CHANGE THIS name to the name of your form **/
 $form_name = "SRS-2 Profile";

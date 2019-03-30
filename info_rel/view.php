@@ -54,6 +54,14 @@ if ($record['sig_date'] != "") {
     $dateparts = explode(" ", $record['sig_date']);
     $record['sig_date'] = $dateparts[0];
 }
+if ($record['psig_date'] != "") {
+    $dateparts = explode(" ", $record['psig_date']);
+    $record['psig_date'] = $dateparts[0];
+}
+if ($record['wsig_date'] != "") {
+    $dateparts = explode(" ", $record['wsig_date']);
+    $record['wsig_date'] = $dateparts[0];
+}
 ?>
 
 <html><head>
@@ -101,9 +109,9 @@ function PrintForm() {
 <?php xl ('I hereby agree: Milwaukee ECQuIP of Marquette University','e');?>
 </td></tr>
 <tr>
-<td><input type="checkbox" name="release_to" /></input>
+<td><input type="checkbox" name="release_to" value="1" <?php if ($record["release_to"] == "1") {echo "checked";};?> /></input>
 <?php xl('To release information to:', 'e'); ?>
-<input type="checkbox" name="obtain_from" value='<?php echo stripslashes($record['obtain_from']);?>'/></input>
+<input type="checkbox" name="obtain_from" value="1" <?php if ($record["obtain_from"] == "1") {echo "checked";};?> /></input>
 <?php xl('To obtain information from:', 'e'); ?>
 <br>
 <?php xl('(Check one or both. By checking both, you are allowing an exchange of information between the agancies/individuals listed.)', 'e'); ?>
@@ -132,7 +140,7 @@ function PrintForm() {
 <?php xl('Service coordination', 'e'); ?>
 <input type="checkbox" name="purpose_eval" value='<?php echo stripslashes($record['purpose_eval']);?>'/></input>
 <?php xl('Evaluation/Diagnosis', 'e'); ?>
-<input type="checkbox" name="purpose_treatment" value='<?php echo stripslashes($record['purpose_treatment']);?>'/></input>
+<input type="checkbox" name="purpose_treat" value='<?php echo stripslashes($record['purpose_treatment']);?>'/></input>
 <?php xl('Treatment', 'e'); ?>
 <br><input type="checkbox" name="purpose_other" value='<?php echo stripslashes($record['purpose_other']);?>'/></input>
 <?php xl('Other:', 'e'); ?>
@@ -177,7 +185,7 @@ to plan for, provide care, services and treatment.
 <tr><td>
 This consent (unless cancelled earlier) expires on date:
    <input type='text' size='10' class='datepicker' name='form_date' id='form_date'
-    value='<?php echo date('Y-m-d', strtotime('+1 year')); ?>'
+    value='<?php echo stripslashes($record['form_date']);?>' title='<?php xl('yyyy-mm-dd', 'e'); ?>'
     title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
 <?php xl(', one year from the date signed, or 60 days ', 'e'); ?>
 following my discharge or withdrawl from services, whichever occurs first.
@@ -190,33 +198,33 @@ following my discharge or withdrawl from services, whichever occurs first.
 Signatures:  Yes/No means did they sign the paper version?
 <br>
 Client Signature:
-<input type="radio" id="sig" name="sig" value="y">Yes
+<input type="radio" id="sig" name="sig" '<?php if ($record["sig"] == 'y') { echo "checked"; }?>' >Yes
 /
-<input type="radio" id="sig" name="sig" value="n">No
+<input type="radio" id="sig" name="sig"  '<?php if ($record["sig"] == 'n') { echo "checked"; }?>'>No
 &nbsp;&nbsp;
 <?php xl('Date:', 'e'); ?>
    <input type='text' size='10' class='datepicker' name='sig_date' id='sig_date'
-    value='<?php echo date('Y-m-d', time()); ?>'
+    value='<?php echo stripslashes($record['sig_date']);?>' title='<?php xl('yyyy-mm-dd', 'e'); ?>'
     title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
 <br>
 Parent or Guardian:
-<input type="radio" id="psig" name="psig" value="y">Yes
+<input type="radio" id="psig" name="psig" value="y" checked='<?php if ($record["psig"] == 'y')?>'>Yes
 /
-<input type="radio" id="psig" name="psig" value="n">No
+<input type="radio" id="psig" name="psig" value="n" checked='<?php if ($record["psig"] == 'n')?>'>No
 &nbsp;&nbsp;
 <?php xl('Date:', 'e'); ?>
    <input type='text' size='10' class='datepicker' name='psig_date' id='psig_date'
-    value='<?php echo date('Y-m-d', time()); ?>'
+    value='<?php echo stripslashes($record['psig_date']);?>' title='<?php xl('yyyy-mm-dd', 'e'); ?>'
     title='<?php xl('yyyy-mm-dd', 'e'); ?>' />	
 <br>
 Witness Signature:
-<input type="radio" id="wsig" name="wsig" value="y">Yes
-/
-<input type="radio" id="wsig" name="wsig" value="n">No
+    <input type="radio" id="wsig" name="wsig" value="y" checked='<?php if ($record["wsig"] == 'y') { echo "CHECKED"; }?>'>Yes
+    /
+    <input type="radio" id="wsig" name="wsig" value="n" checked='<?php if ($record["wsig"] == 'n') { echo "CHECKED"; }?>'>No
 &nbsp;&nbsp;
 <?php xl('Date:', 'e'); ?>
    <input type='text' size='10' class='datepicker' name='wsig_date' id='wsig_date'
-    value='<?php echo date('Y-m-d', time()); ?>'
+    value='<?php echo stripslashes($record['wsig_date']);?>' title='<?php xl('yyyy-mm-dd', 'e'); ?>'
     title='<?php xl('yyyy-mm-dd', 'e'); ?>' />		
 </div>
 </div>

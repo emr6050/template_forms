@@ -8,7 +8,7 @@ function srs2_profile_report($pid, $encounter, $cols, $id)
 {
     
     /** CHANGE THIS - name of the database table associated with this form **/
-    $table_name = "srs2_profile";
+    $table_name = "form_srs2_profile";
 
     $count = 0;
     $data = formFetch($table_name, $id);

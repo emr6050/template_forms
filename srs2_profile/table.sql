@@ -4,7 +4,7 @@
  * This table NEEDS a UNIQUE name
  */
 
-CREATE TABLE IF NOT EXISTS `srs2_profile` (
+CREATE TABLE IF NOT EXISTS `form_srs2_profile` (
     /* these fields are common to all forms and should remain intact */
     id bigint(20) NOT NULL auto_increment,
     date datetime default NULL,

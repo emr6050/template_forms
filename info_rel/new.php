@@ -57,6 +57,11 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 <input type="button" class="save" value="<?php xl('Save', 'e'); ?>"> &nbsp;
 <input type="button" class="dontsave" value="<?php xl('Don\'t Save', 'e'); ?>"> &nbsp;
 
+<!--//This line lets us get values from the patient data instead of entering it?/>
+
+<?php $res = sqlStatement("SELECT fname,mname,lname,ss,street,city,state,postal_code,phone_home,DOB FROM patient_data WHERE pid = $pid");
+$result = SqlFetchArray($res); ?>
+
 <!-- container for the main body of the form -->
 <div id="form_container">
 
@@ -66,9 +71,9 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 <?php xl ('I hereby agree: Milwaukee ECQuIP of Marquette University','e');?>
 </td></tr>
 <tr>
-<td><input type="checkbox" name="release_to"></input>
+<td><input type="checkbox" name="release_to" value="1"></input>
 <?php xl('To release information to:', 'e'); ?>
-<input type="checkbox" name="obtain_from"></input>
+<input type="checkbox" name="obtain_from" value="1"></input>
 <?php xl('To obtain information from:', 'e'); ?>
 <br>
 <?php xl('(Check one or both. By checking both, you are allowing an exchange of information between the agancies/individuals listed.)', 'e'); ?>
@@ -82,10 +87,10 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 <tr><td>
 <?php xl('From the records of:','e');?><br>
 <?php xl('Client Name:', 'e'); ?>
-<input id="name" name="name" type="text" size="50" maxlength="250"><br>
+<input id="name" name="name" type="text" size="50" maxlength="250" value= <?php echo $result['fname'] . '&nbsp' . $result['mname'] . '&nbsp;' . $result['lname'];?> ><br>
 <?php xl('Date of Birth:', 'e'); ?>
    <input type='text' size='10' class='datepicker' name='dob' id='dob'
-    value='<?php echo $date ?>'
+    value= <?php echo $result['DOB'];?> 
     title='<?php xl('yyyy-mm-dd Date of Birth', 'e'); ?>' /><br>
 <?php xl('Other Names Used:', 'e'); ?>
 <input id="other_name" name="other_name" type="text" size="50" maxlength="250">
@@ -97,7 +102,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 <?php xl('Service coordination', 'e'); ?>
 <input type="checkbox" name="purpose_eval"></input>
 <?php xl('Evaluation/Diagnosis', 'e'); ?>
-<input type="checkbox" name="purpose_treatment"></input>
+<input type="checkbox" name="purpose_treat"></input>
 <?php xl('Treatment', 'e'); ?>
 <br><input type="checkbox" name="purpose_other"></input>
 <?php xl('Other:', 'e'); ?>
