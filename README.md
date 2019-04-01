@@ -9,5 +9,14 @@ Pro tip: you can view the files by prepending http://htmlpreview.github.com/ to 
 i.e. http://htmlpreview.github.com/?https://github.com/mscs6050-sp18-project/template_forms/blob/master/srs2_profile/new.php
 <br>
 
-Based on: [OpenEMR Contributed Forms](https://www.open-emr.org/wiki/index.php/OpenEMR_Contributed_Forms "OpenEMR Contributed Forms - OpenEMR Project Wiki")
- and [The Forms API](https://www.open-emr.org/wiki/index.php/The_Forms_API "The Forms API - OpenEMR Project Wiki")
+## areas of interest for future work ##
+* Penn State Worry Questionnaire for Children (PSWQ-C)
+* Revised Children's Anxiety and Depression Scale (RCADS)
+
+## references ##
+
+Forms based on: [OpenEMR Contributed Forms](https://www.open-emr.org/wiki/index.php/OpenEMR_Contributed_Forms "OpenEMR Contributed Forms - OpenEMR Project Wiki")
+ and [The Forms API](https://www.open-emr.org/wiki/index.php/The_Forms_API "The Forms API - OpenEMR Project Wiki") <br> 
+<br>
+
+The Child FIRST Program at UCLA [link](https://www.childfirst.ucla.edu/)
