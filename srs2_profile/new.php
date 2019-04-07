@@ -58,14 +58,14 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 
   <div id="general">
     <h3>Form Information</h3>
-    AssessmentId: <input type='text' size='10' name='assessment_id' id='assessment_id'/>
+    Assessment Id: <input type='text' size='25' name='assessment_id' id='assessment_id'/>
     <br><br>
-    AssessmentAge:
+    Assessment Age:
           <input type="radio" name="assessment_age" value="preschool" />Preschool (ages 2 1/2 to 4 1/2) &nbsp;
           <input type="radio" name="assessment_age" value="school_age" />School-Age (ages 4 to 18) &nbsp;
           <input type="radio" name="assessment_age" value="adult" />Adult (ages 19+)
     <br><br>
-    Rater Name: <input type='text' size='10' name='rater_name' id='rater_name'/>
+    Rater Name: <input type='text' size='50' name='rater_name' id='rater_name'/>
     <br><br>
     Rater Relationship:
           <input type="radio" name="rater_relationship" value="mother" />Mother &nbsp;
@@ -74,7 +74,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
           <input type="radio" name="rater_relationship" value="teacher" />Teacher &nbsp;
           <input type="radio" name="rater_relationship" value="other_specialist" />Other Specialist
     <br><br>
-    Facility: <input type='text' size='10' name='facility' id='facility'/>
+    Facility: <input type='text' size='50' name='facility' id='facility'/>
     <br><br>
     Date: <input type='text' size='10' class='datepicker' name='form_date' id='form_date' value='<?php echo date('Y-m-d', time());?>' title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
     <br><br>
