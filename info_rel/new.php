@@ -71,9 +71,9 @@ $result = SqlFetchArray($res); ?>
 <?php xl ('I hereby agree: Milwaukee ECQuIP of Marquette University','e');?>
 </td></tr>
 <tr>
-<td><input type="checkbox" name="release_to" value="1"></input>
+<td><input type="checkbox" name="release_to" ></input>
 <?php xl('To release information to:', 'e'); ?>
-<input type="checkbox" name="obtain_from" value="1"></input>
+<input type="checkbox" name="obtain_from" ></input>
 <?php xl('To obtain information from:', 'e'); ?>
 <br>
 <?php xl('(Check one or both. By checking both, you are allowing an exchange of information between the agancies/individuals listed.)', 'e'); ?>
@@ -87,7 +87,7 @@ $result = SqlFetchArray($res); ?>
 <tr><td>
 <?php xl('From the records of:','e');?><br>
 <?php xl('Client Name:', 'e'); ?>
-<input id="name" name="name" type="text" size="50" maxlength="250" value= <?php echo $result['fname'] . '&nbsp' . $result['mname'] . '&nbsp;' . $result['lname'];?> ><br>
+<input id="name" name="name" type="text" size="50" maxlength="250" value= <?php echo $result['fname'] . '&nbsp;' . $result['mname'] . '&nbsp;' . $result['lname'];?> ><br>
 <?php xl('Date of Birth:', 'e'); ?>
    <input type='text' size='10' class='datepicker' name='dob' id='dob'
     value= <?php echo $result['DOB'];?> 
