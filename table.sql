@@ -4,7 +4,7 @@
  * This table NEEDS a UNIQUE name
  */
 
-CREATE TABLE IF NOT EXISTS `info_rela` (
+CREATE TABLE IF NOT EXISTS `form_info_release` (
     /* these fields are common to all forms and should remain intact */
     id bigint(20) NOT NULL auto_increment,
     date datetime default NULL,
