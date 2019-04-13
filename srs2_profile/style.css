@@ -51,7 +51,18 @@ h1 {
     font-size: 110%;
     font-weight: bold;
 }
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+}
 
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 #print_form_container {
     border: 1px solid black;
     background-color: #ffffcc;
