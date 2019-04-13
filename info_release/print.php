@@ -10,7 +10,7 @@ include_once("$srcdir/api.inc");
 $table_name = "form_info_release";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "ECQuIP Information Release";
+$form_name = "Agreement for Release of Information";
 
 /** CHANGE THIS to match the folder you created for this form **/
 $form_folder = "info_release";
@@ -45,9 +45,9 @@ if ($record['wsig_date'] != "") {
     $record['wsig_date'] = $dateparts[0];
 }
 ?>
-<img src="MU-logo.jpg" alt="MU logo">
-<img src="MHA-logo.jpg" alt="MU logo">
+ 
 <html><head>
+
 <?php html_header_show();?>
 
 <!-- supporting javascript code -->
@@ -65,17 +65,19 @@ if ($record['wsig_date'] != "") {
 Printed on <?php echo date("F d, Y", time()); ?>
 
 <form method=post action="">
-<span class="title"><?php xl($form_name, 'e'); ?></span><br>
-
+<img src="MU-logo.jpg" alt="MU logo" style="width:120px;height:100px;">
+<span class="title"><?php xl($form_name, 'e'); ?></span>
+<img src="MHA-logo.jpg" alt="MU logo"style="width:184px;height:75px;">
+<br>
 <!-- container for the main body of the form -->
 <div id="general">
-<?php xl ('I hereby agree: Milwaukee ECQuIP of Marquette University','e');?><br>
+<span class="bold"><?php xl ('I hereby agree:','e');?></span> <?php xl('Milwaukee ECQuIP of Marquette University','e');?><br>
 <input type="hidden" name="release_to" id="release_to" value="off">
 <input type="checkbox" name="release_to" id="release_to" <?php if ($record["release_to"] == "on") {
 	echo "checked";
 	}?>>
 <input type="hidden" name="obtain_from" id="obtain_from" value="off">
-<label for "release_to"><?php xl('To release information to:', 'e'); ?></label>	<br>
+<label for "release_to"><?php xl('To release information to:', 'e'); ?></label>
 <input type="checkbox" name="obtain_from" id="obtain_from" <?php if ($record["obtain_from"] == "on") {
 	echo "checked";
 	}?> >
@@ -86,7 +88,7 @@ Printed on <?php echo date("F d, Y", time()); ?>
 <input id="info_to" name="info_to" type="text" size="50" maxlength="250" value='<?php echo stripslashes($record['info_to']);?>'/><br>
 <?php xl('Street/City/State/Zip:', 'e'); ?>
 <input id="info_addr" name="info_addr" type="text" size="50" maxlength="250" value='<?php echo stripslashes($record['info_addr']);?>'/><br>
-<?php xl('From the records of:','e');?><br>
+<span class="bold"><?php xl('From the records of:','e');?></span><br>
 <?php xl('Client Name:', 'e'); ?>
 <input id="name" name="name" type="text" size="50" maxlength="250" value='<?php echo stripslashes($record['name']);?>'/><br>
 <?php xl('Date of Birth:', 'e'); ?>
@@ -95,7 +97,8 @@ Printed on <?php echo date("F d, Y", time()); ?>
     title='<?php xl('yyyy-mm-dd Date of Birth', 'e'); ?>' /><br>
 <?php xl('Other Names Used:', 'e'); ?>
 <input id="other_name" name="other_name" type="text" size="50" maxlength="250" value='<?php echo stripslashes($record['other_name']);?>'/>
-<br><?php xl('Purpose or need for sharing:', 'e'); ?>
+<br>
+<span class="bold"><?php xl('Purpose or need for sharing:', 'e'); ?></span>
 <?php xl('(check all that apply)', 'e'); ?><br>
 <input type="hidden" name="purpose_coord" id="purpose_coord" value="off">
 <input type="checkbox" name="purpose_coord" <?php if ($record["purpose_coord"] == "on") {
@@ -119,7 +122,8 @@ Printed on <?php echo date("F d, Y", time()); ?>
 	}?>/>
 <?php xl('Other:', 'e'); ?>
 <input id="purpose_other_text" name="purpose_other_text" type="text" size="50" maxlength="250" value='<?php echo stripslashes($record['purpose_other_text']);?>'/>
-<br><?php xl('Type of information to be shared:', 'e'); ?>
+<br>
+<span class="bold"><?php xl('Type of information to be shared:', 'e'); ?></span>
 <?php xl('(check all that apply)', 'e'); ?><br>
 <input type="hidden" name="type_developmental" id="type_developmental" value="off">
 <input type="checkbox" name="type_developmental" <?php if ($record["type_developmental"] == "on") {
@@ -147,19 +151,19 @@ Printed on <?php echo date("F d, Y", time()); ?>
 	}?>/>
 <?php xl('Other:', 'e'); ?>
 <input id="type_other_text" name="type_other_text" type="text" size="50" maxlength="250" value='<?php echo stripslashes($record['type_other_text']);?>'><br>
-<?php xl('Specific', 'e'); ?>
-<?php xl(' information to be shared:', 'e'); ?>
+<span class="bold_underline"><?php xl('Specific', 'e'); ?></span>
+<span class="bold"><?php xl(' information to be shared:', 'e'); ?></span>
 <?php xl('(check all that apply)', 'e'); ?><br>
 <input type="hidden" name="spec_monitor" id="spec_monitor" value="off">
 <input type="checkbox" name="spec_monitor" <?php if ($record["spec_monitor"] == "on") {
 	echo "checked";
 	}?>/>
-<?php xl('Developmental Monitoring', 'e'); ?> <br>
+<?php xl('Developmental Monitoring', 'e'); ?> 
 <input type="hidden" name="spec_screen" id="spec_screen" value="off">
 <input type="checkbox" name="spec_screen" <?php if ($record["spec_screen"] == "on") {
 	echo "checked";
 	}?>/>
-<?php xl('Developmental Screenings', 'e'); ?> <br>
+<?php xl('Developmental Screenings', 'e'); ?> 
 <input type="hidden" name="spec_intake" id="spec_intake" value="off">
 <input type="checkbox" name="spec_intake" <?php if ($record["spec_intake"] == "on") {
 	echo "checked";
@@ -171,17 +175,17 @@ Printed on <?php echo date("F d, Y", time()); ?>
 	}?>/>
 <?php xl('Other:', 'e'); ?>
 <input id="spec_other_text" name="spec_other_text" type="text" size="50" maxlength="250" value='<?php echo stripslashes($record['spec_other_text']);?>'>
-<br>I understand that: <br>
+<span class="bold"><br>I understand that: <br></span>
 (a) The information released is confidential and protected from further sharing <br>
 (b) I have the right to cancel my agreement to release information at any time. <br>
-(c) I am not required to sign this form and may refuse to do so. <br><br>
+(c) I am not required to sign this form and may refuse to do so. <br>
 I hereby authorize the periodic release of the above information to the 
 person/organization/facility/program identified above as often as necessary 
-to plan for, provide care, services and treatment.
-This consent (unless cancelled earlier) expires on date:
+to plan for, provide care, services and treatment.<br>
+<span class="bold"> <?php xl ('This consent (unless cancelled earlier) expires on date:','e');?>
    <input type='text' size='10' class='datepicker' name='form_date' id='form_date'
     value='<?php echo stripslashes($record['form_date']);?>' title='<?php xl('yyyy-mm-dd', 'e'); ?>'
-    title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
+    title='<?php xl('yyyy-mm-dd', 'e'); ?>' /></span>
 <?php xl(', one year from the date signed, or 60 days ', 'e'); ?>
 following my discharge or withdrawl from services, whichever occurs first.
 </div>

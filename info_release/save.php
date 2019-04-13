@@ -10,7 +10,7 @@ include_once("$srcdir/forms.inc");
 $table_name = "form_info_release";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "ECQuIP Information Release";
+$form_name = "Agreement for Release of Information";
 
 /** CHANGE THIS to match the folder you created for this form **/
 $form_folder = "info_release";

@@ -3,7 +3,7 @@
  */ 
 
 h1 {
-    font-size: 120%;
+    font-size: 100%;
     font-weight: bold;
 }
 
@@ -43,13 +43,19 @@ h1 {
 }
 
 .title {
-    font-size: 150%;
+    font-size: 120%;
     font-weight: bold;
+	text-transform: uppercase;
 }
 
 .bold { 
     font-size: 110%;
     font-weight: bold;
+}
+.bold_underline { 
+    font-size: 110%;
+    font-weight: bold;
+	text-decoration: underline;
 }
 
 #print_form_container {
@@ -61,6 +67,7 @@ h1 {
 
 #print_general {
     padding: 10px;
+    font-weight: bold;
 }
 
 #print_history {
