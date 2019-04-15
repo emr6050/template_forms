@@ -27,7 +27,7 @@ $form_name = "ECQuIP Referral";
 /** CHANGE THIS to match the folder you created for this form **/
 $form_folder = "referral_form";
 
-formHeader("Form: ".$forn_name);
+formHeader("Form: ".$form_name);
 
 $returnurl = 'encounter_top.php';
 ?>
