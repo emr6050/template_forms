@@ -1,8 +1,8 @@
 <?php
 /**
- * This report lists...
+ * This report lists patients that were seen within a given date
+ * range, or all patients if no date range is entered.
  *
- * Mostly copied from patient_list report:
  * @package   OpenEMR
  * @link      http://www.open-emr.org
  * @author    Rod Roark <rod@sunsetsystems.com>
@@ -50,7 +50,7 @@ if ($_POST['form_csvexport']) {
 <html>
 <head>
 
-<title><?php echo xlt('REDIRECT Screening Events'); ?></title>
+<title><?php echo xlt('Patient List'); ?></title>
 
 <?php Header::setupHeader(['datetime-picker', 'report-helper']); ?>
 
@@ -109,7 +109,7 @@ $(document).ready(function() {
 <!-- Required for the popup date selectors -->
 <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
 
-<span class='title'><?php echo xlt('Report'); ?> - <?php echo xlt('REDIRECT Screening Events'); ?></span>
+<span class='title'><?php echo xlt('Report'); ?> - <?php echo xlt('Patient List'); ?></span>
 
 <div id="report_parameters_daterange">
 <?php if (!(empty($to_date) && empty($from_date))) { ?>
@@ -117,7 +117,7 @@ $(document).ready(function() {
 <?php } ?>
 </div>
 
-<form name='theform' id='theform' method='post' action='patient_list.php' onsubmit='return top.restoreSession()'>
+<form name='theform' id='theform' method='post' action='screening_events.php' onsubmit='return top.restoreSession()'>
 
 <div id="report_parameters">
 
@@ -131,8 +131,17 @@ $(document).ready(function() {
 
     <table class='text'>
         <tr>
+      <td class='control-label'>
+        <?php echo xlt('Provider'); ?>:
+      </td>
+      <td>
+            <?php
+            generate_form_field(array('data_type' => 10, 'field_id' => 'provider',
+            'empty_title' => '-- All --'), $_POST['form_provider']);
+            ?>
+      </td>
             <td class='control-label'>
-                <?php echo xlt('Events From'); ?>:
+                <?php echo xlt('Visits From'); ?>:
             </td>
             <td>
                <input class='datepicker form-control' type='text' name='form_from_date' id="form_from_date" size='10' value='<?php echo attr(oeFormatShortDate($from_date)); ?>'>
@@ -182,7 +191,7 @@ $(document).ready(function() {
 if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
     if ($_POST['form_csvexport']) {
         // CSV headers:
-        echo '"' . xl('Last Visit') . '",';
+        echo '"' . xl('Screening Date') . '",';
         echo '"' . xl('First') . '",';
         echo '"' . xl('Last') . '",';
         echo '"' . xl('Middle') . '",';
@@ -191,7 +200,6 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
         echo '"' . xl('City') . '",';
         echo '"' . xl('State') . '",';
         echo '"' . xl('Zip') . '",';
-        echo '"' . xl('Home Phone') . '",';
         echo '"' . xl('Work Phone') . '"' . "\n";
     } else {
     ?>
@@ -200,13 +208,12 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
   <table id='mymaintable'>
    <thead>
     <th> <?php echo xlt('Last Visit'); ?> </th>
-    <th> <?php echo xlt('Patient'); ?> </th>
+    <th> <?php echo xlt('Child\'s Name'); ?> </th>
     <th> <?php echo xlt('ID'); ?> </th>
     <th> <?php echo xlt('Street'); ?> </th>
     <th> <?php echo xlt('City'); ?> </th>
     <th> <?php echo xlt('State'); ?> </th>
     <th> <?php echo xlt('Zip'); ?> </th>
-    <th> <?php echo xlt('Home Phone'); ?> </th>
     <th> <?php echo xlt('Work Phone'); ?> </th>
  </thead>
  <tbody>
@@ -216,7 +223,7 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
     $sqlArrayBind = array();
     $query = "SELECT " .
     "p.fname, p.mname, p.lname, p.street, p.city, p.state, " .
-    "p.postal_code, p.phone_home, p.phone_biz, p.pid, p.pubpid, " .
+    "p.postal_code,  p.phone_biz, p.pid, p.pubpid, " .
     "count(e.date) AS ecount, max(e.date) AS edate, " .
     "i1.date AS idate1, i2.date AS idate2, " .
     "c1.name AS cname1, c2.name AS cname2 " .
@@ -251,6 +258,7 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
     "i2.pid = p.pid AND i2.type = 'secondary' " .
     "LEFT OUTER JOIN insurance_companies AS c2 ON " .
     "c2.id = i2.provider " .
+	"".
     "GROUP BY p.lname, p.fname, p.mname, p.pid, i1.date, i2.date " .
     "ORDER BY p.lname, p.fname, p.mname, p.pid, i1.date DESC, i2.date DESC";
     $res = sqlStatement($query, $sqlArrayBind);
@@ -286,7 +294,6 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
             echo '"' . qescape($row['city']) . '",';
             echo '"' . qescape($row['state']) . '",';
             echo '"' . qescape($row['postal_code']) . '",';
-            echo '"' . qescape($row['phone_home']) . '",';
             echo '"' . qescape($row['phone_biz']) . '"' . "\n";
         } else {
         ?>
@@ -311,9 +318,6 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
    </td>
    <td>
         <?php echo text($row['postal_code']); ?>
-   </td>
-   <td>
-        <?php echo text($row['phone_home']); ?>
    </td>
    <td>
         <?php echo text($row['phone_biz']); ?>
@@ -344,7 +348,7 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
 if (!$_POST['form_refresh'] && !$_POST['form_csvexport']) {
 ?>
 <div class='text'>
-    <?php echo xlt('Please input search criteria above, and click Submit to view results. (If you do not fill in, the report will not filter.)'); ?>
+    <?php echo xlt('Please input search criteria above, and click Submit to view results.'); ?>
 </div>
 <?php
 }
