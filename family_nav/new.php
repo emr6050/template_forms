@@ -78,11 +78,12 @@ $result = SqlFetchArray($res); ?>
       value= <?php echo $result['DOB'];?> 
       title='<?php xl('yyyy-mm-dd Date of Birth', 'e'); ?>' /><br>
 	  <?php xl ('Child\'s Gender:','e');?>
-	  <select id="child_gender" name="child_gender"/>
+	  <input type='text' id="child_gender" name="child_gender" list="genders" value= <?php echo $result['sex'];?> /><br>		  
+	  <datalist id="genders"/>
           <option value = "Unassigned">Other/Unassigned</option>	  
           <option value = "Male" >Male</option>
           <option value = "Female">Female</option>
-       </select><br>
+       </datalist>
 	  <?php xl ('Race','e');?>
 	  <input id="race" name="race" type='text' size="50" maxlength="250"  
 	  value= '<?php echo $result['race']; ?>'><br>		
@@ -105,16 +106,17 @@ $result = SqlFetchArray($res); ?>
 	  <?php xl('Screening Location:', 'e'); ?>
 	  <input id="screen_loc" name="screen_loc" type='text' size="50" maxlength="250"  /><br>
 	  <?php xl('Screening Type:', 'e'); ?>
-	    <select name = "screen_type">
-          <option value = "" ></option>		
-          <option value = "ASQ" >ASQ</option>
-          <option value = "ASQ-SE">ASQ-SE</option>
-          <option value = "MCHAT">MCHAT</option>
-		  <option value = "Other">Other</option>
-        </select><br>
+	  <input type='text' id="screen_type" name="screen_type" list="screen_types" /><br>	  
+	  <datalist id = "screen_types"/>
+        <option value = "" ></option>		
+        <option value = "ASQ" >ASQ</option>
+        <option value = "ASQ-SE">ASQ-SE</option>
+        <option value = "MCHAT">MCHAT</option>
+		<option value = "Other">Other</option>
+      </datalist>
 	  <?php xl('Screening Outcome:', 'e'); ?><br>
         <input type="radio" name="screen_outcome" value = "normal" >Within normal limits</option><br>
-        <input type="radio" name="screen_outcome" value = option value = "monitoring">In monitoring zone</option><br>
+        <input type="radio" name="screen_outcome" value = "monitoring">In monitoring zone</option><br>
         <input type="radio" name="screen_outcome" value = "concerning">Concerning and in need of evaluation</option><br>
 	</div>
     <div class="column">
@@ -125,16 +127,17 @@ $result = SqlFetchArray($res); ?>
 	<input type='text' size='10' class='datepicker' name='contact_date' id='contact_date'
       title='<?php xl('yyyy-mm-dd', 'e'); ?>' /><br>
 	<?php xl('Type of Contact:', 'e'); ?>
-	<select name = "contact_type">
+	<input type='text' id="contact_type" name="contact_type"size="50" maxlength="250" list="contact_types" /><br>	
+	<datalist id = "contact_types">
       <option value = "" >
       <option value = "Home Visit" ><?php xl('Home Visit', 'e'); ?></option>
       <option value = "Telephone"><?php xl('Telephone', 'e'); ?></option>
-      <option value = "Collateral Contact"><?php xl('Collateral Collect', 'e'); ?></option>
+      <option value = "Collateral Collect"><?php xl('Collateral Collect', 'e'); ?></option>
       <option value = "Letter" ><?php xl('Letter', 'e'); ?></option>
       <option value = "Drop-in"><?php xl('Drop-in', 'e'); ?></option>
       <option value = "No-Show"><?php xl('No-Show', 'e'); ?></option>	  
 	  <option value = "Other"><?php xl('Other', 'e'); ?></option>
-    </select><br> 
+    </datalist>
 	<?php xl('Notes', 'e'); ?><br>
 	<textarea name="notes" id="notes" cols="50" rows="6"></textarea>
 	<div class='bold'><?php xl('Parent/Sibling Navigation Services Provided', 'e'); ?></div>
