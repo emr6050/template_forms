@@ -109,7 +109,7 @@ $(document).ready(function() {
 <!-- Required for the popup date selectors -->
 <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
 
-<span class='title'><?php echo xlt('Report'); ?> - <?php echo xlt('Patient List'); ?></span>
+<span class='title'><?php echo xlt('Report'); ?> - <?php echo xlt('REDIRECT Screening Events'); ?></span>
 
 <div id="report_parameters_daterange">
 <?php if (!(empty($to_date) && empty($from_date))) { ?>
@@ -191,30 +191,26 @@ $(document).ready(function() {
 if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
     if ($_POST['form_csvexport']) {
         // CSV headers:
-        echo '"' . xl('Screening Date') . '",';
         echo '"' . xl('First') . '",';
         echo '"' . xl('Last') . '",';
         echo '"' . xl('Middle') . '",';
-        echo '"' . xl('ID') . '",';
-        echo '"' . xl('Street') . '",';
-        echo '"' . xl('City') . '",';
-        echo '"' . xl('State') . '",';
-        echo '"' . xl('Zip') . '",';
-        echo '"' . xl('Work Phone') . '"' . "\n";
+        echo '"' . xl('Screening Date') . '",';
+        echo '"' . xl('Location of Event') . '",';
+        echo '"' . xl('Family Navigation Services Offered') . '",';
+        echo '"' . xl('Referrals Provided') . '",';
+        echo '"' . xl('Screen Outcome') . '"' . "\n";
     } else {
     ?>
 
   <div id="report_results">
   <table id='mymaintable'>
    <thead>
-    <th> <?php echo xlt('Last Visit'); ?> </th>
     <th> <?php echo xlt('Child\'s Name'); ?> </th>
-    <th> <?php echo xlt('ID'); ?> </th>
-    <th> <?php echo xlt('Street'); ?> </th>
-    <th> <?php echo xlt('City'); ?> </th>
-    <th> <?php echo xlt('State'); ?> </th>
-    <th> <?php echo xlt('Zip'); ?> </th>
-    <th> <?php echo xlt('Work Phone'); ?> </th>
+    <th> <?php echo xlt('Screening Date'); ?> </th>
+    <th> <?php echo xlt('Location of Event'); ?> </th>
+    <th> <?php echo xlt('Family Navigation Services Offered'); ?> </th>
+    <th> <?php echo xlt('Referrals Provided'); ?> </th>
+    <th> <?php echo xlt('Screen Outcome'); ?> </th>
  </thead>
  <tbody>
 <?php
@@ -226,7 +222,9 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
     "p.postal_code,  p.phone_biz, p.pid, p.pubpid, " .
     "count(e.date) AS ecount, max(e.date) AS edate, " .
     "i1.date AS idate1, i2.date AS idate2, " .
-    "c1.name AS cname1, c2.name AS cname2 " .
+    "c1.name AS cname1, c2.name AS cname2," .
+	"f.date As fdate1,f.pid, f.screen_outcome,f.screen_date, ".
+	"f.screen_loc,f.serv_offered,f.referrals ".
     "FROM patient_data AS p ";
     if (!empty($from_date)) {
         $query .= "JOIN form_encounter AS e ON " .
@@ -258,6 +256,8 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
     "i2.pid = p.pid AND i2.type = 'secondary' " .
     "LEFT OUTER JOIN insurance_companies AS c2 ON " .
     "c2.id = i2.provider " .
+	"JOIN form_fam_nav AS f ON ".
+	"f.pid = p.pid ".
 	"".
     "GROUP BY p.lname, p.fname, p.mname, p.pid, i1.date, i2.date " .
     "ORDER BY p.lname, p.fname, p.mname, p.pid, i1.date DESC, i2.date DESC";
@@ -283,44 +283,40 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
 
             $age = intval($ageInMonths/12);
         }
-
+        if ($row['screen_date'] != "") {
+            $dateparts = explode(" ", $row['screen_date']);
+            $row['screen_date'] = $dateparts[0];
+        }
         if ($_POST['form_csvexport']) {
-            echo '"' . oeFormatShortDate(substr($row['edate'], 0, 10)) . '",';
             echo '"' . qescape($row['lname']) . '",';
             echo '"' . qescape($row['fname']) . '",';
             echo '"' . qescape($row['mname']) . '",';
-            echo '"' . qescape($row['pubpid']) . '",';
-            echo '"' . qescape($row['street']) . '",';
-            echo '"' . qescape($row['city']) . '",';
-            echo '"' . qescape($row['state']) . '",';
-            echo '"' . qescape($row['postal_code']) . '",';
-            echo '"' . qescape($row['phone_biz']) . '"' . "\n";
+            echo '"' . qescape($row['screen_date']) . '",';
+            echo '"' . qescape($row['screen_loc']) . '",';
+            echo '"' . qescape($row['serv_offered']) . '",';
+            echo '"' . qescape($row['referrals']) . '",';
+            echo '"' . qescape($row['screen_outcome']) . '"' . "\n";
         } else {
         ?>
        <tr>
-        <td>
-        <?php echo text(oeFormatShortDate(substr($row['edate'], 0, 10))); ?>
-   </td>
+
    <td>
         <?php echo text($row['lname'] . ', ' . $row['fname'] . ' ' . $row['mname']); ?>
    </td>
    <td>
-        <?php echo text($row['pubpid']); ?>
+        <?php echo text($row['screen_date']); ?>
    </td>
    <td>
-        <?php echo text($row['street']); ?>
+        <?php echo text($row['screen_loc']); ?>
    </td>
    <td>
-        <?php echo text($row['city']); ?>
+        <?php echo text($row['serv_offered']); ?>
    </td>
    <td>
-        <?php echo text($row['state']); ?>
+        <?php echo text($row['referrals']); ?>
    </td>
    <td>
-        <?php echo text($row['postal_code']); ?>
-   </td>
-   <td>
-        <?php echo text($row['phone_biz']); ?>
+        <?php echo text($row['screen_outcome']); ?>
    </td>
   </tr>
     <?php
