@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>Viewing Videos</title>
+
+    <link rel="stylesheet" href="dist/demo.css" />
+
+    <link
+    rel="preload"
+    as="font"
+    crossorigin
+    type="font/woff2"
+    href="https://cdn.plyr.io/static/fonts/gordita-medium.woff2"
+    />
+
+    <link
+    rel="preload"
+    as="font"
+    crossorigin
+    type="font/woff2"
+    href="https://cdn.plyr.io/static/fonts/gordita-bold.woff2"
+    />
+
+  </head>
+  <body>
+    <div class="grid">
+        <header>
+            <h1>Video</h1>
+            <p>
+                A home video is a beginning of contect.
+            </p>
+
+            <input class="faux-link" type="file" id="file" onchange="onInputFileChange()">
+
+
+        </header>
+          <div id="container">
+            <video
+              controls
+              crossorigin
+              playsinline
+              id="video_id"
+              autoplay
+              loop>
+
+              <!-- Fallback for browsers that don't support the <video> element -->
+              <a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download
+                >Download</a>
+            </video>
+          </div>
+
+    <script>
+      function onInputFileChange() {
+        var file = document.getElementById('file').files[0];
+        var url = URL.createObjectURL(file);
+        console.log(url);
+        document.getElementById("video_id").src = url;
+      }
+    </script>
+
+    <script
+    src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL,Math.trunc"
+    crossorigin="anonymous"
+    ></script>
+
+    <!-- Sharing libary (https://shr.one) -->
+    <script src="https://cdn.shr.one/2.0.0-beta.2/shr.js" crossorigin="anonymous"></script>
+
+    <!-- Docs script -->
+    <script src="dist/demo.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
