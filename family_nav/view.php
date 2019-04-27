@@ -88,7 +88,7 @@ function PrintForm() {
     <div class="column">
       <div class='bold'><?php xl('Demographics', 'e'); ?></div>
       <?php xl('Child\'s Name:', 'e'); ?>  
-      <input id="child_name" name="child_name" type="text" size="50" maxlength="250" 
+      <input id="child_name" name="child_name" type="text" size="45" maxlength="250" 
 	  value="<?php echo stripslashes($record['child_name']);?>"><br>
 	  <?php xl('Date of Birth:', 'e'); ?>
       <input type='text' size='10' class='datepicker' name='child_dob' id='child_dob'
@@ -102,17 +102,26 @@ function PrintForm() {
         <option value = "Female">Female</option>
        </datalist>		   
 	  <?php xl ('Race','e');?>
-	  <input id="race" name="race" type='text' size="50" maxlength="250"><br>		
+	  <input id="race" name="race" type='text' size="45" maxlength="250" list="races" 
+	  value= '<?php echo $record['race']; ?>'><br>
+	  <datalist id="races"/>
+          <option value = "Black or African American or Caribbean"><?php xl('Black or African American or Caribbean','e');?></option>	  
+          <option value = "White" ><?php xl('White','e');?></option>
+          <option value = "Asian"><?php xl('Asian','e');?></option>
+          <option value = "Hispanic or Latino"><?php xl('Hispanic or Latino','e');?></option>	  
+          <option value = "Native American" ><?php xl('Native American','e');?></option>
+          <option value = "Native Hawaiian or Pacific Islander'"><?php xl('Native Hawaiian or Pacific Islander','e');?></option>	  
+       </datalist>	 	  
 	  <?php xl ('Ethnicity:','e');?>
-	  <input id="ethnicity" name="ethnicity" type='text' size="50" maxlength="250"><br>	  
+	  <input id="ethnicity" name="ethnicity" type='text' size="45" maxlength="250" value= '<?php echo $record['ethnicity']; ?>'><br>	  
 	  <?php xl ('Parent/Caregiver Name:','e');?>
-	  <input id="caregiver" name="caregiver" type='text' size="50" maxlength="250"  
+	  <input id="caregiver" name="caregiver" type='text' size="45" maxlength="250"  
 	  value= '<?php echo stripslashes($record['caregiver']); ?>'><br>	
 	  <?php xl ('Phone Number:','e');?>
-	  <input id="phone" name="phone" type='text' size="50" maxlength="250"
+	  <input id="phone" name="phone" type='text' size="45" maxlength="250"
       value= <?php echo stripslashes($record['phone']); ?>><br>	  
 	  <?php xl ('Street Address:','e');?>
-	  <input id="address" name="address" type='text' size="50" maxlength="250"	  
+	  <input id="address" name="address" type='text' size="45" maxlength="250"	  
       value= "<?php echo stripslashes($record['address']); ?>"><br>
 	  <div class='bold'><?php xl('Screening', 'e'); ?></div>
 	  <?php xl('Screening Date:', 'e'); ?>
@@ -120,7 +129,7 @@ function PrintForm() {
 	  value=<?php echo ($record['screen_date']);?>
       title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
 	  <?php xl('Screening Location:', 'e'); ?>
-	  <input id="screen_loc" name="screen_loc" type='text' size="50" maxlength="250" value= "<?php echo stripslashes ($record['screen_loc']); ?>" /><br>
+	  <input id="screen_loc" name="screen_loc" type='text' size="45" maxlength="250" value= "<?php echo stripslashes ($record['screen_loc']); ?>" /><br>
 	  <?php xl('Screening Type:', 'e'); ?>
 	  <input type='text' id="screen_type" name="screen_type" list="screen_types" value= "<?php echo stripslashes ($record['screen_type']); ?>" /><br>		  
 	  <datalist id = "screen_types"/>
@@ -147,7 +156,7 @@ function PrintForm() {
       value= <?php echo ($record['contact_date']);?>     
 	  title='<?php xl('yyyy-mm-dd', 'e'); ?>' /><br>
 	<?php xl('Type of Contact:', 'e'); ?>
-	<input type='text' id="contact_type" name="contact_type"size="50" maxlength="250" list="contact_types" value= "<?php echo stripslashes ($record['contact_type']); ?>"/><br>	
+	<input type='text' id="contact_type" name="contact_type"size="45" maxlength="250" list="contact_types" value= "<?php echo stripslashes ($record['contact_type']); ?>"/><br>	
 	<datalist id = "contact_types">
       <option value = "" >
       <option value = "Home Visit" ><?php xl('Home Visit', 'e'); ?></option>
@@ -159,14 +168,14 @@ function PrintForm() {
 	  <option value = "Other"><?php xl('Other', 'e'); ?></option>
     </datalist>
 	<?php xl('Notes', 'e'); ?><br>
-	<textarea name="notes" id="notes" cols="50" rows="6"><?php echo stripslashes ($record['notes']); ?></textarea>
+	<textarea name="notes" id="notes" cols="35" rows="6"><?php echo stripslashes ($record['notes']); ?></textarea>
 	<div class='bold'><?php xl('Parent/Sibling Navigation Services Provided', 'e'); ?></div>
 	<?php xl('Screening Done:', 'e'); ?>
-	<input id="fam_screen" name="fam_screen" type='text' size="50" maxlength="250" value= "<?php echo stripslashes ($record['fam_screen']); ?>" /><br>
+	<input id="fam_screen" name="fam_screen" type='text' size="45" maxlength="250" value= "<?php echo stripslashes ($record['fam_screen']); ?>" /><br>
 	<?php xl('Referrals Made:', 'e'); ?>
-	<input id="referrals" name="referrals" type='text' size="50" maxlength="250" value= "<?php echo stripslashes ($record['referrals']); ?>" /><br>	
+	<input id="referrals" name="referrals" type='text' size="45" maxlength="250" value= "<?php echo stripslashes ($record['referrals']); ?>" /><br>	
 	<?php xl('Notes', 'e'); ?><br>
-	<textarea name="fam_notes" id="fam_notes" cols="50" rows="6" ><?php echo stripslashes ($record['fam_notes']); ?></textarea>	
+	<textarea name="fam_notes" id="fam_notes" cols="35" rows="6" ><?php echo stripslashes ($record['fam_notes']); ?></textarea>	
 	</div>
   </div>
 </div> <!-- end form_container -->
