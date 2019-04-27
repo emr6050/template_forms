@@ -10,7 +10,7 @@ include_once("$srcdir/forms.inc");
 $table_name = "form_referral";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "form_referral";
+$form_name = "Referral Form";
 
 /** CHANGE THIS to match the folder you created for this form **/
 $form_folder = "referral";
