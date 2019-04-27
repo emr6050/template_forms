@@ -58,10 +58,24 @@ if ($record['date_birth'] != "") {
 Printed on <?php echo date("F d, Y", time()); ?>
 
 <form method=post action="">
+<table>
+<tr>
+<td>
 <img src="MU-logo.jpg" alt="MU logo" style="width:120px;height:100px;">
-<span class="title"><?php xl($form_name, 'e'); ?></span>
+</td>
+<td>
+<span class="title"><?php xl($form_name, 'e'); ?></span><br>
+Autism Family Navigation<br>
+Milwaukee Autism Project<br>
+Referral Form For Birth-3 Programs<br>
+</td>
+<td>
 <img src="MHA-logo.jpg" alt="MU logo"style="width:184px;height:75px;">
-<br>
+</td>
+</tr>
+</table>
+
+
 <!-- container for the main body of the form -->
 <div id="form_container">
 
@@ -132,13 +146,18 @@ value='<?php echo stripslashes($record['name_parent2']);?>'><br>
 <?php xl('Agency staff and/or parent\'s concern regarding child:', 'e'); ?>
 <textarea  name='concern' id='concern'cols="80" rows="4"><?php echo stripslashes ($record['concern']); ?></textarea>
 
-  
-</div> <!-- end form_container -->
+ </div> <!-- end form_container -->
 
 </form>
+ Completed referrals should be e-mailed, faxed or mailed 
+ <span class="bold"><br>along with a signed Consent for Release of Information </span>
+  to Troney Small (ltroney.small@marquette.edu). Once a referral is received, it is reviewed by the Family Navigators 
+ and a call is placed to the referent for more information and to schedule further contact. <br><br>
+
 
 </body>
-
+ 604 North 16th Street, Schroeder Complex, Room 306A, PO BOx 1881, Milwaukee, WI 53201<br>
+ Phone: 414-940-3276  414-228-3727 Fax: 414-276-3124
 <script language="javascript">
 window.print();
 window.close();
