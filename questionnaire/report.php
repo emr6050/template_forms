@@ -4,11 +4,11 @@ include_once($GLOBALS["srcdir"]."/api.inc");
 
 /** CHANGE THIS, the name of the function is significant and  **
  **              must be changed to match the folder name     **/
-function info_release_report ($pid, $encounter, $cols, $id)
+function questionnaire_report ($pid, $encounter, $cols, $id)
 {
     
     /** CHANGE THIS - name of the database table associated with this form **/
-    $table_name = "form_info_release";
+    $table_name = "form_redir_questionnaire";
 
     $count = 0;
     $data = formFetch($table_name, $id);

@@ -7,13 +7,13 @@ include_once("$srcdir/api.inc");
 include_once("$srcdir/forms.inc");
 
 /** CHANGE THIS - name of the database table associated with this form **/
-$table_name = "form_info_release";
+$table_name = "form_redir_questionnaire";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "Agreement for Release of Information";
+$form_name = "REDIRECT Questionnaire";
 
 /** CHANGE THIS to match the folder you created for this form **/
-$form_folder = "info_release";
+$form_folder = "questionnaire";
 
 
 if ($encounter == "") {
