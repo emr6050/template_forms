@@ -43,14 +43,14 @@ if ($_POST['form_csvexport']) {
     header("Expires: 0");
     header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
     header("Content-Type: application/force-download");
-    header("Content-Disposition: attachment; filename=patient_list.csv");
+    header("Content-Disposition: attachment; filename=screen_event_rep.csv");
     header("Content-Description: File Transfer");
 } else {
 ?>
 <html>
 <head>
 
-<title><?php echo xlt('Patient List'); ?></title>
+<title><?php echo xlt('REDIRECT Screening Events'); ?></title>
 
 <?php Header::setupHeader(['datetime-picker', 'report-helper']); ?>
 
@@ -131,17 +131,8 @@ $(document).ready(function() {
 
     <table class='text'>
         <tr>
-      <td class='control-label'>
-        <?php echo xlt('Provider'); ?>:
-      </td>
-      <td>
-            <?php
-            generate_form_field(array('data_type' => 10, 'field_id' => 'provider',
-            'empty_title' => '-- All --'), $_POST['form_provider']);
-            ?>
-      </td>
             <td class='control-label'>
-                <?php echo xlt('Visits From'); ?>:
+                <?php echo xlt('Encounter Date From'); ?>:
             </td>
             <td>
                <input class='datepicker form-control' type='text' name='form_from_date' id="form_from_date" size='10' value='<?php echo attr(oeFormatShortDate($from_date)); ?>'>
@@ -216,6 +207,10 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
 <?php
     } // end not export
     $totalpts = 0;
+	$concerning=0;
+	$per_concerning="";
+	$fam_nav_offered=0;
+	$referrals=0;
     $sqlArrayBind = array();
     $query = "SELECT " .
     "p.fname, p.mname, p.lname, p.street, p.city, p.state, " .
@@ -322,15 +317,36 @@ if ($_POST['form_refresh'] || $_POST['form_csvexport']) {
     <?php
         } // end not export
         ++$totalpts;
+		if (text($row['screen_outcome'])=="concerning"){
+		++$concerning;	
+		}
+		if (text($row['serv_offered'])=="on"){
+		++$fam_nav_offered;	
+		}
+		if (!text($row['referrals'])==""){
+		++$referrals;	
+		}
+		if (!totalpts==0){
+		$per_concerning=($concerning/$totalpts)*100;	
+		}		
     } // end while
     if (!$_POST['form_csvexport']) {
     ?>
 
+
    <tr class="report_totals">
     <td colspan='9'>
-        <?php echo xlt('Total Number of Patients'); ?>
-   :
-        <?php echo text($totalpts); ?>
+        <?php echo xlt('Number of Children Screened: '); ?>
+        <?php echo text($totalpts); ?><br>
+        <?php echo xlt('Number of Children with Concerning Screens: '); ?>
+        <?php echo text($concerning); ?><br>
+        <?php echo xlt('Percentage of Children who had Concerning Screens: '); ?>
+        <?php echo text($per_concerning); ?>
+		<?php echo xlt('%'); ?><br>
+        <?php echo xlt('Number of Children offered Family Navigation Services: '); ?>
+        <?php echo text($fam_nav_offered); ?><br>
+        <?php echo xlt('Number of Children offered Referrals: '); ?>
+        <?php echo text($referrals); ?><br>			
   </td>
  </tr>
 
