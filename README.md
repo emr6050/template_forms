@@ -12,6 +12,8 @@ i.e. http://htmlpreview.github.com/?https://github.com/mscs6050-sp18-project/tem
 ## areas of interest for future work ##
 * Penn State Worry Questionnaire for Children (PSWQ-C)
 * Revised Children's Anxiety and Depression Scale (RCADS)
+* WI state-provided resources for Mental Health: [link](https://www.dhs.wisconsin.gov/mh/index.htm)
+* [Wisconsin's Functional Screen](https://www.dhs.wisconsin.gov/functionalscreen/index.htm)
 
 ## references ##
 
