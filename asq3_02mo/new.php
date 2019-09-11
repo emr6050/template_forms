@@ -14,15 +14,15 @@ formHeader("Form: ".$form_name);
 $returnurl = 'encounter_top.php';
 $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
 
-$communCutoff = 22.77;
+$communCutoff = 0.0;
 $commScore = 0;
-$gMotorCutoff = 41.84;
+$gMotorCutoff = 0.0;
 $gMotorScore = 0;
-$fMotorCutoff = 30.16;
+$fMotorCutoff = 0.0;
 $fMotorScore = 0;
-$pSolveCutoff = 24.62;
+$pSolveCutoff = 0.0;
 $pSolveScore = 0;
-$perSocCutoff = 33.71;
+$perSocCutoff = 0.0;
 $perSocScore = 0;
 ?>
 
