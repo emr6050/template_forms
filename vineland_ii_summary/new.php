@@ -86,7 +86,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Receptive</td>
       <td align="center"><input type="number" name="sub_receptive_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_receptive_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_receptive_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_receptive_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -96,7 +96,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Expressive</td>
       <td align="center"><input type="number" name="sub_expressive_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_expressive_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_expressive_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_expressive_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -106,7 +106,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Written</td>
       <td align="center"><input type="number" name="sub_written_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_written_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_written_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_written_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -117,7 +117,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
       <td align="left">Communication</td>
       <td align="center">Sum:</td>
       <td align="center">___</td>
-      <td align="center"><input type="number" name="comm_standard" min="0"></td>
+      <td align="center"><input type="number" name="comm_standard" min="0" max="200"></td>
       <td align="center">+/-<input type="number" name="comm_conf_interval" min="0"></td>
       <td align="center"><input type="number" name="comm_percentile" min="0" max="100"></td>
       <td align="center"><input type="number" name="sub_written_adaptive_level" min="0"></td>
@@ -126,7 +126,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Personal</td>
       <td align="center"><input type="number" name="sub_personal_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_personal_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_personal_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_personal_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -136,7 +136,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Domestic</td>
       <td align="center"><input type="number" name="sub_domestic_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_domestic_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_domestic_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_domestic_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -146,7 +146,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Community</td>
       <td align="center"><input type="number" name="sub_community_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_community_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_community_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_community_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -157,7 +157,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
       <td align="left">Daily Living Skills</td>
       <td align="center">Sum:</td>
       <td align="center">___</td>
-      <td align="center"><input type="number" name="daily_life_standard" min="0"></td>
+      <td align="center"><input type="number" name="daily_life_standard" min="0" max="200"></td>
       <td align="center">+/-<input type="number" name="daily_life_conf_interval" min="0"></td>
       <td align="center"><input type="number" name="daily_life_percentile" min="0" max="100" ></td>
       <td align="center"><input type="number" name="daily_life_adaptive_level" min="0" ></td>
@@ -166,7 +166,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Interpersonal Relationships</td>
       <td align="center"><input type="number" name="sub_relationships_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_relationships_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_relationships_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_relationships_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -176,7 +176,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Play and Leisure Time</td>
       <td align="center"><input type="number" name="sub_playLeisureTime_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_playLeisureTime_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_playLeisureTime_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_playLeisureTime_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -186,7 +186,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Coping Skills</td>
       <td align="center"><input type="number" name="sub_copingSkills_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_copingSkills_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_copingSkills_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_copingSkills_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -197,7 +197,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
       <td align="left">Socialization</td>
       <td align="center">Sum:</td>
       <td align="center">___</td>
-      <td align="center"><input type="number" name="socialization_standard" min="0"></td>
+      <td align="center"><input type="number" name="socialization_standard" min="0" max="200"></td>
       <td align="center">+/-<input type="number" name="socialization_conf_interval" min="0"></td>
       <td align="center"><input type="number" name="socialization_percentile" min="0" max="100" ></td>
       <td align="center"><input type="number" name="socialization_adaptive_level" min="0"></td>
@@ -206,7 +206,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Gross</td>
       <td align="center"><input type="number" name="sub_gross_motor_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_gross_motor_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_gross_motor_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_gross_motor_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -216,7 +216,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
     <tr>
       <td align="right">Fine</td>
       <td align="center"><input type="number" name="sub_fine_motor_raw" min="0"></td>
-      <td align="center"><input type="number" name="sub_fine_motor_vScale" min="0"></td>
+      <td align="center"><input type="number" name="sub_fine_motor_vScale" min="0" max="30"></td>
       <td align="center">X</td>
       <td align="center">+/-<input type="number" name="sub_fine_motor_conf_interval" min="0"></td>
       <td align="center">X</td>
@@ -227,7 +227,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
       <td align="left">Motor Skills</td>
       <td align="center">Sum:</td>
       <td align="center">___</td>
-      <td align="center"><input type="number" name="motor_skills_standard" min="0" ></td>
+      <td align="center"><input type="number" name="motor_skills_standard" min="0" max="200" ></td>
       <td align="center">+/-<input type="number" name="motor_skills_conf_interval" min="0" ></td>
       <td align="center"><input type="number" name="motor_skills_percentile" min="0" max="100" ></td>
       <td align="center"><input type="number" name="motor_skills_adaptive_level" min="0"></td>
