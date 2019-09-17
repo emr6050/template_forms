@@ -54,7 +54,6 @@ Printed on <?php echo date("F d, Y", time()); ?>
 
 <div id="print_general">
 <table>
-<table>
   <tr><td>
     Total A: <input type="number" name="totalA" min="0" value="<?php echo stripslashes($record['totalA']);?>" >
   </td></tr>

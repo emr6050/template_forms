@@ -68,25 +68,21 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 
 <div id="general">
 <table>
-    <tr><td>
-        Algorithm, Module: <input type="number" name="ados2_algorithm" min="0" >
-    </td></tr>
-    <tr><td>
-        Social Affect (SA) total: <input type="number" name="sa_total" min="0" >
-    </td></tr>
-    <tr><td>
-        Restricted and Repetitive Behavior (RRB): <input type="number" name="rrb_total" min="0" >
-    </td></tr>
-    <tr><td>
-        ADOS-2 Classification:<br>
-        <textarea name="ados2_classification" cols="40" rows="3"></textarea>
-        <br>
-        Overall Diagnosis:<br>
-        <textarea name="diagnosis" cols="40" rows="3"></textarea>
-    </td></tr>
-    <tr><td>
-        ADOS-2 Comparison Score: <input type="number" name="ados2_comp_score" min="0" max="10" >
-    </td></tr>
+  <tr><td>
+    Total A: <input type="number" name="totalA" min="0" >
+  </td></tr>
+  <tr><td>
+    Verbal Total B: <input type="number" name="verbal_totalB" min="0" >
+  </td></tr>
+  <tr><td>
+    Nonverbal Total B: <input type="number" name="nonverbal_totalB" min="0" >
+  </td></tr>
+  <tr><td>
+    Total C: <input type="number" name="totalC" min="0" >
+  </td></tr>
+  <tr><td>
+    Total D: <input type="number" name="totalD" min="0" >
+  </td></tr>
 </table>
 </div>
 
