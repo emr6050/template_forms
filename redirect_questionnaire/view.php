@@ -1,7 +1,13 @@
 <?php
-/*
- * Sports Physical Form created by Jason Morrill: January 2009
+/*Agreement for Release of Information Form
+ * Mostly copied from:
+ * Sports Physical Form
+ * @package   OpenEMR
+ * @author    Jason Morrill
+ * @author    Brady Miller <brady.g.miller@gmail.com>
+ * @link      http://www.open-emr.org
  */
+
 
 include_once("../../globals.php");
 include_once("$srcdir/api.inc");
@@ -13,7 +19,7 @@ $table_name = "form_redir_questionnaire";
 $form_name = "REDIRECT Questionnaire";
 
 /** CHANGE THIS to match the folder you created for this form **/
-$form_folder = "questionnaire";
+$form_folder = "redirect_questionnaire";
 
 formHeader("Form: ".$form_name);
 $returnurl = 'encounter_top.php';
@@ -33,26 +39,42 @@ if ($record['dob'] != "") {
 }
 
 ?>
- 
-<html><head>
 
+<html><head>
 <?php html_header_show();?>
 
 <!-- supporting javascript code -->
 <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-min-3-1-1/index.js"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/textformat.js"></script>
+<script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/textformat.js?v=<?php echo $v_js_includes; ?>"></script>
+<script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-datetimepicker-2-5-4/build/jquery.datetimepicker.full.min.js"></script>
 
 <!-- page styles -->
 <link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-<link rel="stylesheet" href="../../forms/<?php echo $form_folder; ?>/style.css" type="text/css">
+<link rel="stylesheet" href="../../forms/<?php echo $form_folder; ?>/style.css?v=<?php echo $v_js_includes; ?>" type="text/css">
+<link rel="stylesheet" href="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-datetimepicker-2-5-4/build/jquery.datetimepicker.min.css">
+
+<script language="JavaScript">
+// this line is to assist the calendar text boxes
+var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
+
+function PrintForm() {
+    newwin = window.open("<?php echo "http://".$_SERVER['SERVER_NAME'].$rootdir."/forms/".$form_folder."/print.php?id=".$_GET["id"]; ?>","mywin");
+}
+</script>
 
 </head>
 
 <body class="body_top">
 
-Printed on <?php echo date("F d, Y", time()); ?>
+<?php echo date("F d, Y", time()); ?>
 
-<form method=post action="">
+<form method=post action="<?php echo $rootdir;?>/forms/<?php echo $form_folder; ?>/save.php?mode=update&id=<?php echo $_GET["id"];?>" name="my_form">
+<span class="title"><?php xl($form_name, 'e'); ?></span><br>
+
+<!-- Save/Cancel links -->
+<input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
+<input type="button" class="dontsave" value="<?php xl('Don\'t Save Changes', 'e'); ?>"> &nbsp;
+<input type="button" class="printform" value="<?php xl('Print', 'e'); ?>"> &nbsp;
 
 <!-- container for the main body of the form -->
 
@@ -207,15 +229,15 @@ Printed on <?php echo date("F d, Y", time()); ?>
     <input type="hidden" name="serv_birth" id="serv_birth" value="off"> 
     <input type="checkbox" name="serv_birth" <?php if ($record["serv_birth"] == "on") {
 	echo "checked";
-	}?>/> <?php xl('Birth to Three','e');?>
+	}?>/> <?php xl('Birth to Three','e');?><br>
     <input type="hidden" name="serv_occ" id="serv_occ" value="off"> 	
     <input type="checkbox" name="serv_occ"<?php if ($record["serv_occ"] == "on") {
 	echo "checked";
-	}?>/> <?php xl('Occupational Therapy','e');?>
+	}?>/> <?php xl('Occupational Therapy','e');?><br>
     <input type="hidden" name="serv_phys" id="serv_phys" value="off"> 	
     <input type="checkbox" name="serv_phys" <?php if ($record["serv_phys"] == "on") {
 	echo "checked";
-	}?>/> <?php xl('Physical Therapy','e');?>
+	}?>/> <?php xl('Physical Therapy','e');?><br>
     <input type="hidden" name="serv_speech" id="serv_speech" value="off"> 	
     <input type="checkbox" name="serv_speech" <?php if ($record["serv_speech"] == "on") {
 	echo "checked";
@@ -223,11 +245,11 @@ Printed on <?php echo date("F d, Y", time()); ?>
     <input type="hidden" name="serv_head" id="serv_head" value="off"> 	
     <input type="checkbox" name="serv_head" <?php if ($record["serv_head"] == "on") {
 	echo "checked";
-	}?>/> <?php xl('Head Start','e');?>
+	}?>/> <?php xl('Head Start','e');?><br>
     <input type="hidden" name="serv_mental" id="serv_mental" value="off"> 	
     <input type="checkbox" name="serv_mental" <?php if ($record["serv_mental"] == "on") {
 	echo "checked";
-	}?>/> <?php xl('Mental health services or treatment','e');?><
+	}?>/> <?php xl('Mental health services or treatment','e');?><br>
     <input type="hidden" name="serv_special" id="serv_special" value="off"> 	
     <input type="checkbox" name="serv_special" <?php if ($record["serv_special"] == "on") {
 	echo "checked";
@@ -248,10 +270,10 @@ Printed on <?php echo date("F d, Y", time()); ?>
   12) <?php xl('What is your gender?','e');?><br>
     <input type="radio" name="adult_gender" value="Male" <?php if ($record["adult_gender"] == "Male") {
 	echo "checked";
-	}?>><?php xl('Male','e');?>   
+	}?>><?php xl('Male','e');?> <br>  
     <input type="radio" name="adult_gender" value="Female" <?php if ($record["adult_gender"] == "Female") {
 	echo "checked";
-	}?>><?php xl('Female','e');?>   	
+	}?>><?php xl('Female','e');?> <br>  	
     <input type="radio" name="adult_gender" value="Other" <?php if ($record["adult_gender"] == "Other") {
 	echo "checked";
 	}?>><?php xl('Another Gender:','e');?> &nbsp
@@ -311,29 +333,29 @@ Printed on <?php echo date("F d, Y", time()); ?>
   16) <?php xl('What is your current work situation?','e');?><br>
     <input type="radio" name="work_status" value="Work full time" <?php if ($record["work_status"] == "Work full time") {
 	echo "checked";
-	}?>><?php xl('Work full time','e');?>  
+	}?>><?php xl('Work full time','e');?> <br> 
     <input type="radio" name="work_status" value="Regular part-time" <?php if ($record["work_status"] == "Regular part-time") {
 	echo "checked";
-	}?>><?php xl('Regular part-time','e');?> 
+	}?>><?php xl('Regular part-time','e');?> <br> 
     <input type="radio" name="work_status" value="Occasional part-time" <?php if ($record["work_status"] == "Occasional part-time") {
 	echo "checked";
-	}?>><?php xl('Occasional part-time','e');?> 
+	}?>><?php xl('Occasional part-time','e');?> <br> 
     <input type="radio" name="work_status" value="Not currently working" <?php if ($record["work_status"] == "Not currently working") {
 	echo "checked";
 	}?>><?php xl('Not currently working','e');?> <br>      
   17) <?php xl('What is the highest grade you completed in school?','e');?><br>
     <input type="radio" name="education" value="Grade 8 or less" <?php if ($record["education"] == "Grade 8 or less") {
 	echo "checked";
-	}?>><?php xl('8th grage or less','e');?>  
+	}?>><?php xl('8th grage or less','e');?> <br> 
     <input type="radio" name="education" value="Grade 8-12" <?php if ($record["education"] == "Grade 8-12") {
 	echo "checked";
-	}?>><?php xl('more than 8th grade but less than 12th grade','e');?>  <br>
+	}?>><?php xl('more than 8th grade but less than 12th grade','e');?> <br> 
     <input type="radio" name="education" value="High School or GED" <?php if ($record["education"] == "High School or GED") {
 	echo "checked";
-	}?>><?php xl('I graduated from high school or received a GED','e');?>  
+	}?>><?php xl('I graduated from high school or received a GED','e');?> <br> 
     <input type="radio" name="education" value="Some college" <?php if ($record["education"] == "Some college") {
 	echo "checked";
-	}?>><?php xl('I started college','e');?>    
+	}?>><?php xl('I started college','e');?> <br>   
     <input type="radio" name="education" value="College graduate" <?php if ($record["education"] == "College graduate") {
 	echo "checked";
 	}?>><?php xl('I graduated from college','e');?><br> 
@@ -465,13 +487,31 @@ Printed on <?php echo date("F d, Y", time()); ?>
 	}?>><?php xl('Strongly disagree','e');?> <br>
 </div> <!-- end form_container -->
 
+<input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
+<input type="button" class="dontsave" value="<?php xl('Don\'t Save Changes', 'e'); ?>"> &nbsp;
+<input type="button" class="printform" value="<?php xl('Print', 'e'); ?>"> &nbsp;
+
 </form>
 
 </body>
 
 <script language="javascript">
-window.print();
-window.close();
+// jQuery stuff to make the page a little easier to use
+
+$(document).ready(function(){
+    $(".save").click(function() { top.restoreSession(); document.my_form.submit(); });
+    $(".dontsave").click(function() { parent.closeTab(window.name, false); });
+    $(".printform").click(function() { PrintForm(); });
+
+    $('.datepicker').datetimepicker({
+        <?php $datetimepicker_timepicker = false; ?>
+        <?php $datetimepicker_showseconds = false; ?>
+        <?php $datetimepicker_formatInput = false; ?>
+        <?php require($GLOBALS['srcdir'] . '/js/xl/jquery-datetimepicker-2-5-4.js.php'); ?>
+        <?php // can add any additional javascript settings to datetimepicker here; need to prepend first setting with a comma ?>
+    });
+});
+
 </script>
 
 </html>
