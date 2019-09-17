@@ -1,7 +1,4 @@
 <?php
-/*
- * Sports Physical Form created by Jason Morrill: January 2009
- */
 
 include_once("../../globals.php");
 include_once("$srcdir/api.inc");
