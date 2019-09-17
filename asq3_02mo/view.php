@@ -73,73 +73,96 @@ function PrintForm() {
 
 <!-- container for the main body of the form -->
 <div id="form_container">
-  <div id="general">
-    <h3>Form Information</h3>
-    Assessment Id: <input type='text' size='25' name='assessment_id' id='assessment_id' value='<?php echo stripslashes($record['assessment_id']);?>'/>
-    <br><br>
-    Assessment Age:
-          <input type="radio" name="assessment_age" value="preschool" <?php if ($record["assessment_age"] == 'preschool') { echo "CHECKED"; } ?>>Preschool (ages 2 1/2 to 4 1/2) &nbsp;
-          <input type="radio" name="assessment_age" value="school_age" <?php if ($record["assessment_age"] == 'school_age') { echo "CHECKED"; } ?>/>School-Age (ages 4 to 18) &nbsp; 
-          <input type="radio" name="assessment_age" value="adult" <?php if ($record["assessment_age"] == 'adult') { echo "CHECKED"; } ?>/>Adult (ages 19+)
-    <br><br>
-    Rater Name: <input type='text' size='50' name='rater_name' id='rater_name' value='<?php echo stripslashes($record['rater_name']);?>'/>
-    <br><br>
-    Rater Relationship:
-          <input type="radio" name="rater_relationship" value="mother" <?php if ($record["rater_relationship"] == 'mother') { echo "CHECKED"; } ?>/>Mother &nbsp;
-          <input type="radio" name="rater_relationship" value="father" <?php if ($record["rater_relationship"] == 'father') { echo "CHECKED"; } ?>/>Father &nbsp;
-          <input type="radio" name="rater_relationship" value="other_custodial_adult" <?php if ($record["rater_relationship"] == 'other_custodial_adult') { echo "CHECKED"; } ?>/>Other Custodial Adult &nbsp;
-          <input type="radio" name="rater_relationship" value="teacher" <?php if ($record["rater_relationship"] == 'teacher') { echo "CHECKED"; } ?>/>Teacher &nbsp;
-          <input type="radio" name="rater_relationship" value="other_specialist" <?php if ($record["rater_relationship"] == 'other_specialist') { echo "CHECKED"; } ?>/>Other Specialist
-    <br><br>
-    Facility: <input type='text' size='50' name='facility' id='facility' value='<?php echo stripslashes($record['facility']);?>'/>
-    <br><br>
-    Date:
-      <input type='text' size='10' class='datepicker' name='form_date' id='form_date' value='<?php echo stripslashes($record['form_date']);?>' title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
-  </div>
-  
-  <div id="scores">
-    <h4>SRS-2 Total Score Results</h4>
-    SRS-2 Total Raw score: <input type='text' name='srs2_total_raw_score' id='srs2_total_raw_score' value='<?php echo stripslashes($record['srs2_total_raw_score']);?>'/>
-    <br><br>
-    SRS-2 T-score: <input type='text' name='srs2_t_score' id='srs2_t_score' value='<?php echo stripslashes($record['srs2_t_score']);?>'/>
-    <br><br>
-    <h4>DSM-5 Compatible Scales</h4>
-    DSM-5 SCI Raw score: <input type='text' name='dsm5_sci_raw_score' id='dsm5_sci_raw_score' value='<?php echo stripslashes($record['dsm5_sci_raw_score']);?>'/>
-    <br><br>
-    DSM-5 SCI T-score: <input type='text' name='dsm5_sci_t_score' id='dsm5_sci_t_score' value='<?php echo stripslashes($record['dsm5_sci_t_score']);?>'/>
-    <br><br>
-    DSM-5 RRB Raw score: <input type='text' name='dsm5_rrb_raw_score' id='dsm5_rrb_raw_score' value='<?php echo stripslashes($record['dsm5_rrb_raw_score']);?>'/>
-    <br><br>
-    DSM-5 RRB T-score: <input type='text' name='dsm5_rrb_t_score' id='dsm5_rrb_t_score' value='<?php echo stripslashes($record['dsm5_rrb_t_score']);?>'/>
-    <br><br>
-    <h4>Treatment Subscales</h4>
-    Awr Raw score: <input type='text' name='subscale_awr_raw_score' id='subscale_awr_raw_score' value='<?php echo stripslashes($record['subscale_awr_raw_score']);?>'/>
-    <br><br>
-    Awr T-score: <input type='text' name='subscale_awr_t_score' id='subscale_awr_t_score' value='<?php echo stripslashes($record['subscale_awr_t_score']);?>'/>
-    <br><br>
-    Cog Raw score: <input type='text' name='subscale_cog_raw_score' id='subscale_cog_raw_score' value='<?php echo stripslashes($record['subscale_cog_raw_score']);?>'/>
-    <br><br>
-    Cog T-score: <input type='text' name='subscale_cog_t_score' id='subscale_cog_t_score' value='<?php echo stripslashes($record['subscale_cog_t_score']);?>'/>
-    <br><br>
-    Com Raw score: <input type='text' name='subscale_com_raw_score' id='subscale_com_raw_score' value='<?php echo stripslashes($record['subscale_com_raw_score']);?>'/>
-    <br><br>
-    Com T-score: <input type='text' name='subscale_com_t_score' id='subscale_com_t_score' value='<?php echo stripslashes($record['subscale_com_t_score']);?>'/>
-    <br><br>
-    Mot Raw score: <input type='text' name='subscale_mot_raw_score' id='subscale_mot_raw_score' value='<?php echo stripslashes($record['subscale_mot_raw_score']);?>'/>
-    <br><br>
-    Mot T-score: <input type='text' name='subscale_mot_t_score' id='subscale_mot_t_score' value='<?php echo stripslashes($record['subscale_mot_t_score']);?>'/>
-    <br><br>
-    RRB Raw score: <input type='text' name='subscale_rrb_raw_score' id='subscale_rrb_raw_score' value='<?php echo stripslashes($record['subscale_rrb_raw_score']);?>'/>
-    <br><br>
-    RRB T-score: <input type='text' name='subscale_rrb_t_score' id='subscale_rrb_t_score' value='<?php echo stripslashes($record['subscale_rrb_t_score']);?>'/>
-    <br><br>
-  </div>
+    <div id="preliminaryInfo">
+      Was age adjusted for prematurity when selecting questionnaire?
+      <input type="radio" name="ageAdjustment" value="y" /> Yes. &nbsp;
+      <input type="radio" name="ageAdjustment" value="n" /> No.
+    </div>
 
-  <div id="extra">
-    <h4>Notes</h4>
-    <textarea name="notes" id="notes" cols="80" rows="4"><?php echo stripslashes($record['notes']);?></textarea>
-    <br><br>
-  </div>
+    <div id="scores">
+      <h4>Score Totals</h4>
+      <table id="total_scores" class="display" style="width:100%">
+          <thead>
+              <tr>
+                  <th>Area</th>
+                  <th align="left">Cutoff</th>
+                  <th align="left">Total Score</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Communication</td>
+              <td><?php echo $communCutoff ?></td>
+              <td align="center"><input type="number" name="communicationScore" min="0" max="60" step="5" value="<?php echo stripslashes($record['communicationScore']) ?>"></td>
+            </tr>
+            <tr>
+              <td>Gross Motor</td>
+              <td><?php echo $gMotorCutoff ?></td>
+              <td align="center"><input type="number" name="grossMotorScore" min="0" max="60" step="5" value="<?php echo stripslashes($record['grossMotorScore']) ?>"></td>
+            </tr>
+            <tr>
+              <td>Fine Motor</td>
+              <td><?php echo $fMotorCutoff ?></td>
+              <td align="center"><input type="number" name="fineMotorScore" min="0" max="60" step="5" value="<?php echo stripslashes($record['fineMotorScore']) ?>"></td>
+            </tr>
+            <tr>
+              <td>Problem Solving</td>
+              <td><?php echo $pSolveCutoff ?></td>
+              <td align="center"><input type="number" name="problemSolvingScore" min="0" max="60" step="5" value="<?php echo stripslashes($record['problemSolvingScore']) ?>"></td>
+            </tr>
+            <tr>
+              <td>Personal-Social</td>
+              <td><?php echo $perSocCutoff ?></td>
+              <td align="center"><input type="number" name="personalSocialScore" min="0" max="60" step="5" value="<?php echo stripslashes($record['personalSocialScore']) ?>"></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+    <div id="text_responses">
+      <h4>Overall Responses</h4>
+      1. Requires followup? <input type="checkbox" name="response1"> &nbsp;
+      Comments: <textarea name="comments1" cols="30" rows="1"><?php echo stripslashes($record['comments1']) ?></textarea>
+      <br><br>
+      2. Requires followup? <input type="checkbox" name="response2"> &nbsp;
+      Comments: <textarea name="comments2" cols="30" rows="1"><?php echo stripslashes($record['comments2']) ?></textarea>
+      <br><br>
+      3. Requires followup? <input type="checkbox" name="response3"> &nbsp;
+      Comments: <textarea name="comments3" cols="30" rows="1"><?php echo stripslashes($record['comments3']) ?></textarea>
+      <br><br>
+      4. Requires followup? <input type="checkbox" name="response4"> &nbsp;
+      Comments: <textarea name="comments4" cols="30" rows="1"><?php echo stripslashes($record['comments4']) ?></textarea>
+      <br><br>
+      5. Requires followup? <input type="checkbox" name="response5"> &nbsp;
+      Comments: <textarea name="comments5" cols="30" rows="1"><?php echo stripslashes($record['comments5']) ?></textarea>
+      <br><br>
+      6. Requires followup? <input type="checkbox" name="response6"> &nbsp;
+      Comments: <textarea name="comments6" cols="30" rows="1"><?php echo stripslashes($record['comments6']) ?></textarea>
+    </div>
+
+    <div id="followup_action_taken">
+      <h4>Follow-up Action Taken</h4>
+      <input type="checkbox" name="shouldFollowup"> Provide activities and rescreen in <input type="number" name="followupDelay" min="0" max="4"> months.
+      <br>
+      <input type="checkbox" name="shareResults"> Share results with primary health care provider
+      <br>
+      <input type="checkbox" name="referForOptions"> Refer for: <input type="checkbox" name="referForHearing"> hearing, <input type="checkbox" name="referForVision"> vision, <input type="checkbox" name="referForBehavioral"> behavioral screening.
+      <br>
+      <input type="checkbox" name="referToCareProvider"> Refer to primary health care provider or other community agency (specify reason): <textarea name="reasonForReferral" cols="30" rows="1"></textarea>.
+      <br>
+      <input type="checkbox" name="referToEarlyIntervention"> Refer to early intervention/early childhood special education.
+      <br>
+      <input type="checkbox" name="noFurtherAction"> No further action taken at this time.
+      <br>
+      <input type="checkbox" name="other"> Other (specify): <textarea name="reasonForReferral" cols="30" rows="1"></textarea>.
+    </div>
+
+    <div id="extra">
+      <h4>Notes</h4>
+      <textarea name="notes" id="notes" cols="80" rows="4"><?php echo stripslashes($record['notes']) ?></textarea>
+      <br><br>
+    </div>
+
 </div> <!-- end form_container -->
 
 <input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
