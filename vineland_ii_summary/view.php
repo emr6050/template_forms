@@ -255,7 +255,7 @@ function PrintForm() {
       </tbody>
     </table>
     <br><br>
-    Sum of Domain Standard Scores: <?php echo stripslashes($record['comm_standard']) + stripslashes($record['daily_life_standard']) + stripslashes($record['socialization_standard']) + stripslashes($record['motor_skils_standard']) ?>
+    Sum of Domain Standard Scores: <?php echo stripslashes($record['comm_standard']) + stripslashes($record['daily_life_standard']) + stripslashes($record['socialization_standard']) + stripslashes($record['motor_skills_standard']) ?>
 
     <br>
     <h3>Adaptive Behavior Composite</h3>

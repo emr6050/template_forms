@@ -27,7 +27,7 @@ $form_name = "Vineland-II";
 /** CHANGE THIS to match the folder you created for this form **/
 $form_folder = "vineland_ii_summary";
 
-formHeader("Form: ".$forn_name);
+formHeader("Form: ".$form_name);
 
 $returnurl = 'encounter_top.php';
 ?>
