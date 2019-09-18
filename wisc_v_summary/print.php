@@ -35,7 +35,6 @@ if ($record['form_date'] != "") {
 
 <!-- page styles -->
 <link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-<link rel="stylesheet" href="../../forms/<?php echo $form_folder; ?>/style.css" type="text/css">
 
 </head>
 
@@ -48,7 +47,7 @@ Printed on <?php echo date("F d, Y", time()); ?>
 
 <!-- container for the main body of the form -->
 <div id="print_form_container">
-
+<br><br>
 <div id="print_general">
 <h1>Summary</h1>
 <h2>Sum of Scaled Scores to Composite Score Conversion</h2>

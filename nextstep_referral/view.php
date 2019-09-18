@@ -17,7 +17,7 @@ include_once("$srcdir/api.inc");
 $table_name = "form_nextstep_referral";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "Referral Form";
+$form_name = "NSC Referral Form";
 
 /** CHANGE THIS to match the folder you created for this form **/
 $form_folder = "nextstep_referral";

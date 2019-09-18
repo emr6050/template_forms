@@ -36,7 +36,6 @@ if ($record['form_date'] != "") {
 
 <!-- page styles -->
 <link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-<link rel="stylesheet" href="../../forms/<?php echo $form_folder; ?>/style.css?v=<?php echo $v_js_includes; ?>" type="text/css">
 <link rel="stylesheet" href="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-datetimepicker-2-5-4/build/jquery.datetimepicker.min.css">
 
 <script language="JavaScript">
@@ -64,7 +63,7 @@ function PrintForm() {
 
 <!-- container for the main body of the form -->
 <div id="form_container">
-
+<br><br>
   <div id="general">
 <h1>Summary</h1>
 <h2>Sum of Scaled Scores to Composite Score Conversion</h2>

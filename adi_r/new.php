@@ -23,7 +23,6 @@ $returnurl = 'encounter_top.php';
 
 <!-- page styles -->
 <link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-<link rel="stylesheet" href="../../forms/<?php echo $form_folder; ?>/style.css?v=<?php echo $v_js_includes; ?>" type="text/css">
 <link rel="stylesheet" href="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-datetimepicker-2-5-4/build/jquery.datetimepicker.min.css">
 
 <script language="JavaScript">
@@ -46,9 +45,9 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 
 <!-- container for the main body of the form -->
 <div id="form_container">
-
+<br><br>
 <div id="general">
-<table>
+<table id="score_summary" border="1">
   <tr><td>
     Total A: <input type="number" name="totalA" min="0" >
   </td></tr>

@@ -44,7 +44,11 @@ IF NOT EXISTS `form_nextstep_referral`
     pho_dat_time1         longtext,    
     pho_dat_time2        longtext,  
     nav_family  varchar
-(5),		
+(5),
+    devAsdAssess varchar
+(5),
+    childTherapy varchar
+(5)
     concern        longtext, 
 
     /* end of custom form fields */

@@ -64,7 +64,7 @@ function PrintForm() {
 
 <!-- container for the main body of the form -->
 <div id="form_container">
-
+<br><br>
 <div id="general">
 <table>
   <tr><td>

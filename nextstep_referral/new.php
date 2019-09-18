@@ -1,19 +1,13 @@
 <?php
 /*
- //This is an attempt at creating the
- //Referral Form
- 
- //Much of this file is copied and modified from:
- * @package   OpenEMR
- * @author    Brady Miller <brady.g.miller@gmail.com>
- * @link      http://www.open-emr.org
+ //This is an attempt at creating the NSC Referral Form
  */
 
 include_once("../../globals.php");
 include_once("$srcdir/api.inc");
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "NextStep Referral Form";
+$form_name = "NSC Referral Form";
 /** CHANGE THIS to match the folder you created for this form **/
 $form_folder = "nextstep_referral";
 
@@ -111,11 +105,11 @@ title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
 <textarea name="pho_dat_time2" id="pho_dat_time2" cols="35" rows="2"></textarea><br>
 </td>
 </tr>
-<span class="bold">
-<?php xl('Which program(s) is the client interested in learning more about?', 'e'); ?>
-</span><br>
-<input id="nav_family" name="nav_family" type="checkbox" >&nbsp;
-<?php xl('Family Navigation:','e'); ?><br>
+<span class="bold"><?php xl('Which program(s) is the client interested in learning more about?', 'e'); ?></span><br>
+<input id="nav_family" name="nav_family" type="checkbox" >&nbsp; <?php xl('Family Navigation','e'); ?><br>
+<input id="devAsdAssess" name="devAsdAssess" type="checkbox" >&nbsp; <?php xl('Development/Autism Assessment','e'); ?><br>
+<input id="childTherapy" name="childTherapy" type="checkbox" >&nbsp; <?php xl('Child Therapy','e'); ?><br>
+
 </table>
 
 <?php xl('Agency staff and/or parent\'s concern regarding child:', 'e'); ?>
