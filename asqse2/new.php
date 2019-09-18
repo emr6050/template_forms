@@ -14,16 +14,6 @@ formHeader("Form: ".$form_name);
 $returnurl = 'encounter_top.php';
 $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
 
-$communCutoff = 0.0;
-$commScore = 0;
-$gMotorCutoff = 0.0;
-$gMotorScore = 0;
-$fMotorCutoff = 0.0;
-$fMotorScore = 0;
-$pSolveCutoff = 0.0;
-$pSolveScore = 0;
-$perSocCutoff = 0.0;
-$perSocScore = 0;
 ?>
 
 <html>

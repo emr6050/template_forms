@@ -71,7 +71,7 @@ DOB: <?php echo $result['DOB'];?>
   <div id="form_container">
     <div id="preliminaryInfo">
       Was age adjusted for prematurity when selecting questionnaire?
-      <input type="radio" name="ageAdjustment" value="y" /> Yes. &nbsp;
+      <input type="radio" name="ageAdjustment" value="y" <?php if ($record["ageAdjustment"] == 'y') { echo "CHECKED"; } ?> /> Yes. &nbsp;
       <input type="radio" name="ageAdjustment" value="n" /> No.
     </div>
 

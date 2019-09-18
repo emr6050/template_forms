@@ -24,7 +24,8 @@ IF NOT EXISTS `form_asq3_02mo`
 
     /* start of custom form fields */
 
-    ageAdjustment   boolean,
+    ageAdjustment   varchar
+(1),
 	
     /* ASQ-3 total score results */
 

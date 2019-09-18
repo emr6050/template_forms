@@ -75,8 +75,8 @@ function PrintForm() {
 <div id="form_container">
     <div id="preliminaryInfo">
       Was age adjusted for prematurity when selecting questionnaire?
-      <input type="radio" name="ageAdjustment" value="y" /> Yes. &nbsp;
-      <input type="radio" name="ageAdjustment" value="n" /> No.
+      <input type="radio" name="ageAdjustment" value="y" <?php if ($record["ageAdjustment"] == 'y') { echo "CHECKED"; } ?> /> Yes. &nbsp;
+      <input type="radio" name="ageAdjustment" value="n" <?php if ($record["ageAdjustment"] == 'n') { echo "CHECKED"; } ?> /> No.
     </div>
 
     <div id="scores">
@@ -142,19 +142,19 @@ function PrintForm() {
 
     <div id="followup_action_taken">
       <h4>Follow-up Action Taken</h4>
-      <input type="checkbox" name="shouldFollowup"> Provide activities and rescreen in <input type="number" name="followupDelay" min="0" max="4"> months.
+      <input type="checkbox" name="shouldFollowup" <?php if($record['shouldFollowup'] == "on") {echo "checked";} ?> > Provide activities and rescreen in <input type="number" name="followupDelay" min="0" max="4" value="<?php echo stripslashes($record['followupDelay']) ?>"> months.
       <br>
-      <input type="checkbox" name="shareResults"> Share results with primary health care provider
+      <input type="checkbox" name="shareResults" <?php if($record['shareResults'] == "on") {echo "checked";} ?>> Share results with primary health care provider
       <br>
-      <input type="checkbox" name="referForOptions"> Refer for: <input type="checkbox" name="referForHearing"> hearing, <input type="checkbox" name="referForVision"> vision, <input type="checkbox" name="referForBehavioral"> behavioral screening.
+      <input type="checkbox" name="referForOptions" <?php if($record['referForOptions'] == "on") {echo "checked";} ?>> Refer for: <input type="checkbox" name="referForHearing" <?php if($record['referForHearing'] == "on") {echo "checked";} ?> > hearing, <input type="checkbox" name="referForVision" <?php if($record['referForVision'] == "on") {echo "checked";} ?> > vision, <input type="checkbox" name="referForBehavioral" <?php if($record['referForBehavioral'] == "on") {echo "checked";} ?> > behavioral screening.
       <br>
-      <input type="checkbox" name="referToCareProvider"> Refer to primary health care provider or other community agency (specify reason): <textarea name="reasonForReferral" cols="30" rows="1"></textarea>.
+      <input type="checkbox" name="referToCareProvider" <?php if($record['referToCareProvider'] == "on") {echo "checked";} ?>> Refer to primary health care provider or other community agency (specify reason): <textarea name="reasonForReferral" cols="30" rows="1"><?php echo stripslashes($record['reasonForReferral']) ?></textarea>.
       <br>
-      <input type="checkbox" name="referToEarlyIntervention"> Refer to early intervention/early childhood special education.
+      <input type="checkbox" name="referToEarlyIntervention" <?php if($record['referToEarlyIntervention'] == "on") {echo "checked";} ?>> Refer to early intervention/early childhood special education.
       <br>
-      <input type="checkbox" name="noFurtherAction"> No further action taken at this time.
+      <input type="checkbox" name="noFurtherAction" <?php if($record['noFurtherAction'] == "on") {echo "checked";} ?>> No further action taken at this time.
       <br>
-      <input type="checkbox" name="other"> Other (specify): <textarea name="reasonForReferral" cols="30" rows="1"></textarea>.
+      <input type="checkbox" name="other" <?php if($record['other'] == "on") {echo "checked";} ?>> Other (specify): <textarea name="otherReasonForReferral" cols="30" rows="1"><?php echo stripslashes($record['otherReasonForReferral']) ?></textarea>.
     </div>
 
     <div id="extra">
