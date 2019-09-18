@@ -58,7 +58,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
       <th>Composite Score</th>
       <th>Percentile Rank</th>
       <th>Confidence Interval</th>
-    <tr>
+    </tr>
   </thead>
   <tbody>
     <tr>
