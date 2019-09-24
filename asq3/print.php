@@ -66,6 +66,8 @@ DOB: <?php echo $result['DOB'];?>
 
   <div id="form_container">
     <div id="preliminaryInfo">
+      Questionnaire interval: <?php echo stripslashes($record["quesInterval"]) ?> months.
+      <br><br>
       Was age adjusted for prematurity when selecting questionnaire?
       <input type="radio" name="ageAdjustment" value="y" <?php if ($record["ageAdjustment"] == 'y') { echo "CHECKED"; } ?> /> Yes. &nbsp;
       <input type="radio" name="ageAdjustment" value="n" <?php if ($record["ageAdjustment"] == 'n') { echo "CHECKED"; } ?> /> No.
@@ -107,28 +109,28 @@ DOB: <?php echo $result['DOB'];?>
 
     <div id="text_responses">
       <h4>Overall Responses</h4>
-      1. Requires followup? <input type="checkbox" name="response1"> &nbsp;
+      1. Requires followup? <input type="checkbox" name="response1" <?php if ($record["response1"] == "on") { echo "checked";	}?> > &nbsp;
       Comments: <textarea name="comments1" cols="30" rows="1"><?php echo stripslashes($record['comments1']) ?></textarea>
       <br><br>
-      2. Requires followup? <input type="checkbox" name="response2"> &nbsp;
+      2. Requires followup? <input type="checkbox" name="response2" <?php if ($record["response2"] == "on") { echo "checked";	}?> > &nbsp;
       Comments: <textarea name="comments2" cols="30" rows="1"><?php echo stripslashes($record['comments2']) ?></textarea>
       <br><br>
-      3. Requires followup? <input type="checkbox" name="response3"> &nbsp;
+      3. Requires followup? <input type="checkbox" name="response3" <?php if ($record["response3"] == "on") { echo "checked";	}?> > &nbsp;
       Comments: <textarea name="comments3" cols="30" rows="1"><?php echo stripslashes($record['comments3']) ?></textarea>
       <br><br>
-      4. Requires followup? <input type="checkbox" name="response4"> &nbsp;
+      4. Requires followup? <input type="checkbox" name="response4" <?php if ($record["response4"] == "on") { echo "checked";	}?> > &nbsp;
       Comments: <textarea name="comments4" cols="30" rows="1"><?php echo stripslashes($record['comments4']) ?></textarea>
       <br><br>
-      5. Requires followup? <input type="checkbox" name="response5"> &nbsp;
+      5. Requires followup? <input type="checkbox" name="response5" <?php if ($record["response5"] == "on") { echo "checked";	}?> > &nbsp;
       Comments: <textarea name="comments5" cols="30" rows="1"><?php echo stripslashes($record['comments5']) ?></textarea>
       <br><br>
-      6. Requires followup? <input type="checkbox" name="response6"> &nbsp;
+      6. Requires followup? <input type="checkbox" name="response6" <?php if ($record["response6"] == "on") { echo "checked";	}?> > &nbsp;
       Comments: <textarea name="comments6" cols="30" rows="1"><?php echo stripslashes($record['comments6']) ?></textarea>
       <br><br>
-      7. Requires followup? <input type="checkbox" name="response7"> &nbsp;
+      7. Requires followup? <input type="checkbox" name="response7" <?php if ($record["response7"] == "on") { echo "checked";	}?> > &nbsp;
       Comments: <textarea name="comments7" cols="30" rows="1"><?php echo stripslashes($record['comments7']) ?></textarea>
       <br><br>
-      8. Requires followup? <input type="checkbox" name="response8"> &nbsp;
+      8. Requires followup? <input type="checkbox" name="response8" <?php if ($record["response8"] == "on") { echo "checked";	}?> > &nbsp;
       Comments: <textarea name="comments8" cols="30" rows="1"><?php echo stripslashes($record['comments8']) ?></textarea>
     </div>
 

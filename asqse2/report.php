@@ -4,7 +4,7 @@ include_once($GLOBALS["srcdir"]."/api.inc");
 
 function asq3_02mo_profile_report($pid, $encounter, $cols, $id)
 {
-    $table_name = "form_asqse2";
+    $table_name = "form_asqse2_simple";
 
     $count = 0;
     $data = formFetch($table_name, $id);

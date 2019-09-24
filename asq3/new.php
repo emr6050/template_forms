@@ -50,8 +50,8 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
   <div id="form_container">
     <div id="preliminaryInfo">
       Questionnaire interval:
-        <select>
-          <option value="00">Select....</option>
+        <select name="quesInterval" required >
+          <option value="">Select....</option>
           <option value="02">2 Month</option>
           <option value="04">4 Month</option>
           <option value="06">6 Month</option>

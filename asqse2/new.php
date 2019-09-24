@@ -1,7 +1,6 @@
 <?php
 /*
- //This is an attempt at creating the
- //ASQ-3 2 Month Questionnaire
+ //This is an attempt at creating the ASQ-3
  */
 
 include_once("../../globals.php");
@@ -50,6 +49,32 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
   <!-- container for the main body of the form -->
   <div id="form_container">
     <div id="preliminaryInfo">
+      Questionnaire interval:
+        <select name="quesInterval" required >
+          <option value="">Select....</option>
+          <option value="02">2 Month</option>
+          <option value="04">4 Month</option>
+          <option value="06">6 Month</option>
+          <option value="08">8 Month</option>
+          <option value="09">9 Month</option>
+          <option value="10">10 Month</option>
+          <option value="12">12 Month</option>
+          <option value="14">14 Month</option>
+          <option value="16">16 Month</option>
+          <option value="18">18 Month</option>
+          <option value="20">20 Month</option>
+          <option value="22">22 Month</option>
+          <option value="24">24 Month</option>
+          <option value="27">27 Month</option>
+          <option value="30">30 Month</option>
+          <option value="33">33 Month</option>
+          <option value="36">36 Month</option>
+          <option value="42">42 Month</option>
+          <option value="48">48 Month</option>
+          <option value="54">54 Month</option>
+          <option value="60">60 Month</option>
+        </select>
+      <br><br>
       Was age adjusted for prematurity when selecting questionnaire?
       <input type="radio" name="ageAdjustment" value="y" /> Yes. &nbsp;
       <input type="radio" name="ageAdjustment" value="n" /> No.
@@ -61,34 +86,28 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
           <thead>
               <tr>
                   <th>Area</th>
-                  <th align="left">Cutoff</th>
                   <th align="left">Total Score</th>
               </tr>
           </thead>
           <tbody>
             <tr>
               <td>Communication</td>
-              <td><?php echo $communCutoff ?></td>
               <td align="center"><input type="number" name="communicationScore" min="0" max="60" step="5"></td>
             </tr>
             <tr>
               <td>Gross Motor</td>
-              <td><?php echo $gMotorCutoff ?></td>
               <td align="center"><input type="number" name="grossMotorScore" min="0" max="60" step="5"></td>
             </tr>
             <tr>
               <td>Fine Motor</td>
-              <td><?php echo $fMotorCutoff ?></td>
               <td align="center"><input type="number" name="fineMotorScore" min="0" max="60" step="5"></td>
             </tr>
             <tr>
               <td>Problem Solving</td>
-              <td><?php echo $pSolveCutoff ?></td>
               <td align="center"><input type="number" name="problemSolvingScore" min="0" max="60" step="5"></td>
             </tr>
             <tr>
               <td>Personal-Social</td>
-              <td><?php echo $perSocCutoff ?></td>
               <td align="center"><input type="number" name="personalSocialScore" min="0" max="60" step="5"></td>
             </tr>
           </tbody>
@@ -114,6 +133,12 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
       <br><br>
       6. Requires followup? <input type="checkbox" name="response6"> &nbsp;
       Comments: <textarea name="comments6" cols="30" rows="1"></textarea>
+      <br><br>
+      7. Requires followup? <input type="checkbox" name="response7"> &nbsp;
+      Comments: <textarea name="comments7" cols="30" rows="1"></textarea>
+      <br><br>
+      8. Requires followup? <input type="checkbox" name="response8"> &nbsp;
+      Comments: <textarea name="comments8" cols="30" rows="1"></textarea>
     </div>
 
     <div id="followup_action_taken">

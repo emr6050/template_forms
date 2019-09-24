@@ -5,7 +5,7 @@
  */
 
 CREATE TABLE
-IF NOT EXISTS `form_asqse2`
+IF NOT EXISTS `form_asqse2_simple`
 (
     /* these fields are common to all forms and should remain intact */
     id bigint
@@ -23,46 +23,70 @@ IF NOT EXISTS `form_asqse2`
 (4) default NULL,
 
     /* start of custom form fields */
+    quesInterval    varchar
+(5),
+    ageAdjustment   varchar
+(1),
+	
+    /* ASQ-3 total score results */
 
-    survey_interval int,
+    communicationScore    int,
+    grossMotorScore       int,
+    fineMotorScore        int,
+    problemSolvingScore   int,
+    personalSocialScore   int,
 
-    /* ASQ:SE-2 total score results */
-
-    totalPointsP1 int,
-    totalPointsP2 int,
-    totalPointsP3 int,
-    totalPointsP4 int,
-    totalScore   int,
-
-    /* ASQ:SE-2 overall responses */
-    response1   boolean,
+    /* ASQ-3 overall responses */
+    response1   varchar
+(5) default NULL,
     comments1   longtext,
-    response2   boolean,
+    response2   varchar
+(5) default NULL,
     comments2   longtext,
-    response3   boolean,
+    response3   varchar
+(5) default NULL,
     comments3   longtext,
+    response4   varchar
+(5) default NULL,
+    comments4   longtext,
+    response5   varchar
+(5) default NULL,
+    comments5   longtext,
+    response6   varchar
+(5) default NULL,
+    comments6   longtext,
+    response7   varchar
+(5) default NULL,
+    comments7   longtext,
+    response8   varchar
+(5) default NULL,
+    comments8   longtext,
 
-    /* ASQ:SE-2 follow-up referral considerations */
-
-    settingTimeFactors varchar,
-    developmentFactors varchar,
-    healthFactors varchar,
-    familyCultureFactors varchar,
-    parentalConcerns varchar,
-
-    /* ASQ:SE-2 follow-up actions */
+    /* ASQ-3 follow-up actions */
     
-    shouldFollowup          boolean,
+    shouldFollowup          varchar
+(5) default NULL,
     followupDelay           int,
-    shareResults            boolean,
-    provideEdMaterials      boolean,
-    provideClassSupportInfo boolean,
-    secondaryCaregiver      boolean,
-    cargiverWho             longtext,
-    referToEarlyInterv      boolean,
-    referForEvaluation      boolean,
-    other                   boolean,
-    otherFollowupAction     longtext,
+    shareResults            varchar
+(5) default NULL,
+    referForOptions         varchar
+(5) default NULL,
+    referForHearing         varchar
+(5) default NULL,
+    referForVision          varchar
+(5) default NULL,
+    referForBehave          varchar
+(5) default NULL,
+    referToCareProvider     varchar
+(5) default NULL,
+    reasonForReferral       longtext,
+    referToEarlyInterv      varchar
+(5) default NULL,
+    noFurtherAction         varchar
+(5) default NULL,
+    other                   varchar
+(5) default NULL,
+    otherReasonForReferral  longtext,
 
     /* form extras */
 

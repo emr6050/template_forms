@@ -24,7 +24,7 @@ IF NOT EXISTS `form_asq3_simple`
 
     /* start of custom form fields */
     quesInterval    varchar
-(2),
+(5),
     ageAdjustment   varchar
 (1),
 	
@@ -37,37 +37,55 @@ IF NOT EXISTS `form_asq3_simple`
     personalSocialScore   int,
 
     /* ASQ-3 overall responses */
-    response1   boolean,
+    response1   varchar
+(5) default NULL,
     comments1   longtext,
-    response2   boolean,
+    response2   varchar
+(5) default NULL,
     comments2   longtext,
-    response3   boolean,
+    response3   varchar
+(5) default NULL,
     comments3   longtext,
-    response4   boolean,
+    response4   varchar
+(5) default NULL,
     comments4   longtext,
-    response5   boolean,
+    response5   varchar
+(5) default NULL,
     comments5   longtext,
-    response6   boolean,
+    response6   varchar
+(5) default NULL,
     comments6   longtext,
-    response7   boolean,
+    response7   varchar
+(5) default NULL,
     comments7   longtext,
-    response8   boolean,
+    response8   varchar
+(5) default NULL,
     comments8   longtext,
 
     /* ASQ-3 follow-up actions */
     
-    shouldFollowup          boolean,
+    shouldFollowup          varchar
+(5) default NULL,
     followupDelay           int,
-    shareResults            boolean,
-    referForOptions         boolean,
-    referForHearing         boolean,
-    referForVision          boolean,
-    referForBehave          boolean,
-    referToCareProvider     boolean,
+    shareResults            varchar
+(5) default NULL,
+    referForOptions         varchar
+(5) default NULL,
+    referForHearing         varchar
+(5) default NULL,
+    referForVision          varchar
+(5) default NULL,
+    referForBehave          varchar
+(5) default NULL,
+    referToCareProvider     varchar
+(5) default NULL,
     reasonForReferral       longtext,
-    referToEarlyInterv      boolean,
-    noFurtherAction         boolean,
-    other                   boolean,
+    referToEarlyInterv      varchar
+(5) default NULL,
+    noFurtherAction         varchar
+(5) default NULL,
+    other                   varchar
+(5) default NULL,
     otherReasonForReferral  longtext,
 
     /* form extras */
