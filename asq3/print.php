@@ -1,23 +1,19 @@
 <?php
 /*
- //This is an attempt at creating the
- //SRS-2 preschool assessment form
- 
- //Much of this file is copied and modified from:
- * Sports Physical Form created by Jason Morrill: January 2009
+
  */
 
 include_once("../../globals.php");
 include_once("$srcdir/api.inc");
 
 /** CHANGE THIS - name of the database table associated with this form **/
-$table_name = "form_asq3_02mo";
+$table_name = "form_asq3_simple";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "ASQ-3 2 Month Questionnaire";
+$form_name = "ASQ-3";
 
 /** CHANGE THIS to match the folder you created for this form **/
-$form_folder = "asq3_02mo";
+$form_folder = "asq3";
 
 formHeader("Form: ".$form_name);
 $returnurl = 'encounter_top.php';
@@ -128,6 +124,12 @@ DOB: <?php echo $result['DOB'];?>
       <br><br>
       6. Requires followup? <input type="checkbox" name="response6"> &nbsp;
       Comments: <textarea name="comments6" cols="30" rows="1"><?php echo stripslashes($record['comments6']) ?></textarea>
+      <br><br>
+      7. Requires followup? <input type="checkbox" name="response7"> &nbsp;
+      Comments: <textarea name="comments7" cols="30" rows="1"><?php echo stripslashes($record['comments7']) ?></textarea>
+      <br><br>
+      8. Requires followup? <input type="checkbox" name="response8"> &nbsp;
+      Comments: <textarea name="comments8" cols="30" rows="1"><?php echo stripslashes($record['comments8']) ?></textarea>
     </div>
 
     <div id="followup_action_taken">

@@ -6,7 +6,7 @@ include_once("$srcdir/api.inc");
 $table_name = "form_adi_r_simple";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "ADI-R";
+$form_name = "Autism Diagnostic Interview-Revised";
 
 /** CHANGE THIS to match the folder you created for this form **/
 $form_folder = "adi_r";
