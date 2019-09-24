@@ -28,15 +28,15 @@ IF NOT EXISTS `form_asqse2_simple`
     ageAdjustment   varchar
 (1),
 	
-    /* ASQ-3 total score results */
+    /* ASQ:SE-2 total score results */
 
-    communicationScore    int,
-    grossMotorScore       int,
-    fineMotorScore        int,
-    problemSolvingScore   int,
-    personalSocialScore   int,
+    score_page1   int,
+    score_page2   int,
+    score_page3   int,
+    score_page4   int,
+    score_total   int,
 
-    /* ASQ-3 overall responses */
+    /* ASQ:SE-2 overall responses */
     response1   varchar
 (5) default NULL,
     comments1   longtext,
@@ -46,43 +46,39 @@ IF NOT EXISTS `form_asqse2_simple`
     response3   varchar
 (5) default NULL,
     comments3   longtext,
-    response4   varchar
-(5) default NULL,
-    comments4   longtext,
-    response5   varchar
-(5) default NULL,
-    comments5   longtext,
-    response6   varchar
-(5) default NULL,
-    comments6   longtext,
-    response7   varchar
-(5) default NULL,
-    comments7   longtext,
-    response8   varchar
-(5) default NULL,
-    comments8   longtext,
 
-    /* ASQ-3 follow-up actions */
+    /* ASQ:SE-2 follow-up considerations */
+
+    f_consider_settingTime      varchar
+(5) default NULL,
+    f_consider_devlopmental     varchar
+(5) default NULL,
+    f_consider_health           varchar
+(5) default NULL,
+    f_consider_familyCultural   varchar
+(5) default NULL,
+    f_consider_parentConcerns   varchar
+(5) default NULL,
+
+    /* ASQ:SE-2 follow-up actions */
     
     shouldFollowup          varchar
 (5) default NULL,
     followupDelay           int,
     shareResults            varchar
 (5) default NULL,
-    referForOptions         varchar
+    provideEduMat         varchar
 (5) default NULL,
-    referForHearing         varchar
+    provideInfo         varchar
 (5) default NULL,
-    referForVision          varchar
+    repeatDiffCaregiver     varchar
 (5) default NULL,
-    referForBehave          varchar
+    diffCaregiver           longtext,
+    doDevelopScreen          varchar
 (5) default NULL,
-    referToCareProvider     varchar
+    referToSpecialEd     varchar
 (5) default NULL,
-    reasonForReferral       longtext,
-    referToEarlyInterv      varchar
-(5) default NULL,
-    noFurtherAction         varchar
+    referForEvaluation      varchar
 (5) default NULL,
     other                   varchar
 (5) default NULL,

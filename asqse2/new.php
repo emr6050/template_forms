@@ -53,25 +53,13 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
         <select name="quesInterval" required >
           <option value="">Select....</option>
           <option value="02">2 Month</option>
-          <option value="04">4 Month</option>
           <option value="06">6 Month</option>
-          <option value="08">8 Month</option>
-          <option value="09">9 Month</option>
-          <option value="10">10 Month</option>
           <option value="12">12 Month</option>
-          <option value="14">14 Month</option>
-          <option value="16">16 Month</option>
           <option value="18">18 Month</option>
-          <option value="20">20 Month</option>
-          <option value="22">22 Month</option>
           <option value="24">24 Month</option>
-          <option value="27">27 Month</option>
           <option value="30">30 Month</option>
-          <option value="33">33 Month</option>
           <option value="36">36 Month</option>
-          <option value="42">42 Month</option>
           <option value="48">48 Month</option>
-          <option value="54">54 Month</option>
           <option value="60">60 Month</option>
         </select>
       <br><br>
@@ -86,29 +74,29 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
           <thead>
               <tr>
                   <th>Area</th>
-                  <th align="left">Total Score</th>
+                  <th align="left">Score</th>
               </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Communication</td>
-              <td align="center"><input type="number" name="communicationScore" min="0" max="60" step="5"></td>
+              <td>Page 1</td>
+              <td align="center"><input type="number" name="score_page1" min="0" max="60" step="5" value="0"></td>
             </tr>
             <tr>
-              <td>Gross Motor</td>
-              <td align="center"><input type="number" name="grossMotorScore" min="0" max="60" step="5"></td>
+              <td>Page 2</td>
+              <td align="center"><input type="number" name="score_page2" min="0" max="60" step="5" value="0"></td>
             </tr>
             <tr>
-              <td>Fine Motor</td>
-              <td align="center"><input type="number" name="fineMotorScore" min="0" max="60" step="5"></td>
+              <td>Page 3</td>
+              <td align="center"><input type="number" name="score_page3" min="0" max="60" step="5" value="0"></td>
             </tr>
             <tr>
-              <td>Problem Solving</td>
-              <td align="center"><input type="number" name="problemSolvingScore" min="0" max="60" step="5"></td>
+              <td>Page 4</td>
+              <td align="center"><input type="number" name="score_page4" min="0" max="60" step="5" value="0"></td>
             </tr>
             <tr>
-              <td>Personal-Social</td>
-              <td align="center"><input type="number" name="personalSocialScore" min="0" max="60" step="5"></td>
+              <td>Total</td>
+              <td align="center"><input type="number" name="score_total" min="0" max="60" step="5" value="0"></td>
             </tr>
           </tbody>
         </table>
@@ -124,36 +112,39 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
       <br><br>
       3. Requires followup? <input type="checkbox" name="response3"> &nbsp;
       Comments: <textarea name="comments3" cols="30" rows="1"></textarea>
-      <br><br>
-      4. Requires followup? <input type="checkbox" name="response4"> &nbsp;
-      Comments: <textarea name="comments4" cols="30" rows="1"></textarea>
-      <br><br>
-      5. Requires followup? <input type="checkbox" name="response5"> &nbsp;
-      Comments: <textarea name="comments5" cols="30" rows="1"></textarea>
-      <br><br>
-      6. Requires followup? <input type="checkbox" name="response6"> &nbsp;
-      Comments: <textarea name="comments6" cols="30" rows="1"></textarea>
-      <br><br>
-      7. Requires followup? <input type="checkbox" name="response7"> &nbsp;
-      Comments: <textarea name="comments7" cols="30" rows="1"></textarea>
-      <br><br>
-      8. Requires followup? <input type="checkbox" name="response8"> &nbsp;
-      Comments: <textarea name="comments8" cols="30" rows="1"></textarea>
+    </div>
+
+    <div id="followup_considerations">
+      <h4>Follow-up Referral Considerations</h4>
+      <input type="checkbox" name="f_consider_settingTime"> Setting/time factors
+      <br>
+      <input type="checkbox" name="f_consider_devlopmental"> Developmental factors
+      <br>
+      <input type="checkbox" name="f_consider_health"> Health factors
+      <br>
+      <input type="checkbox" name="f_consider_familyCultural"> Family/cultural factors
+      <br>
+      <input type="checkbox" name="f_consider_parentConcerns"> Parent concerns
     </div>
 
     <div id="followup_action_taken">
       <h4>Follow-up Action Taken</h4>
-      <input type="checkbox" name="shouldFollowup"> Provide activities and rescreen in <input type="number" name="followupDelay" min="0" max="4"> months.
+      <input type="checkbox" name="shouldFollowup"> Provide activities and rescreen in <input type="number" name="followupDelay" min="0" max="4" value="1"> months.
       <br>
       <input type="checkbox" name="shareResults"> Share results with primary health care provider
       <br>
-      <input type="checkbox" name="referForOptions"> Refer for: <input type="checkbox" name="referForHearing"> hearing, <input type="checkbox" name="referForVision"> vision, <input type="checkbox" name="referForBehave"> behavioral screening.
+      <input type="checkbox" name="provideEduMat"> Provide parent education materials
       <br>
-      <input type="checkbox" name="referToCareProvider"> Refer to primary health care provider or other community agency (specify reason): <textarea name="reasonForReferral" cols="30" rows="1"></textarea>.
+      <input type="checkbox" name="provideInfo"> Provide information about available parenting classes or support groups
       <br>
-      <input type="checkbox" name="referToEarlyInterv"> Refer to early intervention/early childhood special education.
+      <input type="checkbox" name="repeatDiffCaregiver"> Have another caregiver complete ASQ:SE-2. List caregiver here (e.g., grandparent, teacher):
+      &nbsp;<textarea name="diffCaregiver" cols="30" rows="1"></textarea>.
       <br>
-      <input type="checkbox" name="noFurtherAction"> No further action taken at this time.
+      <input type="checkbox" name="doDevelopScreen"> Administer developmental screening (e.g., ASQ-3)
+      <br>
+      <input type="checkbox" name="referToSpecialEd"> Refer to early intervention/early childhood special education
+      <br>
+      <input type="checkbox" name="referForEvaluation"> Refer for social-emotional, behavioral, or mental health evaluation
       <br>
       <input type="checkbox" name="other"> Other (specify): <textarea name="otherReasonForReferral" cols="30" rows="1"></textarea>.
     </div>

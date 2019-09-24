@@ -79,29 +79,29 @@ DOB: <?php echo $result['DOB'];?>
           <thead>
               <tr>
                   <th>Area</th>
-                  <th align="left">Total Score</th>
+                  <th align="left">Score</th>
               </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Communication</td>
-              <td align="center"><input type="number" name="communicationScore" min="0" max="60" step="5" value="<?php echo stripslashes($record['communicationScore']) ?>"></td>
+              <td>Page 1</td>
+              <td align="center"><input type="number" name="score_page1" min="0" max="60" step="5" value="<?php echo stripslashes($record['score_page1']) ?>"></td>
             </tr>
             <tr>
-              <td>Gross Motor</td>
-              <td align="center"><input type="number" name="grossMotorScore" min="0" max="60" step="5" value="<?php echo stripslashes($record['grossMotorScore']) ?>"></td>
+              <td>Page 2</td>
+              <td align="center"><input type="number" name="score_page2" min="0" max="60" step="5" value="<?php echo stripslashes($record['score_page2']) ?>"></td>
             </tr>
             <tr>
-              <td>Fine Motor</td>
-              <td align="center"><input type="number" name="fineMotorScore" min="0" max="60" step="5" value="<?php echo stripslashes($record['fineMotorScore']) ?>"></td>
+              <td>Page 3</td>
+              <td align="center"><input type="number" name="score_page3" min="0" max="60" step="5" value="<?php echo stripslashes($record['score_page3']) ?>"></td>
             </tr>
             <tr>
-              <td>Problem Solving</td>
-              <td align="center"><input type="number" name="problemSolvingScore" min="0" max="60" step="5" value="<?php echo stripslashes($record['problemSolvingScore']) ?>"></td>
+              <td>Page 4</td>
+              <td align="center"><input type="number" name="score_page4" min="0" max="60" step="5" value="<?php echo stripslashes($record['score_page4']) ?>"></td>
             </tr>
             <tr>
-              <td>Personal-Social</td>
-              <td align="center"><input type="number" name="personalSocialScore" min="0" max="60" step="5" value="<?php echo stripslashes($record['personalSocialScore']) ?>"></td>
+              <td>Total</td>
+              <td align="center"><input type="number" name="score_total" min="0" max="60" step="5" value="<?php echo stripslashes($record['score_total']) ?>"></td>
             </tr>
           </tbody>
         </table>
@@ -117,21 +117,19 @@ DOB: <?php echo $result['DOB'];?>
       <br><br>
       3. Requires followup? <input type="checkbox" name="response3" <?php if ($record["response3"] == "on") { echo "checked";	}?> > &nbsp;
       Comments: <textarea name="comments3" cols="30" rows="1"><?php echo stripslashes($record['comments3']) ?></textarea>
-      <br><br>
-      4. Requires followup? <input type="checkbox" name="response4" <?php if ($record["response4"] == "on") { echo "checked";	}?> > &nbsp;
-      Comments: <textarea name="comments4" cols="30" rows="1"><?php echo stripslashes($record['comments4']) ?></textarea>
-      <br><br>
-      5. Requires followup? <input type="checkbox" name="response5" <?php if ($record["response5"] == "on") { echo "checked";	}?> > &nbsp;
-      Comments: <textarea name="comments5" cols="30" rows="1"><?php echo stripslashes($record['comments5']) ?></textarea>
-      <br><br>
-      6. Requires followup? <input type="checkbox" name="response6" <?php if ($record["response6"] == "on") { echo "checked";	}?> > &nbsp;
-      Comments: <textarea name="comments6" cols="30" rows="1"><?php echo stripslashes($record['comments6']) ?></textarea>
-      <br><br>
-      7. Requires followup? <input type="checkbox" name="response7" <?php if ($record["response7"] == "on") { echo "checked";	}?> > &nbsp;
-      Comments: <textarea name="comments7" cols="30" rows="1"><?php echo stripslashes($record['comments7']) ?></textarea>
-      <br><br>
-      8. Requires followup? <input type="checkbox" name="response8" <?php if ($record["response8"] == "on") { echo "checked";	}?> > &nbsp;
-      Comments: <textarea name="comments8" cols="30" rows="1"><?php echo stripslashes($record['comments8']) ?></textarea>
+    </div>
+
+    <div id="followup_considerations">
+      <h4>Follow-up Referral Considerations</h4>
+      <input type="checkbox" name="f_consider_settingTime" <?php if($record['f_consider_settingTime'] == "on") {echo "checked";} ?> > Setting/time factors
+      <br>
+      <input type="checkbox" name="f_consider_devlopmental" <?php if($record['f_consider_devlopmental'] == "on") {echo "checked";} ?>> Developmental factors
+      <br>
+      <input type="checkbox" name="f_consider_health" <?php if($record['f_consider_health'] == "on") {echo "checked";} ?>> Health factors
+      <br>
+      <input type="checkbox" name="f_consider_familyCultural" <?php if($record['f_consider_familyCultural'] == "on") {echo "checked";} ?>> Family/cultural factors
+      <br>
+      <input type="checkbox" name="f_consider_parentConcerns" <?php if($record['f_consider_parentConcerns'] == "on") {echo "checked";} ?>> Parent concerns
     </div>
 
     <div id="followup_action_taken">
@@ -140,13 +138,18 @@ DOB: <?php echo $result['DOB'];?>
       <br>
       <input type="checkbox" name="shareResults" <?php if($record['shareResults'] == "on") {echo "checked";} ?>> Share results with primary health care provider
       <br>
-      <input type="checkbox" name="referForOptions" <?php if($record['referForOptions'] == "on") {echo "checked";} ?>> Refer for: <input type="checkbox" name="referForHearing" <?php if($record['referForHearing'] == "on") {echo "checked";} ?> > hearing, <input type="checkbox" name="referForVision" <?php if($record['referForVision'] == "on") {echo "checked";} ?> > vision, <input type="checkbox" name="referForBehavioral" <?php if($record['referForBehavioral'] == "on") {echo "checked";} ?> > behavioral screening.
+      <input type="checkbox" name="provideEduMat" <?php if($record['provideEduMat'] == "on") {echo "checked";} ?>> Provide parent education materials
       <br>
-      <input type="checkbox" name="referToCareProvider" <?php if($record['referToCareProvider'] == "on") {echo "checked";} ?>> Refer to primary health care provider or other community agency (specify reason): <textarea name="reasonForReferral" cols="30" rows="1"><?php echo stripslashes($record['reasonForReferral']) ?></textarea>.
+      <input type="checkbox" name="provideInfo" <?php if($record['provideInfo'] == "on") {echo "checked";} ?>> Provide information about available parenting classes or support groups
       <br>
-      <input type="checkbox" name="referToEarlyIntervention" <?php if($record['referToEarlyIntervention'] == "on") {echo "checked";} ?>> Refer to early intervention/early childhood special education.
+      <input type="checkbox" name="repeatDiffCaregiver" <?php if($record['repeatDiffCaregiver'] == "on") {echo "checked";} ?>> Have another caregiver complete ASQ:SE-2. List caregiver here (e.g., grandparent, teacher):
+      &nbsp;<textarea name="diffCaregiver" cols="30" rows="1"><?php echo stripslashes($record['diffCaregiver']) ?></textarea>.
       <br>
-      <input type="checkbox" name="noFurtherAction" <?php if($record['noFurtherAction'] == "on") {echo "checked";} ?>> No further action taken at this time.
+      <input type="checkbox" name="doDevelopScreen" <?php if($record['doDevelopScreen'] == "on") {echo "checked";} ?>> Administer developmental screening (e.g., ASQ-3)
+      <br>
+      <input type="checkbox" name="referToSpecialEd" <?php if($record['referToSpecialEd'] == "on") {echo "checked";} ?>> Refer to early intervention/early childhood special education
+      <br>
+      <input type="checkbox" name="referForEvaluation" <?php if($record['referForEvaluation'] == "on") {echo "checked";} ?>> Refer for social-emotional, behavioral, or mental health evaluation
       <br>
       <input type="checkbox" name="other" <?php if($record['other'] == "on") {echo "checked";} ?>> Other (specify): <textarea name="otherReasonForReferral" cols="30" rows="1"><?php echo stripslashes($record['otherReasonForReferral']) ?></textarea>.
     </div>
