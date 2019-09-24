@@ -138,7 +138,7 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
       <input type="checkbox" name="provideInfo"> Provide information about available parenting classes or support groups
       <br>
       <input type="checkbox" name="repeatDiffCaregiver"> Have another caregiver complete ASQ:SE-2. List caregiver here (e.g., grandparent, teacher):
-      &nbsp;<textarea name="diffCaregiver" cols="30" rows="1"></textarea>.
+      &nbsp;<textarea name="diffCaregiver" cols="30" rows="1"></textarea>
       <br>
       <input type="checkbox" name="doDevelopScreen"> Administer developmental screening (e.g., ASQ-3)
       <br>
@@ -146,7 +146,7 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
       <br>
       <input type="checkbox" name="referForEvaluation"> Refer for social-emotional, behavioral, or mental health evaluation
       <br>
-      <input type="checkbox" name="other"> Other (specify): <textarea name="otherReasonForReferral" cols="30" rows="1"></textarea>.
+      <input type="checkbox" name="other"> Other (specify): <textarea name="otherReasonForReferral" cols="30" rows="1"></textarea>
     </div>
 
     <div id="extra">
@@ -174,7 +174,7 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
         if(parseInt(arr[i].value))
             tot += parseInt(arr[i].value);
     }
-    document.getElementById('total').value = tot;
+    document.getElementById('score_total').value = tot;
   }
 
 

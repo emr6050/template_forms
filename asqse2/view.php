@@ -151,7 +151,7 @@ function PrintForm() {
       <input type="checkbox" name="provideInfo" <?php if($record['provideInfo'] == "on") {echo "checked";} ?>> Provide information about available parenting classes or support groups
       <br>
       <input type="checkbox" name="repeatDiffCaregiver" <?php if($record['repeatDiffCaregiver'] == "on") {echo "checked";} ?>> Have another caregiver complete ASQ:SE-2. List caregiver here (e.g., grandparent, teacher):
-      &nbsp;<textarea name="diffCaregiver" cols="30" rows="1"><?php echo stripslashes($record['diffCaregiver']) ?></textarea>.
+      &nbsp;<textarea name="diffCaregiver" cols="30" rows="1"><?php echo stripslashes($record['diffCaregiver']) ?></textarea>
       <br>
       <input type="checkbox" name="doDevelopScreen" <?php if($record['doDevelopScreen'] == "on") {echo "checked";} ?>> Administer developmental screening (e.g., ASQ-3)
       <br>
@@ -159,7 +159,7 @@ function PrintForm() {
       <br>
       <input type="checkbox" name="referForEvaluation" <?php if($record['referForEvaluation'] == "on") {echo "checked";} ?>> Refer for social-emotional, behavioral, or mental health evaluation
       <br>
-      <input type="checkbox" name="other" <?php if($record['other'] == "on") {echo "checked";} ?>> Other (specify): <textarea name="otherReasonForReferral" cols="30" rows="1"><?php echo stripslashes($record['otherReasonForReferral']) ?></textarea>.
+      <input type="checkbox" name="other" <?php if($record['other'] == "on") {echo "checked";} ?>> Other (specify): <textarea name="otherReasonForReferral" cols="30" rows="1"><?php echo stripslashes($record['otherReasonForReferral']) ?></textarea>
     </div>
 
     <div id="extra">
@@ -188,7 +188,7 @@ function calcTotal(){
       if(parseInt(arr[i].value))
           tot += parseInt(arr[i].value);
   }
-  document.getElementById('total').value = tot;
+  document.getElementById('score_total').value = tot;
 }
 
 // jQuery stuff to make the page a little easier to use
