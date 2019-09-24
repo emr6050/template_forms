@@ -14,7 +14,7 @@ include_once("../../globals.php");
 include_once("$srcdir/api.inc");
 
 /** CHANGE THIS - name of the database table associated with this form **/
-$table_name = "form_asq_02mo";
+$table_name = "form_asq3_simple";
 
 /** CHANGE THIS name to the name of your form **/
 $form_name = "ASQ-3 2 Month Questionnaire";
