@@ -85,23 +85,23 @@ DOB: <?php echo $result['DOB'];?>
           <tbody>
             <tr>
               <td>Page 1</td>
-              <td align="center"><input type="number" name="score_page1" min="0" max="60" step="5" value="<?php echo stripslashes($record['score_page1']) ?>"></td>
+              <td align="center"><input type="number" name="score_page" id="score_page1" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page1']) ?>"></td>
             </tr>
             <tr>
               <td>Page 2</td>
-              <td align="center"><input type="number" name="score_page2" min="0" max="60" step="5" value="<?php echo stripslashes($record['score_page2']) ?>"></td>
+              <td align="center"><input type="number" name="score_page" id="score_page2" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page2']) ?>"></td>
             </tr>
             <tr>
               <td>Page 3</td>
-              <td align="center"><input type="number" name="score_page3" min="0" max="60" step="5" value="<?php echo stripslashes($record['score_page3']) ?>"></td>
+              <td align="center"><input type="number" name="score_page" id="score_page3" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page3']) ?>"></td>
             </tr>
             <tr>
               <td>Page 4</td>
-              <td align="center"><input type="number" name="score_page4" min="0" max="60" step="5" value="<?php echo stripslashes($record['score_page4']) ?>"></td>
+              <td align="center"><input type="number" name="score_page" id="score_page4" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page4']) ?>"></td>
             </tr>
             <tr>
               <td>Total</td>
-              <td align="center"><input type="number" name="score_total" min="0" max="60" step="5" value="<?php echo stripslashes($record['score_total']) ?>"></td>
+              <td align="center"><input type="number" name="score_total" id="score_total" min="0" max="300" step="5" value="<?php echo stripslashes($record['score_total']) ?>"></td>
             </tr>
           </tbody>
         </table>
@@ -167,6 +167,7 @@ DOB: <?php echo $result['DOB'];?>
 </body>
 
 <script language="javascript">
+
 window.print();
 window.close();
 </script>
