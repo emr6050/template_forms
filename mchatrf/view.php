@@ -1,36 +1,16 @@
 <?php
-/*
- * Sports Physical Form
- *
- * LICENSE: This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://opensource.org/licenses/gpl-license.php>.
- *
- * @package   OpenEMR
- * @author    Jason Morrill
- * @author    Brady Miller <brady.g.miller@gmail.com>
- * @link      http://www.open-emr.org
- */
-
 
 include_once("../../globals.php");
 include_once("$srcdir/api.inc");
 
 /** CHANGE THIS - name of the database table associated with this form **/
-$table_name = "form_ados2";
+$table_name = "form_mchatrf";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "ADOS-2";
+$form_name = "M-CHAT-R/F";
 
 /** CHANGE THIS to match the folder you created for this form **/
-$form_folder = "ados2";
+$form_folder = "mchatrf";
 
 formHeader("Form: ".$form_name);
 $returnurl = 'encounter_top.php';
@@ -81,34 +61,18 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 <div id="form_container">
 
 <div id="general">
+
+<div id="general">
 <table>
-  <tr><td>
-    Algorithm, Module: <input type="number" name="ados2_algorithm" min="0" value="<?php echo stripslashes($record['ados2_algorithm']);?>" >
-  </td></tr>
-  <tr><td>
-    Social Affect (SA) total: <input type="number" name="sa_total" min="0" value="<?php echo stripslashes($record['sa_total']);?>" >
-  </td></tr>
-  <tr><td>
-    Restricted and Repetitive Behavior (RRB): <input type="number" name="rrb_total" min="0" value="<?php echo stripslashes($record['rrb_total']);?>" >
-  </td></tr>
-  <tr><td>
-    Overall Total (SA + RRB): <?php echo stripslashes($record['rrb_total']) + stripslashes($record['sa_total']);?>
-  </td></tr>
-  <tr><td>
-    ADOS-2 Classification:<br>
-    <textarea name="ados2_classification" cols="40" rows="3">
-      <?php echo stripslashes($record['ados2_classification']) ?>
-    </textarea>
-    <br>
-    Overall Diagnosis:<br>
-    <textarea name="diagnosis" cols="40" rows="3">
-      <?php echo stripslashes($record['diagnosis']) ?>
-    </textarea>
-  </td></tr>
-  <tr><td>
-    ADOS-2 Comparison Score: <input type="number" name="ados2_comp_score" min="0" max="10" value="<?php echo stripslashes($record['ados2_comp_score']);?>" >
-  </td></tr>
+    <tr><td>
+        Total Score: <input type="number" name="score" min="0" value="<?php echo($record["score"]);?>" >
+    </td></tr>
+    <tr><td>
+        Comments:<br>
+        <textarea name="comments" cols="50" rows="5"><?php echo($record["comments"]);?></textarea>
+    </td></tr>
 </table>
+</div>
 
 </div> <!-- end form_container -->
 

@@ -1,31 +1,12 @@
 <?php
-/*
- * The page shown when the user requests a new form
- *
- * LICENSE: This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://opensource.org/licenses/gpl-license.php>.
- *
- * @package   OpenEMR
- * @author    Brady Miller <brady.g.miller@gmail.com>
- * @link      http://www.open-emr.org
- */
-
 include_once("../../globals.php");
 include_once("$srcdir/api.inc");
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "SRS-2 AutoScore Form School-Age";
+$form_name = "M-CHAT-R/F";
 
 /** CHANGE THIS to match the folder you created for this form **/
-$form_folder = "example2";
+$form_folder = "mchatrf";
 
 formHeader("Form: ".$forn_name);
 
@@ -68,43 +49,13 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 
 <div id="general">
 <table>
-<tr><td>
-Assessment ID: <input id="assessment_id" name="assessment_id" type="text">
-</td></tr>
-<tr><td>
-Gender:
-<input type="radio" id="gender" name="gender" value="male">Male
-<input type="radio" id="gender" name="gender" value="female">Female
-</td></tr>
-<tr><td>
-Child's name: <input id="child_name" name="child_name" type="text" size="50" maxlength="250">
-</td></tr>
-<tr><td>
-Child's age in years:<input name="child_age" id="child_age" type="text" size="4" maxlength="4">
-</td></tr>
-<tr><td>
-Rater's name: <input name="rater_name" id="rater_name" type="text" size="50" maxlength="50">
-</td></tr>
-<tr><td>
-Date of rating:
-   <input type='text' size='10' class='datepicker' name='form_date' id='form_date'
-    value='<?php echo date('Y-m-d', time()); ?>'
-    title='<?php xl('yyyy-mm-dd', 'e'); ?>' />
-</td></tr>
-<tr><td>
-Relationship to rated individual:
-<input type="radio" id="relation" name="relation" value="mother">Mother
-<input type="radio" id="relation" name="relation" value="father">Father
-<input type="radio" id="relation" name="relation" value="custodial">Other custodial adult
-<input type="radio" id="relation" name="relation" value="teacher">Teacher
-<input type="radio" id="relation" name="relation" value="others">Other specialist
-</td></tr>
-<tr><td>
-Grade: <input name="grade" id="grade" type="text" size="3" maxlength="3">
-</td></tr>
-<tr><td>
-School or clinic: <input name="school_or_clinic" id="school_or_clinic" type="text" size="75" maxlength="250">
-</td></tr>
+    <tr><td>
+        Total Score: <input type="number" name="score" min="0" >
+    </td></tr>
+    <tr><td>
+        Comments:<br>
+        <textarea name="comments" cols="40" rows="3"></textarea>
+    </td></tr>
 </table>
 </div>
 

@@ -51,10 +51,6 @@ if ($record['form_date'] != "") {
 <script language="JavaScript">
 // this line is to assist the calendar text boxes
 var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
-
-function PrintForm() {
-    newwin = window.open("<?php echo "http://".$_SERVER['SERVER_NAME'].$rootdir."/forms/".$form_folder."/print.php?id=".$_GET["id"]; ?>","mywin");
-}
 </script>
 
 </head>
@@ -69,7 +65,6 @@ function PrintForm() {
 <!-- Save/Cancel links -->
 <input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
 <input type="button" class="dontsave" value="<?php xl('Don\'t Save Changes', 'e'); ?>"> &nbsp;
-<input type="button" class="printform" value="<?php xl('Print', 'e'); ?>"> &nbsp;
 
 <!-- container for the main body of the form -->
 <div id="form_container">
@@ -93,23 +88,23 @@ function PrintForm() {
           <tbody>
             <tr>
               <td>Page 1</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page" id="score_page1" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page1']) ?>"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page1" id="score_page1" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page1']) ?>"></td>
             </tr>
             <tr>
               <td>Page 2</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page" id="score_page2" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page2']) ?>"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page2" id="score_page2" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page2']) ?>"></td>
             </tr>
             <tr>
               <td>Page 3</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page" id="score_page3" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page3']) ?>"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page3" id="score_page3" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page3']) ?>"></td>
             </tr>
             <tr>
               <td>Page 4</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page" id="score_page4" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page4']) ?>"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page4" id="score_page4" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page4']) ?>"></td>
             </tr>
             <tr>
               <td>Total</td>
-              <td align="center"><input type="number" name="score_total" id="score_total" min="0" max="300" step="5" value="<?php echo stripslashes($record['score_total']) ?>"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_total" id="score_total" min="0" max="300" step="5" value="<?php echo stripslashes($record['score_total']) ?>"></td>
             </tr>
           </tbody>
         </table>
@@ -172,7 +167,6 @@ function PrintForm() {
 
 <input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
 <input type="button" class="dontsave" value="<?php xl('Don\'t Save Changes', 'e'); ?>"> &nbsp;
-<input type="button" class="printform" value="<?php xl('Print', 'e'); ?>"> &nbsp;
 
 </form>
 
@@ -182,7 +176,11 @@ function PrintForm() {
 
 // for calculating the total score based on the input scores from each page
 function calcTotal(){
-  var arr = document.getElementsByName('score_page');
+    var arr = [];
+    arr.push(document.getElementsByName('score_page1')[0]);
+    arr.push(document.getElementsByName('score_page2')[0]);
+    arr.push(document.getElementsByName('score_page3')[0]);
+    arr.push(document.getElementsByName('score_page4')[0]);
   var tot=0;
   for(var i=0;i<arr.length;i++){
       if(parseInt(arr[i].value))
@@ -196,7 +194,6 @@ function calcTotal(){
 $(document).ready(function(){
     $(".save").click(function() { top.restoreSession(); document.my_form.submit(); });
     $(".dontsave").click(function() { parent.closeTab(window.name, false); });
-    $(".printform").click(function() { PrintForm(); });
 
     $('.datepicker').datetimepicker({
         <?php $datetimepicker_timepicker = false; ?>

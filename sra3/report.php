@@ -2,13 +2,9 @@
 include_once("../../globals.php");
 include_once($GLOBALS["srcdir"]."/api.inc");
 
-/** CHANGE THIS, the name of the function is significant and  **
- **              must be changed to match the folder name     **/
-function example_report($pid, $encounter, $cols, $id)
+function asq3_02mo_profile_report($pid, $encounter, $cols, $id)
 {
-    
-    /** CHANGE THIS - name of the database table associated with this form **/
-    $table_name = "form_example";
+    $table_name = "form_sra2";
 
     $count = 0;
     $data = formFetch($table_name, $id);

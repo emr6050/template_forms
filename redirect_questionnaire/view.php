@@ -56,10 +56,6 @@ if ($record['dob'] != "") {
 <script language="JavaScript">
 // this line is to assist the calendar text boxes
 var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
-
-function PrintForm() {
-    newwin = window.open("<?php echo "http://".$_SERVER['SERVER_NAME'].$rootdir."/forms/".$form_folder."/print.php?id=".$_GET["id"]; ?>","mywin");
-}
 </script>
 
 </head>
@@ -74,7 +70,6 @@ function PrintForm() {
 <!-- Save/Cancel links -->
 <input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
 <input type="button" class="dontsave" value="<?php xl('Don\'t Save Changes', 'e'); ?>"> &nbsp;
-<input type="button" class="printform" value="<?php xl('Print', 'e'); ?>"> &nbsp;
 
 <!-- container for the main body of the form -->
 
@@ -489,7 +484,6 @@ function PrintForm() {
 
 <input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
 <input type="button" class="dontsave" value="<?php xl('Don\'t Save Changes', 'e'); ?>"> &nbsp;
-<input type="button" class="printform" value="<?php xl('Print', 'e'); ?>"> &nbsp;
 
 </form>
 
@@ -501,7 +495,6 @@ function PrintForm() {
 $(document).ready(function(){
     $(".save").click(function() { top.restoreSession(); document.my_form.submit(); });
     $(".dontsave").click(function() { parent.closeTab(window.name, false); });
-    $(".printform").click(function() { PrintForm(); });
 
     $('.datepicker').datetimepicker({
         <?php $datetimepicker_timepicker = false; ?>

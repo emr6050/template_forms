@@ -52,8 +52,8 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
       Questionnaire interval:
         <select name="quesInterval" required >
           <option value="">Select....</option>
-          <option value="02">2 Month</option>
-          <option value="06">6 Month</option>
+          <option value="2">2 Month</option>
+          <option value="6">6 Month</option>
           <option value="12">12 Month</option>
           <option value="18">18 Month</option>
           <option value="24">24 Month</option>
@@ -80,23 +80,23 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
           <tbody>
             <tr>
               <td>Page 1</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page" id="score_page1" min="0" max="75" step="5" value="0"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page1" id="score_page1" min="0" max="75" step="5" value="0"></td>
             </tr>
             <tr>
               <td>Page 2</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page" id="score_page2" min="0" max="75" step="5" value="0"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page2" id="score_page2" min="0" max="75" step="5" value="0"></td>
             </tr>
             <tr>
               <td>Page 3</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page" id="score_page3" min="0" max="75" step="5" value="0"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page3" id="score_page3" min="0" max="75" step="5" value="0"></td>
             </tr>
             <tr>
               <td>Page 4</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page" id="score_page4" min="0" max="75" step="5" value="0"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page4" id="score_page4" min="0" max="75" step="5" value="0"></td>
             </tr>
             <tr>
               <td>Total</td>
-              <td align="center"><input type="number" name="score_total" id="score_total" min="0" max="300" step="5" value=""></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_total" id="score_total" min="0" max="300" step="5" value=""></td>
             </tr>
           </tbody>
         </table>
@@ -168,7 +168,11 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
 
   // for calculating the total score based on the input scores from each page
   function calcTotal(){
-    var arr = document.getElementsByName('score_page');
+    var arr = [];
+    arr.push(document.getElementsByName('score_page1')[0]);
+    arr.push(document.getElementsByName('score_page2')[0]);
+    arr.push(document.getElementsByName('score_page3')[0]);
+    arr.push(document.getElementsByName('score_page4')[0]);
     var tot=0;
     for(var i=0;i<arr.length;i++){
         if(parseInt(arr[i].value))

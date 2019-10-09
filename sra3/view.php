@@ -1,19 +1,16 @@
 <?php
-/*
-
- */
 
 include_once("../../globals.php");
 include_once("$srcdir/api.inc");
 
 /** CHANGE THIS - name of the database table associated with this form **/
-$table_name = "form_asqse2_simple";
+$table_name = "form_sra2";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "ASQ:SE-2";
+$form_name = "School Readiness Assessment";
 
 /** CHANGE THIS to match the folder you created for this form **/
-$form_folder = "asqse2";
+$form_folder = "sra2";
 
 formHeader("Form: ".$form_name);
 $returnurl = 'encounter_top.php';
@@ -26,45 +23,41 @@ if ($record['form_date'] != "") {
     $dateparts = explode(" ", $record['form_date']);
     $record['form_date'] = $dateparts[0];
 }
-
-if ($record['dob'] != "") {
-    $dateparts = explode(" ", $record['dob']);
-    $record['dob'] = $dateparts[0];
-}
-
-if ($record['sig_date'] != "") {
-    $dateparts = explode(" ", $record['sig_date']);
-    $record['sig_date'] = $dateparts[0];
-}
 ?>
-<!--//This line lets us get values from the patient data instead of entering it?/>
-
-<?php $res = sqlStatement("SELECT fname,mname,lname,ss,street,city,state,postal_code,phone_home,DOB FROM patient_data WHERE pid = $pid");
-$result = SqlFetchArray($res); ?>
 
 <html><head>
 <?php html_header_show();?>
 
 <!-- supporting javascript code -->
 <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-min-3-1-1/index.js"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/textformat.js"></script>
+<script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/textformat.js?v=<?php echo $v_js_includes; ?>"></script>
+<script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-datetimepicker-2-5-4/build/jquery.datetimepicker.full.min.js"></script>
 
 <!-- page styles -->
 <link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-<link rel="stylesheet" href="../../forms/<?php echo $form_folder; ?>/style.css" type="text/css">
+<link rel="stylesheet" href="../../forms/<?php echo $form_folder; ?>/style.css?v=<?php echo $v_js_includes; ?>" type="text/css">
+<link rel="stylesheet" href="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-datetimepicker-2-5-4/build/jquery.datetimepicker.min.css">
+
+<script language="JavaScript">
+// this line is to assist the calendar text boxes
+var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
+</script>
 
 </head>
 
 <body class="body_top">
 
-Printed on <?php echo date("F d, Y", time()); ?>
-Client's Name: <?php echo $result['fname'] . '&nbsp;' . $result['mname'] . '&nbsp;' . $result['lname'];?>
-DOB: <?php echo $result['DOB'];?>
+<?php echo date("F d, Y", time()); ?>
 
-<form method=post action="">
+<form method=post action="<?php echo $rootdir;?>/forms/<?php echo $form_folder; ?>/save.php?mode=update&id=<?php echo $_GET["id"];?>" name="my_form">
 <span class="title"><?php xl($form_name, 'e'); ?></span><br>
 
-  <div id="form_container">
+<!-- Save/Cancel links -->
+<input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
+<input type="button" class="dontsave" value="<?php xl('Don\'t Save Changes', 'e'); ?>"> &nbsp;
+
+<!-- container for the main body of the form -->
+<div id="form_container">
     <div id="preliminaryInfo">
       Questionnaire interval: <?php echo stripslashes($record["quesInterval"]) ?> months.
       <br><br>
@@ -85,23 +78,23 @@ DOB: <?php echo $result['DOB'];?>
           <tbody>
             <tr>
               <td>Page 1</td>
-              <td align="center"><input type="number" name="score_page" id="score_page1" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page1']) ?>"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page1" id="score_page1" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page1']) ?>"></td>
             </tr>
             <tr>
               <td>Page 2</td>
-              <td align="center"><input type="number" name="score_page" id="score_page2" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page2']) ?>"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page2" id="score_page2" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page2']) ?>"></td>
             </tr>
             <tr>
               <td>Page 3</td>
-              <td align="center"><input type="number" name="score_page" id="score_page3" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page3']) ?>"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page3" id="score_page3" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page3']) ?>"></td>
             </tr>
             <tr>
               <td>Page 4</td>
-              <td align="center"><input type="number" name="score_page" id="score_page4" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page4']) ?>"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_page4" id="score_page4" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page4']) ?>"></td>
             </tr>
             <tr>
               <td>Total</td>
-              <td align="center"><input type="number" name="score_total" id="score_total" min="0" max="300" step="5" value="<?php echo stripslashes($record['score_total']) ?>"></td>
+              <td align="center"><input onblur="calcTotal()" type="number" name="score_total" id="score_total" min="0" max="300" step="5" value="<?php echo stripslashes($record['score_total']) ?>"></td>
             </tr>
           </tbody>
         </table>
@@ -160,7 +153,10 @@ DOB: <?php echo $result['DOB'];?>
       <br><br>
     </div>
 
-  </div> <!-- end form_container -->
+</div> <!-- end form_container -->
+
+<input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
+<input type="button" class="dontsave" value="<?php xl('Don\'t Save Changes', 'e'); ?>"> &nbsp;
 
 </form>
 
@@ -168,8 +164,36 @@ DOB: <?php echo $result['DOB'];?>
 
 <script language="javascript">
 
-window.print();
-window.close();
+// for calculating the total score based on the input scores from each page
+function calcTotal(){
+    var arr = [];
+    arr.push(document.getElementsByName('score_page1')[0]);
+    arr.push(document.getElementsByName('score_page2')[0]);
+    arr.push(document.getElementsByName('score_page3')[0]);
+    arr.push(document.getElementsByName('score_page4')[0]);
+  var tot=0;
+  for(var i=0;i<arr.length;i++){
+      if(parseInt(arr[i].value))
+          tot += parseInt(arr[i].value);
+  }
+  document.getElementById('score_total').value = tot;
+}
+
+// jQuery stuff to make the page a little easier to use
+
+$(document).ready(function(){
+    $(".save").click(function() { top.restoreSession(); document.my_form.submit(); });
+    $(".dontsave").click(function() { parent.closeTab(window.name, false); });
+
+    $('.datepicker').datetimepicker({
+        <?php $datetimepicker_timepicker = false; ?>
+        <?php $datetimepicker_showseconds = false; ?>
+        <?php $datetimepicker_formatInput = false; ?>
+        <?php require($GLOBALS['srcdir'] . '/js/xl/jquery-datetimepicker-2-5-4.js.php'); ?>
+        <?php // can add any additional javascript settings to datetimepicker here; need to prepend first setting with a comma ?>
+    });
+});
+
 </script>
 
 </html>

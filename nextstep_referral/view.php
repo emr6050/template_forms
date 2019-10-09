@@ -154,7 +154,6 @@ value='<?php echo stripslashes($record['name_parent2']);?>'><br>
 
 <input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
 <input type="button" class="dontsave" value="<?php xl('Don\'t Save Changes', 'e'); ?>"> &nbsp;
-<input type="button" class="printform" value="<?php xl('Print', 'e'); ?>"> &nbsp;
 
 </form>
 
@@ -166,7 +165,6 @@ value='<?php echo stripslashes($record['name_parent2']);?>'><br>
 $(document).ready(function(){
     $(".save").click(function() { top.restoreSession(); document.my_form.submit(); });
     $(".dontsave").click(function() { parent.closeTab(window.name, false); });
-    $(".printform").click(function() { PrintForm(); });
 
     $('.datepicker').datetimepicker({
         <?php $datetimepicker_timepicker = false; ?>

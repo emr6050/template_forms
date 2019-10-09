@@ -7,13 +7,13 @@ include_once("$srcdir/api.inc");
 include_once("$srcdir/forms.inc");
 
 /** CHANGE THIS - name of the database table associated with this form **/
-$table_name = "form_example";
+$table_name = "form_mchatrf";
 
 /** CHANGE THIS name to the name of your form **/
-$form_name = "SRS-2 AutoScore Form School-Age";
+$form_name = "M-CHAT-R/F";
 
 /** CHANGE THIS to match the folder you created for this form **/
-$form_folder = "example2";
+$form_folder = "mchartf";
 
 
 if ($encounter == "") {
