@@ -36,6 +36,19 @@ $patientInfo = SqlFetchArray($res);
     // this line is to assist the calendar text boxes
     var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
   </script>
+  
+<style>
+
+table, th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+
+</style>
+
 </head>
 
 <body class="body_top">
@@ -48,13 +61,14 @@ $patientInfo = SqlFetchArray($res);
   <!-- Save/Cancel buttons -->
   <input type="button" class="save" value="<?php xl('Save', 'e'); ?>"> &nbsp;
   <input type="button" class="dontsave" value="<?php xl('Don\'t Save', 'e'); ?>"> &nbsp;
+  <br><br>
 
   <!-- container for the main body of the form -->
   <div id="form_container">
     <div id="dates">
       Date of test: <input type='text' size='10' class='datepicker' name='test_date' id="test_date" value="<?php echo date("Y-m-j", time()); ?>" /> <br>
       Date of birth: 
-        <input type='text' size='10' class='datepicker' name='child_dob' id='child_dob' value="<?php echo $patientInfo['DOB'];?>" title='<?php xl('yyyy-mm-dd Date of Birth', 'e'); ?>' /><br>
+        <input type='text' size='10' class='datepicker' name='child_dob' id='child_dob' value="<?php echo $patientInfo['DOB'];?>" /><br>
     </div>
 
     <div id="scores">
@@ -70,34 +84,34 @@ $patientInfo = SqlFetchArray($res);
         </thead>
         <tbody>
           <tr>
-            <td>1 Colors</td>
+            <td>Colors</td>
             <td align="center"><input type="number" name="colors_raw" id="colors_raw" min="0" max="10" step="1" value="0"></td>
             <td align="center"><input type="number" name="colors_mastery" id="colors_mastery" min="0" max="100" step="1" value="0"></td>
-            <td align="left"><textarea name="color_comments" id="color_comments" cols="50" rows="1"></textarea>
+            <td align="center"><textarea name="color_comments" id="color_comments"></textarea>
           </tr>
           <tr>
-            <td>2 Letters</td>
+            <td>Letters</td>
             <td align="center"><input type="number" name="letters_raw" id="letters_raw" min="0" max="15" step="1" value="0"></td>
             <td align="center"><input type="number" name="letters_mastery" id="letters_mastery" min="0" max="100" step="1" value="0"></td>
-            <td align="left"><textarea name="letters_comments" id="letters_comments" cols="50" rows="1"></textarea>
+            <td align="center"><textarea name="letters_comments" id="letters_comments"></textarea>
           </tr>
           <tr>
-            <td>3 Numbers/Counting</td>
+            <td>Numbers/Counting</td>
             <td align="center"><input type="number" name="numbers_raw" id="numbers_raw" min="0" max="18" step="1" value="0"></td>
             <td align="center"><input type="number" name="numbers_mastery" id="numbers_mastery" min="0" max="100" step="1" value="0"></td>
-            <td align="left"><textarea name="numbers_comments" id="numbers_comments" cols="50" rows="1"></textarea>
+            <td align="center"><textarea name="numbers_comments" id="numbers_comments"></textarea>
           </tr>
           <tr>
-            <td>4 Sizing/Comparisons</td>
+            <td>Sizing/Comparisons</td>
             <td align="center"><input type="number" name="sizeCompare_raw" id="sizeCompare_raw" min="0" max="22" step="1" value="0"></td>
             <td align="center"><input type="number" name="sizeCompare_mastery" id="sizeCompare_mastery" min="0" max="100" step="1" value="0"></td>
-            <td align="left"><textarea name="sizeCompare_comments" id="sizeCompare_comments" cols="50" rows="1"></textarea>
+            <td align="center"><textarea name="sizeCompare_comments" id="sizeCompare_comments"></textarea>
           </tr>
           <tr>
-            <td>5 Shapes</td>
+            <td>Shapes</td>
             <td align="center"><input type="number" name="shapes_raw" id="shapes_raw" min="0" max="20" step="1" value="0"></td>
             <td align="center"><input type="number" name="shapes_mastery" id="shapes_mastery" min="0" max="100" step="1" value="0"></td>
-            <td align="left"><textarea name="shapes_comments" id="shapes_comments" cols="50" rows="1"></textarea>
+            <td align="center"><textarea name="shapes_comments" id="shapes_comments"></textarea>
           </tr>
         </tbody>
       </table>
@@ -127,8 +141,8 @@ $patientInfo = SqlFetchArray($res);
               to
               <input type="number" name="src_conf_upper" id="src_conf_upper" min="0" max="100" step="1" value="0"> </td>
             <td align="center"> <input type="number" name="src_perc_rank" id="src_perc_rank" min="0" max="100" step="1" value="0"> </td>
-            <td align="center"> <input type="text" name="src_desc_class" id="src_desc_class"> </td>
-            <td align="center"> <input type="text" name="src_age_eq" id="src_age_eq"> </td>
+            <td align="center"> <textarea name="src_desc_class" id="src_desc_class"> </textarea></td>
+            <td align="center"> <textarea name="src_age_eq" id="src_age_eq"> </textarea> </td>
           </tr>
         </tbody>
       </table>
