@@ -27,7 +27,7 @@ IF NOT EXISTS `form_ados2`
     sa_total int,
     rrb_total int,
     ados2_classification longtext,
-    diagnosis longtext,
+    ados2_diagnosis longtext,
     ados2_comp_score int,
 
 

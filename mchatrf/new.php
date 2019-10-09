@@ -22,8 +22,6 @@ $returnurl = 'encounter_top.php';
 <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-datetimepicker-2-5-4/build/jquery.datetimepicker.full.min.js"></script>
 
 <!-- page styles -->
-<link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-<link rel="stylesheet" href="../../forms/<?php echo $form_folder; ?>/style.css?v=<?php echo $v_js_includes; ?>" type="text/css">
 <link rel="stylesheet" href="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-datetimepicker-2-5-4/build/jquery.datetimepicker.min.css">
 
 <script language="JavaScript">
@@ -43,6 +41,7 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 <!-- Save/Cancel buttons -->
 <input type="button" class="save" value="<?php xl('Save', 'e'); ?>"> &nbsp;
 <input type="button" class="dontsave" value="<?php xl('Don\'t Save', 'e'); ?>"> &nbsp;
+<br><br>
 
 <!-- container for the main body of the form -->
 <div id="form_container">

@@ -55,8 +55,6 @@ if ($record['form_date'] != "") {
 <script type="text/javascript" src="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-datetimepicker-2-5-4/build/jquery.datetimepicker.full.min.js"></script>
 
 <!-- page styles -->
-<link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-<link rel="stylesheet" href="../../forms/<?php echo $form_folder; ?>/style.css?v=<?php echo $v_js_includes; ?>" type="text/css">
 <link rel="stylesheet" href="<?php echo $GLOBALS['assets_static_relative']; ?>/jquery-datetimepicker-2-5-4/build/jquery.datetimepicker.min.css">
 
 <script language="JavaScript">
@@ -80,36 +78,35 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 <!-- container for the main body of the form -->
 <div id="form_container">
 
-<div id="general">
-<table>
-  <tr><td>
-    Algorithm, Module: <input type="number" name="ados2_algorithm" min="0" value="<?php echo stripslashes($record['ados2_algorithm']);?>" >
-  </td></tr>
-  <tr><td>
-    Social Affect (SA) total: <input type="number" name="sa_total" min="0" value="<?php echo stripslashes($record['sa_total']);?>" >
-  </td></tr>
-  <tr><td>
-    Restricted and Repetitive Behavior (RRB): <input type="number" name="rrb_total" min="0" value="<?php echo stripslashes($record['rrb_total']);?>" >
-  </td></tr>
-  <tr><td>
-    Overall Total (SA + RRB): <?php echo stripslashes($record['rrb_total']) + stripslashes($record['sa_total']);?>
-  </td></tr>
-  <tr><td>
-    ADOS-2 Classification:<br>
-    <textarea name="ados2_classification" cols="40" rows="3">
-      <?php echo stripslashes($record['ados2_classification']) ?>
-    </textarea>
-    <br>
-    Overall Diagnosis:<br>
-    <textarea name="diagnosis" cols="40" rows="3">
-      <?php echo stripslashes($record['diagnosis']) ?>
-    </textarea>
-  </td></tr>
-  <tr><td>
-    ADOS-2 Comparison Score: <input type="number" name="ados2_comp_score" min="0" max="10" value="<?php echo stripslashes($record['ados2_comp_score']);?>" >
-  </td></tr>
-</table>
+  <h4>Algorithm, Module: <input type="number" name="ados2_algorithm" min="0" max="6" value="<?php echo stripslashes($record['ados2_algorithm']);?>" ></h4>
 
+  <h4>Scoring</h4>
+  <table id="scores">
+    <head>
+      <tr>
+        <th>Category</th>
+        <th>Score</th>
+      </tr>
+    </head>
+    <body>
+      <tr>
+        <td>Social Affect (SA) Total</td>
+        <td><input type="number" name="sa_total" min="0" max="10" value="<?php echo stripslashes($record['sa_total']);?>"></td>
+      </tr>
+      <tr>
+        <td>Restricted and Repetitive Behavior (RRB) Total</td>
+        <td><input type="number" name="rrb_total" min="0"  max="10" value="<?php echo stripslashes($record['rrb_total']);?>" ></td>
+      </tr>
+      <tr>
+        <td>Overall Total</td>
+        <td><?php echo stripslashes($record['sa_total']) + stripslashes($record['rrb_total']);?></td>
+      </tr>
+    </body>
+  </table>
+  <h4>Classification/Diagnosis</h4>
+  ADOS-2 Classification:<br><textarea name="ados2_classification" cols="40" rows="3"><?php echo stripslashes($record['ados2_classification']) ?></textarea><br>
+  Overall Diagnosis:<br><textarea name="ados2_diagnosis" cols="40" rows="3"><?php echo stripslashes($record['ados2_diagnosis']) ?></textarea><br>
+  <h4>ADOS-2 Comparison Score:<input type="number" name="ados2_comp_score" min="0" max="10" value="<?php echo stripslashes($record['ados2_comp_score']);?>"></h4>
 </div> <!-- end form_container -->
 
 <input type="button" class="save" value="<?php xl('Save Changes', 'e'); ?>"> &nbsp;
