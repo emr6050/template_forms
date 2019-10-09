@@ -58,98 +58,92 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 
 <!-- container for the main body of the form -->
 <div id="form_container">
-    <div id="preliminaryInfo">
-      Questionnaire interval: <?php echo stripslashes($record["quesInterval"]) ?> months.
-      <br><br>
-      Was age adjusted for prematurity when selecting questionnaire?
-      <input type="radio" name="ageAdjustment" value="y" <?php if ($record["ageAdjustment"] == 'y') { echo "CHECKED"; } ?> /> Yes. &nbsp;
-      <input type="radio" name="ageAdjustment" value="n" <?php if ($record["ageAdjustment"] == 'n') { echo "CHECKED"; } ?> /> No.
+    <div id="dates">
+      Date of test: <input type='text' size='10' class='datepicker' name='test_date' id="test_date" value="<?php echo stripslashes($record["test_date"]); ?>" /> <br>
+      Date of birth: 
+        <input type='text' size='10' class='datepicker' name='child_dob' id='child_dob' value="<?php echo stripslashes($record["child_dob"]);?>" title='<?php xl('yyyy-mm-dd Date of Birth', 'e'); ?>' /><br>
     </div>
 
     <div id="scores">
-      <h4>Score Totals</h4>
+      <h4>Score Summary</h4>
       <table id="total_scores" class="display" style="width:100%">
-          <thead>
-              <tr>
-                  <th>Area</th>
-                  <th align="left">Score</th>
-              </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Page 1</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page1" id="score_page1" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page1']) ?>"></td>
-            </tr>
-            <tr>
-              <td>Page 2</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page2" id="score_page2" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page2']) ?>"></td>
-            </tr>
-            <tr>
-              <td>Page 3</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page3" id="score_page3" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page3']) ?>"></td>
-            </tr>
-            <tr>
-              <td>Page 4</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_page4" id="score_page4" min="0" max="75" step="5" value="<?php echo stripslashes($record['score_page4']) ?>"></td>
-            </tr>
-            <tr>
-              <td>Total</td>
-              <td align="center"><input onblur="calcTotal()" type="number" name="score_total" id="score_total" min="0" max="300" step="5" value="<?php echo stripslashes($record['score_total']) ?>"></td>
-            </tr>
-          </tbody>
-        </table>
-    </div>
-
-    <div id="text_responses">
-      <h4>Overall Responses</h4>
-      1. Requires followup? <input type="checkbox" name="response1" <?php if ($record["response1"] == "on") { echo "checked";	}?> > &nbsp;
-      Comments: <textarea name="comments1" cols="30" rows="1"><?php echo stripslashes($record['comments1']) ?></textarea>
-      <br><br>
-      2. Requires followup? <input type="checkbox" name="response2" <?php if ($record["response2"] == "on") { echo "checked";	}?> > &nbsp;
-      Comments: <textarea name="comments2" cols="30" rows="1"><?php echo stripslashes($record['comments2']) ?></textarea>
-      <br><br>
-      3. Requires followup? <input type="checkbox" name="response3" <?php if ($record["response3"] == "on") { echo "checked";	}?> > &nbsp;
-      Comments: <textarea name="comments3" cols="30" rows="1"><?php echo stripslashes($record['comments3']) ?></textarea>
-    </div>
-
-    <div id="followup_considerations">
-      <h4>Follow-up Referral Considerations</h4>
-      <input type="checkbox" name="f_consider_settingTime" <?php if($record['f_consider_settingTime'] == "on") {echo "checked";} ?> > Setting/time factors
-      <br>
-      <input type="checkbox" name="f_consider_devlopmental" <?php if($record['f_consider_devlopmental'] == "on") {echo "checked";} ?>> Developmental factors
-      <br>
-      <input type="checkbox" name="f_consider_health" <?php if($record['f_consider_health'] == "on") {echo "checked";} ?>> Health factors
-      <br>
-      <input type="checkbox" name="f_consider_familyCultural" <?php if($record['f_consider_familyCultural'] == "on") {echo "checked";} ?>> Family/cultural factors
-      <br>
-      <input type="checkbox" name="f_consider_parentConcerns" <?php if($record['f_consider_parentConcerns'] == "on") {echo "checked";} ?>> Parent concerns
-    </div>
-
-    <div id="followup_action_taken">
-      <h4>Follow-up Action Taken</h4>
-      <input type="checkbox" name="shouldFollowup" <?php if($record['shouldFollowup'] == "on") {echo "checked";} ?> > Provide activities and rescreen in <input type="number" name="followupDelay" min="0" max="4" value="<?php echo stripslashes($record['followupDelay']) ?>"> months.
-      <br>
-      <input type="checkbox" name="shareResults" <?php if($record['shareResults'] == "on") {echo "checked";} ?>> Share results with primary health care provider
-      <br>
-      <input type="checkbox" name="provideEduMat" <?php if($record['provideEduMat'] == "on") {echo "checked";} ?>> Provide parent education materials
-      <br>
-      <input type="checkbox" name="provideInfo" <?php if($record['provideInfo'] == "on") {echo "checked";} ?>> Provide information about available parenting classes or support groups
-      <br>
-      <input type="checkbox" name="repeatDiffCaregiver" <?php if($record['repeatDiffCaregiver'] == "on") {echo "checked";} ?>> Have another caregiver complete ASQ:SE-2. List caregiver here (e.g., grandparent, teacher):
-      &nbsp;<textarea name="diffCaregiver" cols="30" rows="1"><?php echo stripslashes($record['diffCaregiver']) ?></textarea>
-      <br>
-      <input type="checkbox" name="doDevelopScreen" <?php if($record['doDevelopScreen'] == "on") {echo "checked";} ?>> Administer developmental screening (e.g., ASQ-3)
-      <br>
-      <input type="checkbox" name="referToSpecialEd" <?php if($record['referToSpecialEd'] == "on") {echo "checked";} ?>> Refer to early intervention/early childhood special education
-      <br>
-      <input type="checkbox" name="referForEvaluation" <?php if($record['referForEvaluation'] == "on") {echo "checked";} ?>> Refer for social-emotional, behavioral, or mental health evaluation
-      <br>
-      <input type="checkbox" name="other" <?php if($record['other'] == "on") {echo "checked";} ?>> Other (specify): <textarea name="otherReasonForReferral" cols="30" rows="1"><?php echo stripslashes($record['otherReasonForReferral']) ?></textarea>
+        <thead>
+          <tr>
+            <th align="center">Subtest</th>
+            <th align="center">Raw Score</th>
+            <th align="center">% Mastery</th>
+            <th align="center">School Readiness Concepts to Target for Instruction/Remediation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 Colors</td>
+            <td align="center"><input type="number" name="colors_raw" id="colors_raw" min="0" max="10" step="1" value="<?php echo stripslashes($record["colors_raw"]);?>"></td>
+            <td align="center"><input type="number" name="colors_mastery" id="colors_mastery" min="0" max="100" step="1" value="<?php echo stripslashes($record["colors_mastery"]);?>"></td>
+            <td align="left"><textarea name="color_comments" id="color_comments" cols="50" rows="1"><?php echo stripslashes($record["color_comments"]);?></textarea>
+          </tr>
+          <tr>
+            <td>2 Letters</td>
+            <td align="center"><input type="number" name="letters_raw" id="letters_raw" min="0" max="15" step="1" value="<?php echo stripslashes($record["letters_raw"]);?>"></td>
+            <td align="center"><input type="number" name="letters_mastery" id="letters_mastery" min="0" max="100" step="1" value="<?php echo stripslashes($record["letters_mastery"]);?>"></td>
+            <td align="left"><textarea name="letters_comments" id="letters_comments" cols="50" rows="1"><?php echo stripslashes($record["letters_comments"]);?></textarea>
+          </tr>
+          <tr>
+            <td>3 Numbers/Counting</td>
+            <td align="center"><input type="number" name="numbers_raw" id="numbers_raw" min="0" max="18" step="1" value="<?php echo stripslashes($record["numbers_raw"]);?>"></td>
+            <td align="center"><input type="number" name="numbers_mastery" id="numbers_mastery" min="0" max="100" step="1" value="<?php echo stripslashes($record["numbers_mastery"]);?>"></td>
+            <td align="left"><textarea name="numbers_comments" id="numbers_comments" cols="50" rows="1"><?php echo stripslashes($record["numbers_comments"]);?></textarea>
+          </tr>
+          <tr>
+            <td>4 Sizing/Comparisons</td>
+            <td align="center"><input type="number" name="sizeCompare_raw" id="sizeCompare_raw" min="0" max="22" step="1" value="<?php echo stripslashes($record["sizeCompare_raw"]);?>"></td>
+            <td align="center"><input type="number" name="sizeCompare_mastery" id="sizeCompare_mastery" min="0" max="100" step="1" value="<?php echo stripslashes($record["sizeCompare_mastery"]);?>"></td>
+            <td align="left"><textarea name="sizeCompare_comments" id="sizeCompare_comments" cols="50" rows="1"><?php echo stripslashes($record["sizeCompare_comments"]);?></textarea>
+          </tr>
+          <tr>
+            <td>5 Shapes</td>
+            <td align="center"><input type="number" name="shapes_raw" id="shapes_raw" min="0" max="20" step="1" value="<?php echo stripslashes($record["shapes_raw"]);?>"></td>
+            <td align="center"><input type="number" name="shapes_mastery" id="shapes_mastery" min="0" max="100" step="1" value="<?php echo stripslashes($record["shapes_mastery"]);?>"></td>
+            <td align="left"><textarea name="shapes_comments" id="shapes_comments" cols="50" rows="1"><?php echo stripslashes($record["shapes_comments"]);?></textarea>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th> </th>
+            <th align="center">Raw Score</th>
+            <th align="center">% Mastery</th>
+            <th align="center">Norms</th>
+            <th align="center">Standard Score</th>
+            <th align="center">Confidence Interval <br> (<input type="number" name="src_conf_level" id="src_conf_level" min="0" max="100" value="<?php echo stripslashes($record["src_conf_level"]);?>"> % Level)</th>
+            <th align="center">Percentile Rank</th>
+            <th align="center">Descriptive Classification</th>
+            <th align="center">Concept Age Equivalent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> School Readiness Composite (SRC) </td>
+            <td align="center"><input type="number" name="src_raw" id="src_raw" min="0" max="85" step="1" value="<?php echo stripslashes($record["src_raw"]);?>"></td>
+            <td align="center"><input type="number" name="src_mastery" id="src_mastery" min="0" max="100" step="1" value="<?php echo stripslashes($record["src_mastery"]);?>"></td>
+            <td align="center"> N/L </td>
+            <td align="center"><input type="number" name="src_standard" id="src_standard" min="0" max="100" step="1" value="<?php echo stripslashes($record["src_standard"]);?>"></td>
+            <td align="center">
+              <input type="number" name="src_conf_lower" id="src_conf_lower" min="0" max="100" step="1" value="<?php echo stripslashes($record["src_conf_lower"]);?>"> 
+              to
+              <input type="number" name="src_conf_upper" id="src_conf_upper" min="0" max="100" step="1" value="<?php echo stripslashes($record["src_conf_upper"]);?>"> </td>
+            <td align="center"> <input type="number" name="src_perc_rank" id="src_perc_rank" min="0" max="100" step="1" value="<?php echo stripslashes($record["src_perc_rank"]);?>"> </td>
+            <td align="center"> <input type="text" name="src_desc_class" id="src_desc_class" value="<?php echo stripslashes($record["src_desc_class"]);?>"> </td>
+            <td align="center"> <input type="text" name="src_age_eq" id="src_age_eq" value="<?php echo stripslashes($record["src_age_eq"]);?>"> </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div id="extra">
       <h4>Notes</h4>
-      <textarea name="notes" id="notes" cols="80" rows="4"><?php echo stripslashes($record['notes']) ?></textarea>
+      <textarea name="notes" id="notes" cols="80" rows="4"><?php echo stripslashes($record["notes"]);?></textarea>
       <br><br>
     </div>
 

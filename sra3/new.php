@@ -54,7 +54,7 @@ $patientInfo = SqlFetchArray($res);
     <div id="dates">
       Date of test: <input type='text' size='10' class='datepicker' name='test_date' id="test_date" value="<?php echo date("Y-m-j", time()); ?>" /> <br>
       Date of birth: 
-        <input type='text' size='10' class='datepicker' name='child_dob' id='child_dob' value= <?php echo $patientInfo['DOB'];?> title='<?php xl('yyyy-mm-dd Date of Birth', 'e'); ?>' /><br>
+        <input type='text' size='10' class='datepicker' name='child_dob' id='child_dob' value="<?php echo $patientInfo['DOB'];?>" title='<?php xl('yyyy-mm-dd Date of Birth', 'e'); ?>' /><br>
     </div>
 
     <div id="scores">
@@ -109,7 +109,7 @@ $patientInfo = SqlFetchArray($res);
             <th align="center">% Mastery</th>
             <th align="center">Norms</th>
             <th align="center">Standard Score</th>
-            <th align="center">Confidence Interval</th>
+            <th align="center">Confidence Interval <br> (<input type="number" name="src_conf_level" id="src_conf_level" min="0" max="100" value="95"> % Level)</th>
             <th align="center">Percentile Rank</th>
             <th align="center">Descriptive Classification</th>
             <th align="center">Concept Age Equivalent</th>

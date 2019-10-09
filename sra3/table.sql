@@ -5,7 +5,7 @@
  */
 
 CREATE TABLE
-IF NOT EXISTS `form_asqse2_simple`
+IF NOT EXISTS `form_sra2`
 (
     /* these fields are common to all forms and should remain intact */
     id bigint
@@ -23,66 +23,38 @@ IF NOT EXISTS `form_asqse2_simple`
 (4) default NULL,
 
     /* start of custom form fields */
-    quesInterval    varchar
-(5),
-    ageAdjustment   varchar
-(1),
+    test_date   datetime default NULL,
+    child_dob   datetime default NULL,
 	
-    /* ASQ:SE-2 total score results */
+    /* score results */
 
-    score_page1   int,
-    score_page2   int,
-    score_page3   int,
-    score_page4   int,
-    score_total   int,
+    colors_raw      int,
+    colors_mastery  int,
+    color_comments  longtext,
+    letters_raw      int,
+    letters_mastery  int,
+    letters_comments  longtext,
+    numbers_raw      int,
+    numbers_mastery  int,
+    numbers_comments  longtext,
+    sizeCompare_raw      int,
+    sizeCompare_mastery  int,
+    sizeCompare_comments  longtext,
+    shapes_raw      int,
+    shapes_mastery  int,
+    shapes_comments  longtext,
 
-    /* ASQ:SE-2 overall responses */
-    response1   varchar
-(5) default NULL,
-    comments1   longtext,
-    response2   varchar
-(5) default NULL,
-    comments2   longtext,
-    response3   varchar
-(5) default NULL,
-    comments3   longtext,
+    /* score composite */
 
-    /* ASQ:SE-2 follow-up considerations */
-
-    f_consider_settingTime      varchar
-(5) default NULL,
-    f_consider_devlopmental     varchar
-(5) default NULL,
-    f_consider_health           varchar
-(5) default NULL,
-    f_consider_familyCultural   varchar
-(5) default NULL,
-    f_consider_parentConcerns   varchar
-(5) default NULL,
-
-    /* ASQ:SE-2 follow-up actions */
-    
-    shouldFollowup          varchar
-(5) default NULL,
-    followupDelay           int,
-    shareResults            varchar
-(5) default NULL,
-    provideEduMat         varchar
-(5) default NULL,
-    provideInfo         varchar
-(5) default NULL,
-    repeatDiffCaregiver     varchar
-(5) default NULL,
-    diffCaregiver           longtext,
-    doDevelopScreen          varchar
-(5) default NULL,
-    referToSpecialEd     varchar
-(5) default NULL,
-    referForEvaluation      varchar
-(5) default NULL,
-    other                   varchar
-(5) default NULL,
-    otherReasonForReferral  longtext,
+    src_raw int,
+    src_mastery int,
+    src_standard int,
+    src_conf_level int,
+    src_conf_lower int,
+    src_conf_upper int,
+    src_perc_rank int,
+    src_desc_class longtext,
+    src_age_eq longtext,
 
     /* form extras */
 
