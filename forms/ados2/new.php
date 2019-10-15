@@ -43,34 +43,47 @@ var mypcc = '<?php echo $GLOBALS['phone_country_code'] ?>';
 <input type="button" class="dontsave" value="<?php xl('Don\'t Save', 'e'); ?>"> &nbsp;
 <br><br>
 
-<!-- container for the main body of the form -->
-<div id="form_container">
-  <h4>Algorithm, Module: <input type="number" name="ados2_algorithm" min="0" max="6" ></h4>
+  <!-- container for the main body of the form -->
+  <div id="form_container">
+    <h4>Algorithm, Module: <input type="number" name="ados2_algorithm" min="0" max="6" ></h4>
 
-  <h4>Scoring</h4>
-  <table id="scores">
-    <head>
-      <tr>
-        <th>Category</th>
-        <th>Score</th>
-      </tr>
-    </head>
-    <body>
-      <tr>
-        <td>Social Affect (SA) Total</td>
-        <td><input type="number" name="sa_total" min="0" max="10"></td>
-      </tr>
-      <tr>
-        <td>Restricted and Repetitive Behavior (RRB) Total</td>
-        <td><input type="number" name="rrb_total" min="0"  max="10"></td>
-      </tr>
-    </body>
-  </table>
-  <h4>Classification/Diagnosis</h4>
-  ADOS-2 Classification:<br><textarea name="ados2_classification" cols="40" rows="3"></textarea><br>
-  Overall Diagnosis:<br><textarea name="diagnosis" cols="40" rows="3"></textarea><br>
-  <h4>ADOS-2 Comparison Score:<input type="number" name="ados2_comp_score" min="0" max="10"></h4>
-</div> <!-- end form_container -->
+    <h4>Scoring</h4>
+    <table id="scores">
+      <head>
+        <tr>
+          <th>Category</th>
+          <th>Score</th>
+        </tr>
+      </head>
+      <body>
+        <tr>
+          <td>Social Affect (SA) Total</td>
+          <td><input type="number" name="sa_total" min="0" max="10"></td>
+        </tr>
+        <tr>
+          <td>Restricted and Repetitive Behavior (RRB) Total</td>
+          <td><input type="number" name="rrb_total" min="0"  max="10"></td>
+        </tr>
+      </body>
+    </table>
+    <h4>Classification/Diagnosis</h4>
+    ADOS-2 Classification:
+      <select name="ados2_classification" required>
+        <option value="">Select....</option>
+        <option value="autism">Autism</option>
+        <option value="autism_spectrum">Autism Spectrum</option>
+        <option value="non_spectrum">Non-spectrum</option>
+      </select><br>
+    Overall Diagnosis:
+    <br><textarea name="diagnosis" cols="40" rows="3"></textarea><br>
+    <h4>ADOS-2 Comparison Score:<input type="number" name="ados2_comp_score" min="0" max="10"></h4>
+  </div> <!-- end form_container -->
+
+  <div id="extra">
+    <h4>Notes</h4>
+    <textarea name="notes" id="notes" cols="80" rows="4"></textarea>
+    <br><br>
+  </div>
 
 <br><br>
 <!-- Save/Cancel buttons -->

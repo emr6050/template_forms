@@ -52,11 +52,11 @@ $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
       Questionnaire interval:
         <select name="quesInterval" required >
           <option value="">Select....</option>
-          <option value="02">2 Month</option>
-          <option value="04">4 Month</option>
-          <option value="06">6 Month</option>
-          <option value="08">8 Month</option>
-          <option value="09">9 Month</option>
+          <option value="2">2 Month</option>
+          <option value="4">4 Month</option>
+          <option value="6">6 Month</option>
+          <option value="8">8 Month</option>
+          <option value="9">9 Month</option>
           <option value="10">10 Month</option>
           <option value="12">12 Month</option>
           <option value="14">14 Month</option>

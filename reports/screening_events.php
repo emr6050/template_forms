@@ -3,13 +3,7 @@
  * This report lists patients that were seen within a given date
  * range, or all patients if no date range is entered.
  *
- * @package   OpenEMR
- * @link      http://www.open-emr.org
- * @author    Rod Roark <rod@sunsetsystems.com>
- * @author    Brady Miller <brady.g.miller@gmail.com>
- * @copyright Copyright (c) 2006-2016 Rod Roark <rod@sunsetsystems.com>
- * @copyright Copyright (c) 2017 Brady Miller <brady.g.miller@gmail.com>
- * @license   https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
+ * @license   GNU General Public License 3
  */
 
 require_once("../globals.php");

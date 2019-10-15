@@ -26,9 +26,11 @@ IF NOT EXISTS `form_ados2`
     ados2_algorithm int,
     sa_total int,
     rrb_total int,
-    ados2_classification longtext,
+    ados2_classification varchar
+(15),
     ados2_diagnosis longtext,
     ados2_comp_score int,
+    notes longtext,
 
 
     /* end of custom form fields */
