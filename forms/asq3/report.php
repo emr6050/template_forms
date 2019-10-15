@@ -2,7 +2,7 @@
 include_once("../../globals.php");
 include_once($GLOBALS["srcdir"]."/api.inc");
 
-function asq3_02mo_profile_report($pid, $encounter, $cols, $id)
+function asq3_report($pid, $encounter, $cols, $id)
 {
     $table_name = "form_asq3_simple";
 

@@ -4,7 +4,7 @@ include_once($GLOBALS["srcdir"]."/api.inc");
 
 /** CHANGE THIS, the name of the function is significant and  **
  **              must be changed to match the folder name     **/
-function referral_report($pid, $encounter, $cols, $id)
+function nextstep_referral_report($pid, $encounter, $cols, $id)
 {
     
     /** CHANGE THIS - name of the database table associated with this form **/
