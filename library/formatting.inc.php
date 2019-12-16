@@ -302,7 +302,7 @@ function oeFormatAge($dobYMD, $nowYMD = '', $format = 0)
         } else {
             $age = $ageInMonths;
             if ($format == 0) {
-                $age .= ' ' . $ageInMonths == 1 ? xl('month') : xl('months');
+                $age .= " " . $ageInMonths == 1 ? xl('month') : xl('months');
             }
         }
     }

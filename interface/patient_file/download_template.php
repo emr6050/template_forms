@@ -167,10 +167,14 @@ function doSubs($s)
             $s = keyReplace($s, dataFixup($ptphone, xl('Phone')));
         } else if (keySearch($s, '{PatientDOB}')) {
             $s = keyReplace($s, dataFixup(oeFormatShortDate($ptrow['DOB']), xl('Birth Date')));
+        } else if (keySearch($s, '{PatientAge}')) {
+            $s = keyReplace($s, dataFixup(oeFormatAge($ptrow['DOB']), xl('Age')));
         } else if (keySearch($s, '{PatientSex}')) {
             $s = keyReplace($s, dataFixup(getListItemTitle('sex', $ptrow['sex']), xl('Sex')));
         } else if (keySearch($s, '{DOS}')) {
             $s = keyReplace($s, dataFixup(oeFormatShortDate(substr($enrow['date'], 0, 10)), xl('Service Date')));
+        } else if (keySearch($s, '{ReportDate}')) {
+            $s = keyReplace($s, dataFixup(oeFormatShortDate(substr(date(), 0, 10)), xl('Service Date')));
         } else if (keySearch($s, '{ChiefComplaint}')) {
             $cc = $enrow['reason'];
             $patientid = $ptrow['pid'];
